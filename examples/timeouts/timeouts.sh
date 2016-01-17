@@ -1,11 +1,12 @@
-# Running this program shows the first operation timing
-# out and the second succeeding.
+# Se si esegue questo programma si potrà notare come 
+# la prima operazione andrà in timeout, mentre la seconda
+# verrà eseguita correttamente.
 $ go run timeouts.go 
 timeout 1
 result 2
 
-# Using this `select` timeout pattern requires
-# communicating results over channels. This is a good
-# idea in general because other important Go features are
-# based on channels and `select`. We'll look at two
-# examples of this next: timers and tickers.
+# Usare questo pattern con il `select` per implementare
+# i timeout e la comunicazione attraverso i channel risulta
+# essere particolarmente vantaggioso. Svariate altre
+# funzionalità di Go sono basate su channel e `select`,
+# vedremo due esempi di questo a breve: i _timer_ e i _ticker_.

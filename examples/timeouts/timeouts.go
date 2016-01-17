@@ -1,7 +1,8 @@
-// _Timeouts_ are important for programs that connect to
-// external resources or that otherwise need to bound
-// execution time. Implementing timeouts in Go is easy and
-// elegant thanks to channels and `select`.
+// I _Timeout_ sono fondamentali per i programmi che si
+// connettono a risorse esterne o che hanno comunque
+// bisogno di limitare il tempo d'esecuzione.
+// Implementare i timeout in Go è semplice grazie ai 
+// channel e al costrutto `select`.
 
 package main
 
@@ -10,21 +11,23 @@ import "fmt"
 
 func main() {
 
-    // For our example, suppose we're executing an external
-    // call that returns its result on a channel `c1`
-    // after 2s.
+    // Ai fini del nostro esempio, supponiamo di star
+    // eseguendo una chiamata esterna che ritorna il suo
+    // risultato sul channel `c1` dopo 2 secondi.
     c1 := make(chan string, 1)
     go func() {
         time.Sleep(time.Second * 2)
         c1 <- "result 1"
     }()
 
-    // Here's the `select` implementing a timeout.
-    // `res := <-c1` awaits the result and `<-Time.After`
-    // awaits a value to be sent after the timeout of
-    // 1s. Since `select` proceeds with the first
-    // receive that's ready, we'll take the timeout case
-    // if the operation takes more than the allowed 1s.
+    // Qui mostriamo la `select` che implementa un timeout.
+    // Il comando `res := <-c1` attende il risultato della funzione
+    // mentre il comando `<-Time.After` emette un risultato dopo
+    // il timeout di 1 secondo.
+    // Dal momento che il comando `select` procede con il primo
+    // canale per cui è disponibile un valore, eseguiremo il caso
+    // del timout se la nostra chiamata esterna richiede più di 
+    // 1 secondo.
     select {
     case res := <-c1:
         fmt.Println(res)
@@ -32,8 +35,10 @@ func main() {
         fmt.Println("timeout 1")
     }
 
-    // If we allow a longer timeout of 3s, then the receive
-    // from `c2` will succeed and we'll print the result.
+    // In questo caso possiamo vedere come impostare un timeout di
+    // 3 secondi sia sufficiente a far ritornare la nostra goroutine
+    // che scrive sul canale `c2`. Riusciremo infatti a vedere il
+    // risultato a schermo e a non far scattare il timeout.
     c2 := make(chan string, 1)
     go func() {
         time.Sleep(time.Second * 2)
@@ -46,5 +51,3 @@ func main() {
         fmt.Println("timeout 2")
     }
 }
-
-// todo: cancellation?
