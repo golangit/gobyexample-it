@@ -4,5 +4,5 @@ $ go run closures.go
 3
 1
 
-# The last feature of functions we'll look at for now is
-# recursion.
+# L'ultima feature delle funzioni che vedremo per il
+# momento è la recursione.
