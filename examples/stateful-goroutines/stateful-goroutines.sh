@@ -1,14 +1,15 @@
-# Running our program shows that the goroutine-based
-# state management example achieves about 800,000
-# operations per second.
+# Eseguendo il nostro codice possiamo vedere che
+# sono state eseguite circa 800.000 operazioni in
+# un secondo.
 $ go run stateful-goroutines.go
 ops: 807434
 
-# For this particular case the goroutine-based approach
-# was a bit more involved than the mutex-based one. It
-# might be useful in certain cases though, for example
-# where you have other channels involved or when managing
-# multiple such mutexes would be error-prone. You should
-# use whichever approach feels most natural, especially
-# with respect to understanding the correctness of your
-# program.
+# Per questo caso particolare l'approccio a goroutine 
+# risulta migliore rispetto a quello basato su mutex.
+# Questo approccio risulta vincente nel caso in cui si
+# debbano gestire svariati channel oppure nei casi in
+# cui la gestione di troppe mutex potrebbe risultare
+# complesso. Il consiglio è quello di utilizzare
+# l'approccio che risulta più naturale per ogni singolo
+# caso e che mantiene alta la leggibilità del proprio
+# codice.
