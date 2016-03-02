@@ -1,5 +1,5 @@
-// Go's offers extensive support for times and durations;
-// here are some examples.
+// Go offre un supporto molto esteso per misurare il tempo
+// e la durata dei task. Ecco qualche esempio.
 
 package main
 
@@ -7,55 +7,59 @@ import "fmt"
 import "time"
 
 func main() {
-    p := fmt.Println
+	p := fmt.Println
 
-    // We'll start by getting the current time.
-    now := time.Now()
-    p(now)
+	// Iniziamo prendendo il tempo attuale.
+	now := time.Now()
+	p(now)
 
-    // You can build a `time` struct by providing the
-    // year, month, day, etc. Times are always associated
-    // with a `Location`, i.e. time zone.
-    then := time.Date(
-        2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
-    p(then)
+	// È possibile costruire una struct di tipo `time`
+	// passando anno, mese, giorno, etc. Queste struct
+	// sono sempre associate ad una `Location`, cioè
+	// ad un fuso orario (in questo caso UTC).
+	then := time.Date(
+		2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
+	p(then)
 
-    // You can extract the various components of the time
-    // value as expected.
-    p(then.Year())
-    p(then.Month())
-    p(then.Day())
-    p(then.Hour())
-    p(then.Minute())
-    p(then.Second())
-    p(then.Nanosecond())
-    p(then.Location())
+	// È possibile estrarre i vari componenti della struct
+	// `time` in un modo molto semplice.
+	p(then.Year())
+	p(then.Month())
+	p(then.Day())
+	p(then.Hour())
+	p(then.Minute())
+	p(then.Second())
+	p(then.Nanosecond())
+	p(then.Location())
 
-    // The Monday-Sunday `Weekday` is also available.
-    p(then.Weekday())
+	// È possibile anche ottenere il giorno della settimana
+	// tramite `Weekdat`
+	p(then.Weekday())
 
-    // These methods compare two times, testing if the
-    // first occurs before, after, or at the same time
-    // as the second, respectively.
-    p(then.Before(now))
-    p(then.After(now))
-    p(then.Equal(now))
+	// Questi metodi confrontano due `time`, controllando
+	// quale dei due si riferisce ad un insante precedente
+	// all'altro. Oppure il metodo `Equal` permette di confrontare
+	// se due `time` sono uguali.
+	p(then.Before(now))
+	p(then.After(now))
+	p(then.Equal(now))
 
-    // The `Sub` methods returns a `Duration` representing
-    // the interval between two times.
-    diff := now.Sub(then)
-    p(diff)
+	// Il metodo `Sub` ritorna una `Duration` che rappresenta
+	// l'intervallo di tempo fra due `time`.
+	diff := now.Sub(then)
+	p(diff)
 
-    // We can compute the length of the duration in
-    // various units.
-    p(diff.Hours())
-    p(diff.Minutes())
-    p(diff.Seconds())
-    p(diff.Nanoseconds())
+	// È possibile calcolare la lunghezza di questo intervalle
+	// in svariate unità di misura.
+	p(diff.Hours())
+	p(diff.Minutes())
+	p(diff.Seconds())
+	p(diff.Nanoseconds())
 
-    // You can use `Add` to advance a time by a given
-    // duration, or with a `-` to move backwards by a
-    // duration.
-    p(then.Add(diff))
-    p(then.Add(-diff))
+	// Si può dunque usare `Add` per spostare avanti nel
+	// tempo un `time` di una `duration` desiderata. Anteponendo
+	// un `-` è possibile spostare indietro un `time` della
+	// stessa durata.
+	p(then.Add(diff))
+	p(then.Add(-diff))
 }
