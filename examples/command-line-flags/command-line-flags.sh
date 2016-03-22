@@ -1,10 +1,9 @@
-# To experiment with the command-line flags program it's
-# best to first compile it and then run the resulting
-# binary directly.
+# Per fare qualche prova con la linea di comando è meglio
+# prima compilare il programma ed eseguire direttamente
+# il compilato.
 $ go build command-line-flags.go
 
-# Try out the built program by first giving it values for
-# all flags.
+# Proviamo ad eseguire passando tutti i flag
 $ ./command-line-flags -word=opt -numb=7 -fork -svar=flag
 word: opt
 numb: 7
@@ -12,8 +11,8 @@ fork: true
 svar: flag
 tail: []
 
-# Note that if you omit flags they automatically take
-# their default values.
+# Nota che se non si settano i flag, vengono caricati
+# i valori di default
 $ ./command-line-flags -word=opt
 word: opt
 numb: 42
@@ -21,16 +20,17 @@ fork: false
 svar: bar
 tail: []
 
-# Trailing positional arguments can be provided after
-# any flags.
+# I parametri posizionali possono essere passati in
+# fondo dopo tutti i flag
 $ ./command-line-flags -word=opt a1 a2 a3
 word: opt
 ...
 tail: [a1 a2 a3]
 
-# Note that the `flag` package requires all flags to
-# appear before positional arguments (otherwise the flags
-# will be interpreted as positional arguments).
+# Nota che il pacchetto `flag` richiede che tutti i flag
+# siano possizionati necessarimente prima dei parametri.
+# Eventuali flag che si trovano in coda vengono trattati
+# come parametri e non riconosciuti correttamente
 $ ./command-line-flags -word=opt a1 a2 a3 -numb=7
 word: opt
 numb: 42
@@ -38,8 +38,9 @@ fork: false
 svar: bar
 trailing: [a1 a2 a3 -numb=7]
 
-# Use `-h` or `--help` flags to get automatically
-# generated help text for the command-line program.
+# Usa `-h` o `--help` per ottenere i suggerimenti automatici
+# sull'utilizzo dei flag (che vengono generati a partire
+# dalle definizioni che mettiamo nel programma).
 $ ./command-line-flags -h
 Usage of ./command-line-flags:
   -fork=false: a bool
@@ -47,13 +48,13 @@ Usage of ./command-line-flags:
   -svar="bar": a string var
   -word="foo": a string
 
-# If you provide a flag that wasn't specified to the
-# `flag` package, the program will print an error message
-# an show the help text again.
+# Se si utilizza un flag che non è stato dichiarto,
+# il programma mostrerà un messaggio di errore e stamperà
+# di nuovo il messaggio di informazione.
 $ ./command-line-flags -wat
 flag provided but not defined: -wat
 Usage of ./command-line-flags:
 ...
 
-# Next we'll look at environment variables, another common
-# way to parameterize programs.
+# Vedremo adesso le variabili d'ambiente. Un altro modo comune
+# per rendere parametrici i programmi.
