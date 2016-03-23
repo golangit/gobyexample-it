@@ -1,42 +1,45 @@
-// Go supports <em><a href="http://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-// allowing you to pass references to values and records
-// within your program.
+// Go permette l'utilizzo dei <a href="https://it.wikipedia.org/wiki/Puntatore_(programmazione)"><em>puntatori</em></a>,
+// che si traduce nell'abilità di passare riferimenti a
+// valori all'interno del programma.
 
 package main
 
 import "fmt"
 
-// We'll show how pointers work in contrast to values with
-// 2 functions: `zeroval` and `zeroptr`. `zeroval` has an
-// `int` parameter, so arguments will be passed to it by
-// value. `zeroval` will get a copy of `ival` distinct
-// from the one in the calling function.
+// Dimostreremo come i puntatori funzionino diversamente
+// dai valori tramite 2 funzioni: `zerval` e `zeroptr`.
+// `zeroval` ha un parametro di tipo `int`, quindi il
+// parametro passato sarà un valore, non un puntatore.
+// Quando chiameremo la funzione `zeroval`, il suo
+// parametro `zeroval` verrà copiato da quello della
+// funzione chiamante.
 func zeroval(ival int) {
-    ival = 0
+	ival = 0
 }
 
-// `zeroptr` in contrast has an `*int` parameter, meaning
-// that it takes an `int` pointer. The `*iptr` code in the
-// function body then _dereferences_ the pointer from its
-// memory address to the current value at that address.
-// Assigning a value to a dereferenced pointer changes the
-// value at the referenced address.
+// `zeroptr` invece ha un parametro di tipo `*int`, e ciò
+// significa che è un puntatore a un `int`. L'`*iptr`
+// nella funzione stessa _dereferenzia_ il puntatore
+// all'indirizzo nella memoria dall'attuale valore in quel
+// indirizzo nella memoria. Assegnare un valore a un
+// puntatore dereferenziato cambia il valore anche
+// all'indirizzo riferenziato.
 func zeroptr(iptr *int) {
-    *iptr = 0
+	*iptr = 0
 }
 
 func main() {
-    i := 1
-    fmt.Println("initial:", i)
+	i := 1
+	fmt.Println("iniziale: ", i)
 
-    zeroval(i)
-    fmt.Println("zeroval:", i)
+	zeroval(i)
+	fmt.Println("zeroval:  ", i)
 
-    // The `&i` syntax gives the memory address of `i`,
-    // i.e. a pointer to `i`.
-    zeroptr(&i)
-    fmt.Println("zeroptr:", i)
+	// La formula `&i` ritorna l'indirizzo nella memoria
+	// di `i`, ovvero un puntatore ad `i`.
+	zeroptr(&i)
+	fmt.Println("zeroptr:  ", i)
 
-    // Pointers can be printed too.
-    fmt.Println("pointer:", &i)
+	// Anche i puntatori possono essere stampati.
+	fmt.Println("puntatore:", &i)
 }
