@@ -1,5 +1,5 @@
 // Go supporta le [_funzioni anonime_](https://it.wikipedia.org/wiki/Funzione_anonima),
-// che possono formare delle a href="https://it.wikipedia.org/wiki/Chiusura_(informatica)"><em>chiusure</em></a>.
+// che possono formare delle <a href="https://it.wikipedia.org/wiki/Chiusura_(informatica)"><em>chiusure</em></a>.
 // Le funzioni anonime sono utili quando vuoi definire una
 // funzione senza darle un nome.
 
