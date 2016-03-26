@@ -1,10 +1,11 @@
 $ go run errors.go
-f1 worked: 10
-f1 failed: can't work with 42
-f2 worked: 10
-f2 failed: 42 - can't work with it
+f1 ha funzionato: 10
+f1 ha fallito   : impossibile calcolare con 42
+f2 ha funzionato: 10
+f2 ha fallito   : 42 - impossibile calcolare usandolo
 42
-can't work with it
+impossibile calcolare usandolo
 
-# See this [great post](http://blog.golang.org/2011/07/error-handling-and-go.html)
-# on the Go blog for more on error handling.
+# Dai un'occhiata a questo [ottimo post](http://blog.golang.org/2011/07/error-handling-and-go.html)
+# sul blog di Go per ulteriori informazioni sulla gestione
+# degli errori. 
