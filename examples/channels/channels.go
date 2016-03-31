@@ -1,7 +1,7 @@
-// _Channels_ are the pipes that connect concurrent
-// goroutines. You can send values into channels from one
-// goroutine and receive those values into another
-// goroutine.
+// I _channel_ sono i <a href="https://it.wikipedia.org/wiki/Pipe_(informatica)">pipe</a>
+// che connettono goroutine concorrenti. Puoi mandare
+// e ricevere dei valori da una goroutine a un'altra
+// goroutine attraverso un channel.
 
 package main
 
@@ -9,18 +9,21 @@ import "fmt"
 
 func main() {
 
-    // Create a new channel with `make(chan val-type)`.
-    // Channels are typed by the values they convey.
-    messages := make(chan string)
+	// Puoi creare un nuovo channel con la sintassi
+	// `make(chan tipo)`. I channel sono dichiarati con i
+	// valori che possono veicolare.
+	messages := make(chan string)
 
-    // _Send_ a value into a channel using the `channel <-`
-    // syntax. Here we send `"ping"`  to the `messages`
-    // channel we made above, from a new goroutine.
-    go func() { messages <- "ping" }()
+	// Puoi _inviare_ un valore in un channel con la
+	// sintassi `channel <-`. Di seguito mandiamo la
+	// stringa `"ping"` al channel `messages` che abbiamo
+	// dichiarato in precedenza, in una nuova goroutine.
+	go func() { messages <- "ping" }()
 
-    // The `<-channel` syntax _receives_ a value from the
-    // channel. Here we'll receive the `"ping"` message
-    // we sent above and print it out.
-    msg := <-messages
-    fmt.Println(msg)
+	// Puoi _ricevere_ un valore da un channel con la
+	// sintassi `<-channel`. Di seguito riceveremo il
+	// messaggio `"ping"` che abbiamo inviato a messages
+	// precedentemente nella goroutine e lo stamperemo.
+	msg := <-messages
+	fmt.Println(msg)
 }
