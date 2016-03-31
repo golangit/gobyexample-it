@@ -1,6 +1,7 @@
-// Go's _select_ lets you wait on multiple channel
-// operations. Combining goroutines and channels with
-// select is a powerful feature of Go.
+// _Select_ ti permette di elaborare valori ricevuti
+// da più canali con una sola goroutine. Combinare le
+// goroutine e i canali con select è uno dei punti di
+// forza di Go.
 
 package main
 
@@ -9,30 +10,32 @@ import "fmt"
 
 func main() {
 
-    // For our example we'll select across two channels.
-    c1 := make(chan string)
-    c2 := make(chan string)
+	// Per il nostro esempio utilizzeremo select su due
+	// canali.
+	c1 := make(chan string)
+	c2 := make(chan string)
 
-    // Each channel will receive a value after some amount
-    // of time, to simulate e.g. blocking RPC operations
-    // executing in concurrent goroutines.
-    go func() {
-        time.Sleep(time.Second * 1)
-        c1 <- "one"
-    }()
-    go func() {
-        time.Sleep(time.Second * 2)
-        c2 <- "two"
-    }()
+	// Ogni canale riceverà un valore dopo un po' di
+	// tempo, giusto per simulare ad esempio operazioni
+	// RPC bloccanti eseguite su multiple goroutine.
+	go func() {
+		time.Sleep(time.Second * 1)
+		c1 <- "uno"
+	}()
+	go func() {
+		time.Sleep(time.Second * 2)
+		c2 <- "due"
+	}()
 
-    // We'll use `select` to await both of these values
-    // simultaneously, printing each one as it arrives.
-    for i := 0; i < 2; i++ {
-        select {
-        case msg1 := <-c1:
-            fmt.Println("received", msg1)
-        case msg2 := <-c2:
-            fmt.Println("received", msg2)
-        }
-    }
+	// Utilizzeremo `select` per ricevere dai due canali
+	// simultaneamente, stampando ogni valore ogni qual
+	// volta che arriva.
+	for i := 0; i < 2; i++ {
+		select {
+		case msg1 := <-c1:
+			fmt.Println("ricevuto", msg1)
+		case msg2 := <-c2:
+			fmt.Println("ricevuto", msg2)
+		}
+	}
 }
