@@ -1,46 +1,48 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
+// Le operazioni di invio e di ricezione nei canali sono
+// bloccanti. Tuttavia, possiamo usare un `select` con una
+// clausola per implementare invii, ricevimenti e select
+// a più clausole _non bloccanti_.
 
 package main
 
 import "fmt"
 
 func main() {
-    messages := make(chan string)
-    signals := make(chan bool)
+	messaggi := make(chan string)
+	segnali := make(chan bool)
 
-    // Here's a non-blocking receive. If a value is
-    // available on `messages` then `select` will take
-    // the `<-messages` `case` with that value. If not
-    // it will immediately take the `default` case.
-    select {
-    case msg := <-messages:
-        fmt.Println("received message", msg)
-    default:
-        fmt.Println("no message received")
-    }
+	// Di seguito un ricevimento non bloccante. Se un
+	// valore è disponibile su `messages`, allora
+	// `select` userà il `case` apposito. Se nessun
+	// valore è disponibile, allora selezionerà
+	// immediatamente il case `default`.
+	select {
+	case msg := <-messaggi:
+		fmt.Println("messaggio ricevuto", msg)
+	default:
+		fmt.Println("nessun messaggio ricevuto")
+	}
 
-    // A non-blocking send works similarly.
-    msg := "hi"
-    select {
-    case messages <- msg:
-        fmt.Println("sent message", msg)
-    default:
-        fmt.Println("no message sent")
-    }
+	// Un invio non bloccante funziona più o meno alla
+	// stessa maniera.
+	msg := "ciao"
+	select {
+	case messaggi <- msg:
+		fmt.Println("messaggio inviato", msg)
+	default:
+		fmt.Println("nessun messaggio inviato")
+	}
 
-    // We can use multiple `case`s above the `default`
-    // clause to implement a multi-way non-blocking
-    // select. Here we attempt non-blocking receives
-    // on both `messages` and `signals`.
-    select {
-    case msg := <-messages:
-        fmt.Println("received message", msg)
-    case sig := <-signals:
-        fmt.Println("received signal", sig)
-    default:
-        fmt.Println("no activity")
-    }
+	// Possiamo usare `case` multipli sopra la clausola
+	// `default` per implementare un select a più
+	// clausole non bloccanti. Qui facciamo un receive
+	// non-bloccante sia su `messaggi` che su `segnali`.
+	select {
+	case msg := <-messaggi:
+		fmt.Println("messaggio ricevuto", msg)
+	case sig := <-segnali:
+		fmt.Println("segnale ricevuto", sig)
+	default:
+		fmt.Println("nessuna attività")
+	}
 }
