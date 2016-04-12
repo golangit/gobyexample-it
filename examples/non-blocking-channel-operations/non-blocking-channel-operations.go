@@ -1,4 +1,4 @@
-// Le operazioni di invio e di ricezione nei canali sono
+// Le operazioni di invio e di ricezione nei channel sono
 // bloccanti. Tuttavia, possiamo usare un `select` con una
 // clausola per implementare invii, ricevimenti e select
 // a più clausole _non bloccanti_.
