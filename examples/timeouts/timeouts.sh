@@ -3,7 +3,7 @@
 # verrà eseguita correttamente.
 $ go run timeouts.go 
 timeout 1
-result 2
+risultato 2
 
 # Usare questo pattern con il `select` per implementare
 # i timeout e la comunicazione attraverso i channel risulta
