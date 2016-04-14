@@ -1,2 +1,2 @@
 $ go run channel-directions.go
-passed message
+messaggio passato
