@@ -7,23 +7,23 @@ package main
 import "fmt"
 
 // Dimostreremo come i puntatori funzionino diversamente
-// dai valori tramite 2 funzioni: `zerval` e `zeroptr`.
+// dai valori tramite 2 funzioni: `zeroval` e `zeroptr`.
 // `zeroval` ha un parametro di tipo `int`, quindi il
 // parametro passato sarà un valore, non un puntatore.
 // Quando chiameremo la funzione `zeroval`, il suo
-// parametro `zeroval` verrà copiato da quello della
+// parametro `ival` verrà copiato da quello della
 // funzione chiamante.
 func zeroval(ival int) {
 	ival = 0
 }
 
 // `zeroptr` invece ha un parametro di tipo `*int`, e ciò
-// significa che è un puntatore a un `int`. L'`*iptr`
-// nella funzione stessa _dereferenzia_ il puntatore
-// all'indirizzo nella memoria dall'attuale valore in quel
-// indirizzo nella memoria. Assegnare un valore a un
-// puntatore dereferenziato cambia il valore anche
-// all'indirizzo riferenziato.
+// significa che è un puntatore a un `int`. L'istruzione
+// `*iptr` nel corpo della funzione permette di
+// _dereferenziare_ l'indirizzo di memoria puntato da `iptr` in
+// modo da otternere il suo valore. Se si assegna un valore
+// ad `*iptr` si va a modificare il valore all'indirizzo di memoria
+// puntanto.
 func zeroptr(iptr *int) {
 	*iptr = 0
 }
