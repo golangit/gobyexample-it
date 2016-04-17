@@ -1,9 +1,10 @@
-// I [timer](timers) sono per quando vuoi fare qualcosa
-// nel futuro _solo una volta_, i _ticker_, d'altra parte,
-// sono per quando vuoi fare qualcosa ripetutamente a
-// intervalli regolari. Di seguito un esempio di un
-// ticker che "ticchetta" periodicamente finché non lo
-// fermiamo.
+// I [timer](timers) possono essere utilizzati
+// quando è necessario effettuare qualcosa nel futuro
+// nel futuro _solo una volta_. I _ticker_, d'altra parte,
+// possono essere utilizzati quando è necessario svolgere
+// un'azione qualcosa ripetutamente a intervalli regolari.
+// Di seguito un esempio di un ticker che "ticchetta"
+// periodicamente finché non lo fermiamo.
 
 package main
 
