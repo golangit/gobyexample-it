@@ -11,7 +11,7 @@ func main() {
 
 	// Puoi creare un nuovo channel con la sintassi
 	// `make(chan tipo)`. I channel sono dichiarati con i
-	// valori che possono veicolare.
+	// tipi dei valori che possono veicolare.
 	messages := make(chan string)
 
 	// Puoi _inviare_ un valore in un channel con la
