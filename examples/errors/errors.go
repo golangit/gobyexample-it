@@ -76,8 +76,8 @@ func main() {
 		}
 	}
 
-	// Se vuoi usare programmaticamente utilizzare i dati
-	// dell'errore personalizzato, devi convertire
+	// Se vuoi utilizzare qualche campo specifico di
+	// un errore personalizzato, devi convertire
 	// l'errore in un istanza dell'errore personalizzato
 	// tramite un type assertion.
 	_, e := f2(42)
