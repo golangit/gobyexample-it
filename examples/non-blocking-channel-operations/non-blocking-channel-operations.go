@@ -1,6 +1,6 @@
 // Le operazioni di invio e di ricezione nei channel sono
 // bloccanti. Tuttavia, possiamo usare un `select` con una
-// clausola per implementare invii, ricevimenti e select
+// clausola per implementare invii, ricezioni e select
 // a più clausole _non bloccanti_.
 
 package main
@@ -11,11 +11,11 @@ func main() {
 	messaggi := make(chan string)
 	segnali := make(chan bool)
 
-	// Di seguito un ricevimento non bloccante. Se un
+	// Di seguito una ricezione non bloccante. Se un
 	// valore è disponibile su `messages`, allora
 	// `select` userà il `case` apposito. Se nessun
 	// valore è disponibile, allora selezionerà
-	// immediatamente il case `default`.
+	// immediatamente il branch `default`.
 	select {
 	case msg := <-messaggi:
 		fmt.Println("messaggio ricevuto", msg)
@@ -35,7 +35,7 @@ func main() {
 
 	// Possiamo usare `case` multipli sopra la clausola
 	// `default` per implementare un select a più
-	// clausole non bloccanti. Qui facciamo un receive
+	// clausole non bloccanti. Qui facciamo una ricezione
 	// non-bloccante sia su `messaggi` che su `segnali`.
 	select {
 	case msg := <-messaggi:
