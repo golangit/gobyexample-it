@@ -28,8 +28,7 @@ func main() {
 	}()
 
 	// Utilizzeremo `select` per ricevere dai due canali
-	// simultaneamente, stampando ogni valore ogni qual
-	// volta che arriva.
+	// simultaneamente, stampando ogni valore che arriva.
 	for i := 0; i < 2; i++ {
 		select {
 		case msg1 := <-c1:
