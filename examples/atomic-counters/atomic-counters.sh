@@ -1,7 +1,7 @@
-# Se si esegue il sorgente si vede che sono state eseguite
-# circa 40.000 operazioni.
+# Running the program shows that we executed about
+# 40,000 operations.
 $ go run atomic-counters.go
 ops: 40200
 
-# Adesso vedremo le mutex, un altro strumento per modificare
-# lo stato.
+# Next we'll look at mutexes, another tool for managing
+# state.
