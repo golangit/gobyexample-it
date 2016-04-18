@@ -1,17 +1,19 @@
-# Running our program we see the first batch of requests
-# handled once every ~200 milliseconds as desired.
+# Eseguendo il nostro programma vedremo il gruppo
+# di richieste che verranno gestite ognuna ogni 200
+# millisecondi.
 $ go run rate-limiting.go
-request 1 2012-10-19 00:38:18.687438 +0000 UTC
-request 2 2012-10-19 00:38:18.887471 +0000 UTC
-request 3 2012-10-19 00:38:19.087238 +0000 UTC
-request 4 2012-10-19 00:38:19.287338 +0000 UTC
-request 5 2012-10-19 00:38:19.487331 +0000 UTC
+richiesta 1 2016-04-17 19:05:37.736132953 +0200 CEST
+richiesta 2 2016-04-17 19:05:37.936138961 +0200 CEST
+richiesta 3 2016-04-17 19:05:38.136209943 +0200 CEST
+richiesta 4 2016-04-17 19:05:38.336145582 +0200 CEST
+richiesta 5 2016-04-17 19:05:38.536120745 +0200 CEST
 
-# For the second batch of requests we serve the first
-# 3 immediately because of the burstable rate limiting,
-# then serve the remaining 2 with ~200ms delays each.
-request 1 2012-10-19 00:38:20.487578 +0000 UTC
-request 2 2012-10-19 00:38:20.487645 +0000 UTC
-request 3 2012-10-19 00:38:20.487676 +0000 UTC
-request 4 2012-10-19 00:38:20.687483 +0000 UTC
-request 5 2012-10-19 00:38:20.887542 +0000 UTC
+# Invece, per il nostro secondo gruppo di richieste
+# vedremo che le prime tre vengono eseguite
+# all'istante, mentre le altre 2 a distanza di 200
+# millisecondi l'una dall'altra.
+richiesta 1 2016-04-17 19:05:38.536251527 +0200 CEST
+richiesta 2 2016-04-17 19:05:38.536266185 +0200 CEST
+richiesta 3 2016-04-17 19:05:38.536277665 +0200 CEST
+richiesta 4 2016-04-17 19:05:38.736385724 +0200 CEST
+richiesta 5 2016-04-17 19:05:38.936385957 +0200 CEST
