@@ -2,8 +2,8 @@
 // semplici addizioni utilizzando delle operazioni
 // atomiche. Per una gestione dello stato più complessa
 // usiamo le _[mutex](https://it.wikipedia.org/wiki/Mutex)_
-// per accedere con sicurezza a dei dati attraverso
-// multiple goroutine.
+// per accedere con sicurezza a dati condivisi
+// attraverso multiple goroutine.
 
 package main
 
@@ -93,8 +93,8 @@ func main() {
 	opsFinal := atomic.LoadInt64(&ops)
 	fmt.Println("ops:", opsFinal)
 
-	// Con un lock finale sullo `stato`, vediamo com'è
-	// andato a finire.
+	// Con un lock finale sullo `stato`, vediamo come
+	// si è evoluto lo stato.
 	mutex.Lock()
 	fmt.Println("stato:", stato)
 	mutex.Unlock()
