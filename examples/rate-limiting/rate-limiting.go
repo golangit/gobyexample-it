@@ -16,8 +16,8 @@ import "fmt"
 
 func main() {
 
-	// Come prima cosa vedremo un esempio basico di rate
-	// limiting. Mettiamo che dobbiamo limitare il
+	// Come prima cosa vedremo un semplice esempio di rate
+	// limiting. Supponiamo di dover limitare il
 	// numero di richieste (per esempio in un server
 	// HTTP). Utilizzeremo un channel per
 	// mimare l'entrata delle richieste.
