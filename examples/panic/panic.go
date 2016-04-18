@@ -1,12 +1,8 @@
-// A `panic` typically means something went unexpectedly
-// wrong. Mostly we use it to fail fast on errors that
-// shouldn't occur during normal operation, or that we
-// aren't prepared to handle gracefully.
 // Un `panic` in genere significa che qualcosa è andato
 // fin troppo storto. In genere lo usiamo per fallimenti
 // immediati su errori che non dovrebbero succedere
-// durante una normale esecuzione del programma, o che non
-// siamo pronti a gestire con grazia.
+// durante una normale esecuzione del programma, o per
+// cui non è possibile effettuare procedure di recovery
 
 package main
 
