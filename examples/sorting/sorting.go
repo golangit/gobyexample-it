@@ -1,6 +1,6 @@
 // Il package `sort` di Go permette di ordinare tipi
-// sia builtin, sia user-defined. Daremo per prima cosa
-// un'occhiata al sorting per i builtin.
+// sia built-in, sia user-defined. Daremo per prima cosa
+// un'occhiata al sorting per i built-in.
 
 package main
 
@@ -10,10 +10,12 @@ import "sort"
 func main() {
 
 	// I metodi di sort sono specifici per il tipo
-	// builtin; qui vediamo un esempio per le string.
+	// built-in; qui vediamo un esempio per le string.
 	// Nota che il sorting non richiede né l'uso dei
-	// pointer, né ritorna un nuovo slice con gli
-	// elementi ordinati.
+	// pointer, né ritorna un nuovo slice, ma modifica
+	// lo slice che viene passato ordinando
+	// direttamente elementi gli elementi al suo
+	// interno.
 	strs := []string{"c", "a", "b"}
 	sort.Strings(strs)
 	fmt.Println("Strings:", strs)
