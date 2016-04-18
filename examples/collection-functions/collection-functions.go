@@ -1,111 +1,117 @@
-// We often need our programs to perform operations on
-// collections of data, like selecting all items that
-// satisfy a given predicate or mapping all items to a new
-// collection with a custom function.
+// Spesso abbiamo bisogno che i nostri programmi
+// effettuino operazioni su collezioni di dati,
+// come selezionare tutti gli elementi che
+// soddisfino un determinato condizionale, oppure spostare
+// gli elementi ad una nuova funzione con un criterio
+// specifico e una funzione ad hoc.
 
-// In some languages it's idiomatic to use [generic](http://en.wikipedia.org/wiki/Generic_programming)
-// data structures and algorithms. Go does not support
-// generics; in Go it's common to provide collection
-// functions if and when they are specifically needed for
-// your program and data types.
+// In alcuni linguaggi è idiomatico l'utilizzo di
+// strutture di dati e algoritmi [generici](http://en.wikipedia.org/wiki/Generic_programming).
+// Go non supporta algoritmi/strutture generiche: in
+// genere si forniscono funzioni per collezioni se sono
+// specificamente necessari per il tuo programma e per i
+// tuoi tipi.
 
-// Here are some example collection functions for slices
-// of `strings`. You can use these examples to build your
-// own functions. Note that in some cases it may be
-// clearest to just inline the collection-manipulating
-// code directly, instead of creating and calling a
-// helper function.
+// A seguire un po' di esempi di funzioni che agiscono su
+// slice di `string`. Puoi usare questi esempi per
+// costruire le tue proprie funzioni. Nota che in alcuni
+// casi può essere più chiaro scrivere il corpo della
+// funzione direttamente nel tuo codice stesso, piuttosto
+// che creare e chiamare una funzione helper.
 
 package main
 
 import "strings"
 import "fmt"
 
-// Returns the first index of the target string `t`, or
-// -1 if no match is found.
-func Index(vs []string, t string) int {
-    for i, v := range vs {
-        if v == t {
-            return i
-        }
-    }
-    return -1
+// Ritorna il primo indice del valore in `vs`
+// corrispondente a `t`, o -1 se nessuna corrispondenza
+// viene trovata.
+func Indice(vs []string, t string) int {
+	for i, v := range vs {
+		if v == t {
+			return i
+		}
+	}
+	return -1
 }
 
-// Returns `true` if the target string t is in the
-// slice.
-func Include(vs []string, t string) bool {
-    return Index(vs, t) >= 0
+// Ritorna `true` se la stringa `t` è nello slice `vs`.
+func Incluso(vs []string, t string) bool {
+	return Indice(vs, t) >= 0
 }
 
-// Returns `true` if one of the strings in the slice
-// satisfies the predicate `f`.
-func Any(vs []string, f func(string) bool) bool {
-    for _, v := range vs {
-        if f(v) {
-            return true
-        }
-    }
-    return false
+// Ritorna `true` se una delle stringhe nello slice
+// soddisfa la funzione condizionale `f`.
+func AlmenoUno(vs []string, f func(string) bool) bool {
+	for _, v := range vs {
+		if f(v) {
+			return true
+		}
+	}
+	return false
 }
 
-// Returns `true` if all of the strings in the slice
-// satisfy the predicate `f`.
-func All(vs []string, f func(string) bool) bool {
-    for _, v := range vs {
-        if !f(v) {
-            return false
-        }
-    }
-    return true
+// Ritorna `true` se tutte le `string` nello slice
+// soddisfano la funzione condizionale `f`.
+func Tutti(vs []string, f func(string) bool) bool {
+	for _, v := range vs {
+		if !f(v) {
+			return false
+		}
+	}
+	return true
 }
 
-// Returns a new slice containing all strings in the
-// slice that satisfy the predicate `f`.
-func Filter(vs []string, f func(string) bool) []string {
-    vsf := make([]string, 0)
-    for _, v := range vs {
-        if f(v) {
-            vsf = append(vsf, v)
-        }
-    }
-    return vsf
+// Ritorna un nuovo slice che contiene tutte le stringhe
+// nello slice `vs` che soddisfano la funzione
+// condizionale `f`.
+func Filtra(vs []string, f func(string) bool) []string {
+	vsf := make([]string, 0)
+	for _, v := range vs {
+		if f(v) {
+			vsf = append(vsf, v)
+		}
+	}
+	return vsf
 }
 
-// Returns a new slice containing the results of applying
-// the function `f` to each string in the original slice.
-func Map(vs []string, f func(string) string) []string {
-    vsm := make([]string, len(vs))
-    for i, v := range vs {
-        vsm[i] = f(v)
-    }
-    return vsm
+// Ritorna un nuovo slice che contiene i risultati
+// dell'applicazione della funzione `f` su ogni stringa
+// dello slice `vs`.
+func Applica(vs []string, f func(string) string) []string {
+	vsa := make([]string, len(vs))
+	for i, v := range vs {
+		vsa[i] = f(v)
+	}
+	return vsa
 }
 
 func main() {
 
-    // Here we try out our various collection functions.
-    var strs = []string{"peach", "apple", "pear", "plum"}
+	// Di seguito proviamo ad utilizzare le nostre varie
+	// funzioni di collezione.
+	var strs = []string{"pesca", "mela", "pera", "prugna"}
 
-    fmt.Println(Index(strs, "pear"))
+	fmt.Println(Indice(strs, "pera"))
 
-    fmt.Println(Include(strs, "grape"))
+	fmt.Println(Incluso(strs, "uva"))
 
-    fmt.Println(Any(strs, func(v string) bool {
-        return strings.HasPrefix(v, "p")
-    }))
+	fmt.Println(AlmenoUno(strs, func(v string) bool {
+		return strings.HasPrefix(v, "p")
+	}))
 
-    fmt.Println(All(strs, func(v string) bool {
-        return strings.HasPrefix(v, "p")
-    }))
+	fmt.Println(Tutti(strs, func(v string) bool {
+		return strings.HasPrefix(v, "p")
+	}))
 
-    fmt.Println(Filter(strs, func(v string) bool {
-        return strings.Contains(v, "e")
-    }))
+	fmt.Println(Filtra(strs, func(v string) bool {
+		return strings.Contains(v, "r")
+	}))
 
-    // The above examples all used anonymous functions,
-    // but you can also use named functions of the correct
-    // type.
-    fmt.Println(Map(strs, strings.ToUpper))
+	// Gli esempi sovrastanti usavano tutti funzioni
+	// anonime, ma puoi anche usare funzioni pre-esistenti
+	// (già nominate) con il tipo corretto.
+	fmt.Println(Applica(strs, strings.ToUpper))
 
 }
