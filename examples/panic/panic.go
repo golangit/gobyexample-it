@@ -14,13 +14,13 @@ import "os"
 
 func main() {
 
-	// Da ora utilizzeremo i `panic`` su questo sito per
-	// controllare errori inaspettati. Questo è l'unico
-	// programma sul sito fatto apposta perché risulti
-	// in un `panic`.
+	// D'ora in poi utilizzeremo i `panic` su questo
+	// sito per controllare errori inaspettati. Questo
+	// è l'unico programma sul sito fatto apposta
+	// perché risulti in un `panic`.
 	panic("un problema")
 
-	// Un uso comune dei panic è per interrompere il
+	// Un uso comune del panic è l'interruzione del
 	// programma quando ci troviamo davanti ad un errore
 	// ritornato da una funzione che non sappiamo come
 	// gestire o non vogliamo gestire per niente. Di

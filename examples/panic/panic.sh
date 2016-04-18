@@ -1,6 +1,3 @@
-# Running this program will cause it to panic, print
-# an error message and goroutine traces, and exit with
-# a non-zero status.
 # Eseguire questo programma risulterà in un panic,
 # il che significa che il messaggio di errore verrà
 # stampato e anche gli stacktrace delle varie goroutine.
