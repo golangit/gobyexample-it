@@ -89,8 +89,8 @@ func main() {
 		}()
 	}
 
-	// Avviamo anche 10 goroutine che effettueranno
-	// delle scritture utilizzano un appropccio simile.
+	// Avviamo anche altre 10 goroutine che effettueranno
+	// delle scritture utilizzando un approccio simile.
 	for w := 0; w < 10; w++ {
 		go func() {
 			for {
@@ -105,7 +105,6 @@ func main() {
 		}()
 	}
 
-	// Let the goroutines work for a second.
 	// Facciamo eseguire le goroutine per un secondo.
 	time.Sleep(time.Second)
 
