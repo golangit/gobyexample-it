@@ -1,10 +1,11 @@
-# When we run the program the `"ping"` message is
-# successfully passed from one goroutine to another via
-# our channel.
+# Quando eseguiremo il programma potremmo vedere che
+# `"ping"` è passato senza problemi da una goroutine
+# all'altra attraverso il nostro channel.
 $ go run channels.go 
 ping
 
-# By default sends and receives block until both the
-# sender and receiver are ready. This property allowed
-# us to wait at the end of our program for the `"ping"`
-# message without having to use any other synchronization.
+# Di default l'invio e il ricevimento si bloccano finché
+# sia il mittente che il destinatario non sono pronti. Questo
+# ci ha permesso di aspettare alla fine del programma per
+# il messaggio `"ping"` senza dover effetturare alcuna
+# sincronizzazione.
