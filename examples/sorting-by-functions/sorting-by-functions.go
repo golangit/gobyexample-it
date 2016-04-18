@@ -11,7 +11,7 @@ import "sort"
 import "fmt"
 
 // Al fine di poter ordinare tramite una funzione personalizzata
-// in Go, abbiamo bisogno di un tipo corrispondete. Abbiamo
+// in Go, abbiamo bisogno di un tipo corrispondente. Abbiamo
 // creato il tipo `ByLength` che altro non è che un alias per
 // il tipo built-in `[]string`.
 type ByLength []string
@@ -36,7 +36,7 @@ func (s ByLength) Less(i, j int) bool {
 
 // Dopo aver dichiarato queste funzioni, è possibile
 // effettuare un ordinamento personalizzato tramite un cast
-// dello slice `fruits` al tipo `ByLenght` sul quale chiameremo
+// dello slice `fruits` al tipo `ByLength` sul quale chiameremo
 // la funzione `sort.Sort`.
 func main() {
 	fruits := []string{"pesca", "banana", "kiwi"}

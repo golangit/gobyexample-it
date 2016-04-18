@@ -3,6 +3,6 @@
 $ go run sorting-by-functions.go 
 [kiwi pesca banana]
 
-# È quindi sufficiente creare un tipo custom, implementare
+# È quindi sufficiente creare un tipo personalizzato, implementare
 # i 3 metodi dell'interfaccia ed invocare `sort.Sort` per
-# ordinare uno slice in Go in modo personalizzato.
+# ordinare uno slice in Go in modo arbitrario.
