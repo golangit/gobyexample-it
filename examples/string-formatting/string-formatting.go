@@ -1,108 +1,121 @@
-// Go offers excellent support for string formatting in
-// the `printf` tradition. Here are some examples of
-// common string formatting tasks.
+// Go offre la possibilità di formattare le stringhe con
+// il classico sistema di `printf`. Qui di seguito alcuni
+// esempi di operazioni comuni di string formatting.
 
 package main
 
 import "fmt"
 import "os"
 
-type point struct {
-    x, y int
+type punto struct {
+	x, y int
 }
 
 func main() {
 
-    // Go offers several printing "verbs" designed to
-    // format general Go values. For example, this prints
-    // an instance of our `point` struct.
-    p := point{1, 2}
-    fmt.Printf("%v\n", p)
+	// Go offre numerosi modi per stampare dati, alcuni
+	// disegnati appositamente per stampare strutture
+	// di dati del nostro programma. Per esempio, `%v`
+	// stampa la composizione della nostra struct `punto`.
+	p := punto{1, 2}
+	fmt.Printf("%v\n", p)
 
-    // If the value is a struct, the `%+v` variant will
-    // include the struct's field names.
-    fmt.Printf("%+v\n", p)
+	// Se il valore è una struct, la variante `%+v`
+	// includerà i nomi dei campi della struct in sé.
+	fmt.Printf("%+v\n", p)
 
-    // The `%#v` variant prints a Go syntax representation
-    // of the value, i.e. the source code snippet that
-    // would produce that value.
-    fmt.Printf("%#v\n", p)
+	// La variante `%#v` stampa una rappresentazione nella
+	// sintassi di Go, ovvero ciò che viene stampato
+	// potrebbe potenzialmente essere usato come codice
+	// per produrre quel valore.
+	fmt.Printf("%#v\n", p)
 
-    // To print the type of a value, use `%T`.
-    fmt.Printf("%T\n", p)
+	// Per stampare il tipo di un valore, usa `%T`.
+	fmt.Printf("%T\n", p)
 
-    // Formatting booleans is straight-forward.
-    fmt.Printf("%t\n", true)
+	// Puoi, inoltre, stampare bool con `%t`.
+	fmt.Printf("%t\n", true)
 
-    // There are many options for formatting integers.
-    // Use `%d` for standard, base-10 formatting.
-    fmt.Printf("%d\n", 123)
+	// Ci sono, inoltre, numerose opzioni per stampare
+	// integer. Puoi usare `%d` per avere una
+	// rappresentazione standard in base 10.
+	fmt.Printf("%d\n", 123)
 
-    // This prints a binary representation.
-    fmt.Printf("%b\n", 14)
+	// `%b` stampa la rappresentazione binaria.
+	fmt.Printf("%b\n", 14)
 
-    // This prints the character corresponding to the
-    // given integer.
-    fmt.Printf("%c\n", 33)
+	// `%c` stampa il carattere corrispondente
+	// all'integer dato.
+	fmt.Printf("%c\n", 33)
 
-    // `%x` provides hex encoding.
-    fmt.Printf("%x\n", 456)
+	// Con `%x` puoi stampare il valore in esadecimale.
+	fmt.Printf("%x\n", 456)
 
-    // There are also several formatting options for
-    // floats. For basic decimal formatting use `%f`.
-    fmt.Printf("%f\n", 78.9)
+	// Ci sono anche numerose opzioni per il formatting
+	// dei float. Per stampare un float normalmente, usa
+	// `%f`.
+	fmt.Printf("%f\n", 78.9)
 
-    // `%e` and `%E` format the float in (slightly
-    // different versions of) scientific notation.
-    fmt.Printf("%e\n", 123400000.0)
-    fmt.Printf("%E\n", 123400000.0)
+	// `%e` e `%E` stampano il float in (versioni
+	// leggermente differenti di) notazione
+	// scientifica.
+	fmt.Printf("%e\n", 123400000.0)
+	fmt.Printf("%E\n", 123400000.0)
 
-    // For basic string printing use `%s`.
-    fmt.Printf("%s\n", "\"string\"")
+	// Per stampare stringhe normalmente, usa `%s`.
+	fmt.Printf("%s\n", "\"string\"")
 
-    // To double-quote strings as in Go source, use `%q`.
-    fmt.Printf("%q\n", "\"string\"")
+	// Per mettere le virgolette alle stringhe come nel
+	// sorgente di Go, puoi usare `%q`.
+	fmt.Printf("%q\n", "\"string\"")
 
-    // As with integers seen earlier, `%x` renders
-    // the string in base-16, with two output characters
-    // per byte of input.
-    fmt.Printf("%x\n", "hex this")
+	// Come per gli interi, si può stampare una versione
+	// esadecimale di una stringa sempre con `%x`, con
+	// due caratteri esadecimale per ogni byte passato.
+	fmt.Printf("%x\n", "esadecimalami")
 
-    // To print a representation of a pointer, use `%p`.
-    fmt.Printf("%p\n", &p)
+	// Per stampare la rappresentazione di un putatore,
+	// usa `%p`.
+	fmt.Printf("%p\n", &p)
 
-    // When formatting numbers you will often want to
-    // control the width and precision of the resulting
-    // figure. To specify the width of an integer, use a
-    // number after the `%` in the verb. By default the
-    // result will be right-justified and padded with
-    // spaces.
-    fmt.Printf("|%6d|%6d|\n", 12, 345)
+	// Quando devi stampare dei numeri puoi spesso
+	// aver bisogno di controllare la lunghezza e la
+	// precisione della stringa risultante. Per
+	// specificare la lunghezza di un integer, dai un
+	// numero dopo il `%`. Normalmente il risultato
+	// sarà allineato a destra con degli spazi.
+	fmt.Printf("|%6d|%6d|\n", 12, 345)
 
-    // You can also specify the width of printed floats,
-    // though usually you'll also want to restrict the
-    // decimal precision at the same time with the
-    // width.precision syntax.
-    fmt.Printf("|%6.2f|%6.2f|\n", 1.2, 3.45)
+	// Puoi anche specificare la lunghezza dei float
+	// che vuoi stampare, anche se spesso vorrai anche
+	// dare la lunghezza della precisione decimale
+	// allo stesso tempo della precisione del numero
+	// intero.
+	fmt.Printf("|%6.2f|%6.2f|\n", 1.2, 3.45)
 
-    // To left-justify, use the `-` flag.
-    fmt.Printf("|%-6.2f|%-6.2f|\n", 1.2, 3.45)
+	// Per allineare alla sinistra, usa la flag `-`.
+	fmt.Printf("|%-6.2f|%-6.2f|\n", 1.2, 3.45)
 
-    // You may also want to control width when formatting
-    // strings, especially to ensure that they align in
-    // table-like output. For basic right-justified width.
-    fmt.Printf("|%6s|%6s|\n", "foo", "b")
+	// Potrai anche aver bisogno di controllare la
+	// lunghezza quando stampi delle stringhe, soprattutto
+	// quando voi che si allineino per fare un output
+	// "a mò di tabella". Puoi sempre specificare un
+	// numero per allineare alla destra.
+	fmt.Printf("|%6s|%6s|\n", "foo", "b")
 
-    // To left-justify use the `-` flag as with numbers.
-    fmt.Printf("|%-6s|%-6s|\n", "foo", "b")
+	// Per allineare alla destra, usa la flag `-` come
+	// per i numeri.
+	fmt.Printf("|%-6s|%-6s|\n", "foo", "b")
 
-    // So far we've seen `Printf`, which prints the
-    // formatted string to `os.Stdout`. `Sprintf` formats
-    // and returns a string without printing it anywhere.
-    s := fmt.Sprintf("a %s", "string")
-    fmt.Println(s)
+	// Fino ad ora abbiamo visto `Printf`, che stampa
+	// la stringa formattata a `os.Stdout`. `Sprintf`
+	// formatta la stringa e la ritorna senza stamparla
+	// da nessuna parte.
+	s := fmt.Sprintf("una %s", "stringa")
+	fmt.Println(s)
 
-    // You can format+print to `io.Writers` other than
-    // `os.Stdout` using `Fprintf`.
-    fmt.Fprintf(os.Stderr, "an %s\n", "error")
+	// Puoi, inoltre, formattare+stampare a degli
+	// `io.Writer` oltre a `os.Stdout` tramite
+	// `Fprintf`.
+	fmt.Fprintf(os.Stderr, "un %s\n", "errore")
 }
