@@ -1,6 +1,6 @@
 // Il meccanismo principale per gestire lo stato in Go
-// e quello di utilizzare i channel. Abbiamo visto
-// questo meccanismo in azione nell'esempio degli
+// è quello di utilizzare i channel. Abbiamo visto
+// questo meccanismo in azione nell'esempio dei
 // [worker pool](worker-pools). Ci sono una serie di altri
 // meccanismi per gestire lo stato. Adesso vedremo
 // come si possa utilizzare il package `sync/atomic`
