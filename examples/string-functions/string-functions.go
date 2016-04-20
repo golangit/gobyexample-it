@@ -1,4 +1,4 @@
-// Il pacchetto `string` della standard library contiene
+// Il pacchetto `strings` della standard library contiene
 // svariate funzioni per la gestione delle stringhe.
 // Ecco qualche esempio di funzioni tratte da questo pacchetto
 
@@ -14,7 +14,7 @@ var p = fmt.Println
 func main() {
 
 	// Ecco un esempio delle funzioni disponibili nel
-	// pacchetto `string`. Nota che queste sono tutte
+	// pacchetto `strings`. Nota che queste sono tutte
 	// funzioni prevenienti dal pacchetto (e non proprie
 	// del tipo string). Questo significa che è necessario
 	// passare la stringa come primo parametro ogni volta
@@ -33,7 +33,7 @@ func main() {
 	p()
 
 	// Puoi trovare l'elenco di tutte le funzioni del pacchetto
-	// `string` sulla [documentazione ufficiale](http://golang.org/pkg/strings/)
+	// `strings` sulla [documentazione ufficiale](http://golang.org/pkg/strings/)
 
 	// Queste ultimi due comandi non fanno parte del pacchetto,
 	// ma vale comunque la pena citarli: ottenere la lunghezza
