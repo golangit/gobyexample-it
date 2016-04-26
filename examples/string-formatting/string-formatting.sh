@@ -1,8 +1,8 @@
 $ go run string-formatting.go
 {1 2}
 {x:1 y:2}
-main.point{x:1, y:2}
-main.point
+main.punto{x:1, y:2}
+main.punto
 true
 123
 1110
@@ -13,12 +13,12 @@ true
 1.234000E+08
 "string"
 "\"string\""
-6865782074686973
-0x42135100
+657361646563696d616c616d69
+0xc82000a2f0
 |    12|   345|
 |  1.20|  3.45|
 |1.20  |3.45  |
 |   foo|     b|
 |foo   |b     |
-a string
-an error
+una stringa
+un errore
