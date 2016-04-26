@@ -1,8 +1,8 @@
 // Spesso abbiamo bisogno che i nostri programmi
 // effettuino operazioni su collezioni di dati,
 // come selezionare tutti gli elementi che
-// soddisfino un determinato condizionale, oppure spostare
-// gli elementi ad una nuova funzione con un criterio
+// soddisfino un determinato condizionale, oppure mappare
+// gli elementi su una nuova collezione con un criterio
 // specifico e una funzione ad hoc.
 
 // In alcuni linguaggi è idiomatico l'utilizzo di
@@ -111,7 +111,7 @@ func main() {
 
 	// Gli esempi sovrastanti usavano tutti funzioni
 	// anonime, ma puoi anche usare funzioni pre-esistenti
-	// (già nominate) con il tipo corretto.
+	// (non anonime) con il tipo corretto.
 	fmt.Println(Applica(strs, strings.ToUpper))
 
 }
