@@ -3,5 +3,5 @@ $ go run collection-functions.go
 false
 true
 false
-[peach apple pear]
-[PEACH APPLE PEAR PLUM]
+[pera prugna]
+[PESCA MELA PERA PRUGNA]
