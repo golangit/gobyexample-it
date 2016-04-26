@@ -98,7 +98,7 @@ func main() {
 
 	// Potrai anche aver bisogno di controllare la
 	// lunghezza quando stampi delle stringhe, soprattutto
-	// quando voi che si allineino per fare un output
+	// quando vuoi che si allineino per fare un output
 	// "a mò di tabella". Puoi sempre specificare un
 	// numero per allineare alla destra.
 	fmt.Printf("|%6s|%6s|\n", "foo", "b")
