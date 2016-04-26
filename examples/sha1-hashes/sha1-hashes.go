@@ -1,37 +1,40 @@
-// [_SHA1 hashes_](http://en.wikipedia.org/wiki/SHA-1) are
-// frequently used to compute short identities for binary
-// or text blobs. For example, the [git revision control
-// system](http://git-scm.com/) uses SHA1s extensively to
-// identify versioned files and directories. Here's how to
-// compute SHA1 hashes in Go.
+// La funzione [_SHA-1_](https://it.wikipedia.org/wiki/Secure_Hash_Algorithm)
+// viene frequentemente utilizzata per calcolare il _digest_
+// (l'impronta) dei file binari o di testo.
+// Ad esempio il sistema di versionamento [git](http://git-scm.com/)
+// utilizza gli SHA-1 in modo intensivo per identificare
+// i file e le cartelle versionate. Ecco come calcolare
+// gli hash SHA-1 in Go.
 
 package main
 
-// Go implements several hash functions in various
-// `crypto/*` packages.
+// Si possono trovare implementazioni di svariati algoritmi
+// crittografici dentro il pacchetto `crypto/*`.
 import "crypto/sha1"
 import "fmt"
 
 func main() {
-    s := "sha1 this string"
+	s := "sha1 this string"
 
-    // The pattern for generating a hash is `sha1.New()`,
-    // `sha1.Write(bytes)`, then `sha1.Sum([]byte{})`.
-    // Here we start with a new hash.
-    h := sha1.New()
+	// Il pattern per creare un nuovo hash è `sha1.New()`,
+	// `sha1.Write(bytes)`, ed infine `sha1.Sum([]byte{})`.
+	// Iniziamo creando un nuovo hash.
+	h := sha1.New()
 
-    // `Write` expects bytes. If you have a string `s`,
-    // use `[]byte(s)` to coerce it to bytes.
-    h.Write([]byte(s))
+	// La funzione `Write` lavora con i bytes.
+	// Se si deve calcolare l'hash di una stringa `s`
+	// è possibile utilizzare `[]byte(s)` per ottenerne i bytes.
+	h.Write([]byte(s))
 
-    // This gets the finalized hash result as a byte
-    // slice. The argument to `Sum` can be used to append
-    // to an existing byte slice: it usually isn't needed.
-    bs := h.Sum(nil)
+	// Con la funzione `Sum` è possibile ottenere il valore
+	// dell'hash. L'argomento può essere utilizzato per
+	// accodare il valore calcolato ad uno slice di byte
+	// esistente, non è generalmente necessario.
+	bs := h.Sum(nil)
 
-    // SHA1 values are often printed in hex, for example
-    // in git commits. Use the `%x` format verb to convert
-    // a hash results to a hex string.
-    fmt.Println(s)
-    fmt.Printf("%x\n", bs)
+	// Gli SHA-1 sono generalmente stampati in formato
+	// esadecimale (ad esempio nei commit di git). Utilizza
+	// '%x' per stampare il valore in esadecimale.
+	fmt.Println(s)
+	fmt.Printf("%x\n", bs)
 }
