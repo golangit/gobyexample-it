@@ -1,43 +1,43 @@
-// The standard library's `strings` package provides many
-// useful string-related functions. Here are some examples
-// to give you a sense of the package.
+// Il pacchetto `strings` della standard library contiene
+// svariate funzioni per la gestione delle stringhe.
+// Ecco qualche esempio di funzioni tratte da questo pacchetto
 
 package main
 
 import s "strings"
 import "fmt"
 
-// We alias `fmt.Println` to a shorter name as we'll use
-// it a lot below.
+// Diamo alla funzione `fmt.Println` un alias (`p`) in quanto
+// l'andremo ad usare parecchio in questo esempio
 var p = fmt.Println
 
 func main() {
 
-    // Here's a sample of the functions available in
-    // `strings`. Note that these are all functions from
-    // package, not methods on the string object itself.
-    // This means that we need pass the string in question
-    // as the first argument to the function.
-    p("Contains:  ", s.Contains("test", "es"))
-    p("Count:     ", s.Count("test", "t"))
-    p("HasPrefix: ", s.HasPrefix("test", "te"))
-    p("HasSuffix: ", s.HasSuffix("test", "st"))
-    p("Index:     ", s.Index("test", "e"))
-    p("Join:      ", s.Join([]string{"a", "b"}, "-"))
-    p("Repeat:    ", s.Repeat("a", 5))
-    p("Replace:   ", s.Replace("foo", "o", "0", -1))
-    p("Replace:   ", s.Replace("foo", "o", "0", 1))
-    p("Split:     ", s.Split("a-b-c-d-e", "-"))
-    p("ToLower:   ", s.ToLower("TEST"))
-    p("ToUpper:   ", s.ToUpper("test"))
-    p()
+	// Ecco un esempio delle funzioni disponibili nel
+	// pacchetto `strings`. Nota che queste sono tutte
+	// funzioni prevenienti dal pacchetto (e non proprie
+	// del tipo string). Questo significa che è necessario
+	// passare la stringa come primo parametro ogni volta
+	p("Contains:  ", s.Contains("test", "es"))
+	p("Count:     ", s.Count("test", "t"))
+	p("HasPrefix: ", s.HasPrefix("test", "te"))
+	p("HasSuffix: ", s.HasSuffix("test", "st"))
+	p("Index:     ", s.Index("test", "e"))
+	p("Join:      ", s.Join([]string{"a", "b"}, "-"))
+	p("Repeat:    ", s.Repeat("a", 5))
+	p("Replace:   ", s.Replace("foo", "o", "0", -1))
+	p("Replace:   ", s.Replace("foo", "o", "0", 1))
+	p("Split:     ", s.Split("a-b-c-d-e", "-"))
+	p("ToLower:   ", s.ToLower("TEST"))
+	p("ToUpper:   ", s.ToUpper("test"))
+	p()
 
-    // You can find more functions in the [`strings`](http://golang.org/pkg/strings/)
-    // package docs.
+	// Puoi trovare l'elenco di tutte le funzioni del pacchetto
+	// `strings` sulla [documentazione ufficiale](http://golang.org/pkg/strings/)
 
-    // Not part of `strings` but worth mentioning here are
-    // the mechanisms for getting the length of a string
-    // and getting a character by index.
-    p("Len: ", len("hello"))
-    p("Char:", "hello"[1])
+	// Queste ultimi due comandi non fanno parte del pacchetto,
+	// ma vale comunque la pena citarli: ottenere la lunghezza
+	// di una stringa ed ottenere un carattere tramite indice
+	p("Len: ", len("hello"))
+	p("Char:", "hello"[1])
 }
