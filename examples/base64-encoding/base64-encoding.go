@@ -10,7 +10,7 @@ import "fmt"
 
 func main() {
 
-	// Ecco una `string` che andremo a codificare base64
+	// Ecco una `string` che andremo a codificare in base64
 	data := "abc123!?$*&()'-=@~"
 
 	// Go supporta base64 sia standard che URL-compatible.
