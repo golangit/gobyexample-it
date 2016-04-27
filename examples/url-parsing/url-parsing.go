@@ -22,7 +22,7 @@ func main() {
 		panic(err)
 	}
 
-	// Accedere lo schema è semplice.
+	// Ottenere lo schema è semplice.
 	fmt.Println(u.Scheme)
 
 	// `User` contiene tutte le informazioni sull'autenticazione.
