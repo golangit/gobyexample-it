@@ -4,7 +4,7 @@
 // di _line filter_.
 
 // Ecco un esempio di line filter scritto in Go, che scrive
-// in maiscuolo tutto il testo che riceve ininput. Puoi
+// in maiscuolo tutto il testo che riceve in input. Puoi
 // utilizzare questo scheletro di line filter per realizzare
 // il tuo line filter.
 package main
