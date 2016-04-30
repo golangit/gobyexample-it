@@ -33,7 +33,7 @@ func main() {
 	p(then.Location())
 
 	// È possibile anche ottenere il giorno della settimana
-	// tramite `Weekdat`
+	// tramite `Weekday`
 	p(then.Weekday())
 
 	// Questi metodi confrontano due `time`, controllando
@@ -49,7 +49,7 @@ func main() {
 	diff := now.Sub(then)
 	p(diff)
 
-	// È possibile calcolare la lunghezza di questo intervalle
+	// È possibile calcolare la lunghezza di questo intervallo
 	// in svariate unità di misura.
 	p(diff.Hours())
 	p(diff.Minutes())
