@@ -32,7 +32,8 @@ func main() {
 	// esecuzione, dobbiamo settare un seed variabile.
 	// Tieni in considerazione che non è sicuro utilizzare
 	// questo metodo per generare numeri che devono essere
-	// segreti, è consigliabile usare il pacchetto `crypto/rand`.
+	// segreti. Se hai tali necessità è consigliabile utilizzare
+	// il pacchetto `crypto/rand`.
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
 
