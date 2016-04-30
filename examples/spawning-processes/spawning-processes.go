@@ -1,5 +1,5 @@
 // Talvolta i programmi Go hanno bisogno di far partire
-// altri processi, che non sono programmi Go. Ad esempio
+// altri processi, che possono non essere scritti in Go. Ad esempio
 // l'highlight della sintassi in questo sito è [realizzata](https://github.com/golangit/gobyexample-it/blob/master/tools/generate.go)
 // facendo partire un processo [`pygmentize`](http://pygments.org/)
 // da un programma Go.
@@ -33,7 +33,7 @@ func main() {
 	// Adesso vedremo un esempio leggermente più complesso
 	// dove forniremo alcuni dati sullo stdin di un processo,
 	// e raccoglieremo il suo output sullo stdout.
-	grepCmd := exec.Command("grep", "hello")
+	grepCmd := exec.Command("grep", "ciao")
 
 	// Qui possiamo vedere come ottenere lo stdin e lo stdout
 	// di un futuro comando, scrivere dei dati sullo stdin,
@@ -42,7 +42,7 @@ func main() {
 	grepIn, _ := grepCmd.StdinPipe()
 	grepOut, _ := grepCmd.StdoutPipe()
 	grepCmd.Start()
-	grepIn.Write([]byte("hello grep\ngoodbye grep"))
+	grepIn.Write([]byte("ciao grep\naddio grep"))
 	grepIn.Close()
 	grepBytes, _ := ioutil.ReadAll(grepOut)
 	grepCmd.Wait()
