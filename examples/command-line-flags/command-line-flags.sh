@@ -48,7 +48,7 @@ Usage of ./command-line-flags:
   -svar="bar": a string var
   -word="foo": a string
 
-# Se si utilizza un flag che non è stato dichiarto,
+# Se si utilizza un flag che non è stato dichiarato,
 # il programma mostrerà un messaggio di errore e stamperà
 # di nuovo il messaggio di informazione.
 $ ./command-line-flags -wat

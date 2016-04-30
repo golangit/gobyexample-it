@@ -15,7 +15,7 @@ func main() {
 
 	// Il pacchetto offre semplici funzioni per parsare
 	// stringhe, interi e booleani. Qui dichiariamo un
-	// flag di tipo stringa chiamato `word` che ha come
+	// flag di tipo string chiamato `word` che ha come
 	// valore di default `"foo"` ed una breve descrizione.
 	// Questa funzione `flag.String` ritorna il puntatore
 	// ad una stringa (non un valore di tipo stringa).
