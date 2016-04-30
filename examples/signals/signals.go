@@ -1,6 +1,6 @@
 // Talvolta è necessario che i nostri programmi Go
-// gesticano in modo corretto i [segnali Unix](https://it.wikipedia.org/wiki/Segnale_(informatica))
-// Ad esempio, potremmo volere che il nostro programmi
+// gesticano in modo corretto i <a href="https://it.wikipedia.org/wiki/Segnale_(informatica)">segnali Unix</a>
+// Ad esempio, potremmo volere che il nostro programma
 // termini in modo corretto se riceve un `SIGTERM` oppure
 // vorremmo dire ad un programma a linea di comando di
 // interrompersi se riceve un `SIGINT`.
