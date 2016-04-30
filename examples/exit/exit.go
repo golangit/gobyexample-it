@@ -1,5 +1,3 @@
-// Use `os.Exit` to immediately exit with a given
-// status.
 // Usa `os.Exit` per terminare immediatamente l'esecuzione
 // di un programma con un determinato [valore di uscita](https://it.wikipedia.org/wiki/Valore_di_uscita).
 
