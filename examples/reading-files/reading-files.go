@@ -1,5 +1,5 @@
-// Leggere e scrivere su files è un task basilare
-// necessario ad una marea di programma. Vediamo prima
+// Leggere e scrivere su file è un task basilare
+// necessario ad una marea di programmi. Vediamo prima
 // qualche esempio di lettura da file.
 
 package main
@@ -31,7 +31,7 @@ func main() {
 
 	// Generalmente si vuole più controllo sul modo con
 	// viene letto un file. Per queste funzionalità si
-	// deve iniziare aprendo il file (con `Open`) al fine
+	// deve iniziare aprendo il file (con `os.Open`) al fine
 	// di ottenere un valore di tipo `os.File`.
 	f, err := os.Open("/tmp/dat")
 	check(err)
@@ -45,7 +45,7 @@ func main() {
 	check(err)
 	fmt.Printf("%d bytes: %s\n", n1, string(b1))
 
-	// È possibile posizionari in un punto preciso del file
+	// È possibile posizionarsi in un punto preciso del file
 	// tramite `Seek` ed effettuare una `Read` da quel punto
 	o2, err := f.Seek(6, 0)
 	check(err)
