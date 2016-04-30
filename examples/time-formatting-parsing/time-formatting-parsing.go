@@ -1,5 +1,6 @@
-// Go supporta la formattazione di struct di tipo `time`
-// tramite layout personalizzabili.
+// Go supporta la formattazione di struct di tipo `time.Time`
+// che permettono di descrivere istanti temporali tramite 
+// layout personalizzabili.
 
 package main
 
@@ -10,7 +11,7 @@ func main() {
 	p := fmt.Println
 
 	// Ecco un esempio di come è possibile formattare un `time`
-	// secondo l'RFC3339, utilizzando la corrispondente costante.
+	// secondo l'RFC3339, utilizzando la costante corrispondente.
 	t := time.Now()
 	p(t.Format(time.RFC3339))
 
