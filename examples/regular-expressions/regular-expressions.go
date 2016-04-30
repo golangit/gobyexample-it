@@ -9,14 +9,14 @@ import "regexp"
 
 func main() {
 
-	// Questo controlla se una stringa soddisfa una regexp
+	// Questo controlla che una stringa soddisfi una regexp
 	match, _ := regexp.MatchString("p([a-z]+)ch", "peach")
 	fmt.Println(match)
 
 	// Prima abbiamo utilizzato le regexp in modo diretto.
-	// Nel caso generale è necessario invocare prima il
-	// `Compile` su una regexp, al fine di ottenere una
-	// struct `Regexp` ottimizzata.
+	// In generale si invoca prima il `Compile` su una
+	// regexp, al fine di ottenere una struct `Regexp`
+	// ottimizzata.
 	r, _ := regexp.Compile("p([a-z]+)ch")
 
 	// Su questa struttura abbiamo a disposizione svariati
@@ -51,7 +51,7 @@ func main() {
 	fmt.Println(r.FindAllStringSubmatchIndex(
 		"peach punch pinch", -1))
 
-	// Se si passa un interno non negativo come secondo parametro
+	// Se si passa un intero non negativo come secondo parametro
 	// di queste funzioni si sta limitando il numero
 	// di match da ritornare. Ad esempio in questo caso
 	// si è interessati solamente ai primi 2 match.
@@ -59,7 +59,7 @@ func main() {
 
 	// Il nostro primo esempio mostrava la funzione
 	// `MatchString` che lavorava su stringhe. È possibile
-	// passare anche parametro di tipo `[]string` ed
+	// passare anche parametro di tipo `[]byte` ed
 	// utilizzare la funzione `Match`.
 	fmt.Println(r.Match([]byte("peach")))
 

@@ -14,4 +14,4 @@ a <fruit>
 a PEACH
 
 # Per la documentazione completa delle espressioni regolari
-# in Go si rimanda alla [pagina del pacchetto `regexp`](http://golang.org/pkg/regexp/)
+# in Go, controlla la [pagina del pacchetto `regexp`](http://golang.org/pkg/regexp/)
