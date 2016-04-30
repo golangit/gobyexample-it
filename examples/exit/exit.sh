@@ -1,13 +1,14 @@
-#  If you run `exit.go` using `go run`, the exit
-# will be picked up by `go` and printed.
+# Se esegui `exit.go` usando `go run`, il valore di uscita
+# verrà intercettato da Go e stampato.
 $ go run exit.go
 exit status 3
 
-# By building and executing a binary you can see
-# the status in the terminal.
+# Compilando e eseguendo il programma potrai anche vedere
+# il valore di ritorno nel terminale.
 $ go build exit.go
 $ ./exit
 $ echo $?
 3
 
-# Note that the `!` from our program never got printed.
+# Nota che il `!` del nostro programma non è mai stato
+# stampato.
