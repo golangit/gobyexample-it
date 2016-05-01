@@ -4,7 +4,7 @@
 
 package main
 
-// Il pacchetto `strconv` della standar library offre
+// Il pacchetto `strconv` della standard library offre
 // le funzioni necessarie al parsing
 import "strconv"
 import "fmt"
