@@ -1,40 +1,45 @@
-// Parsing numbers from strings is a basic but common task
-// in many programs; here's how to do it in Go.
+// Effettuare il parsing da una stringa ad un numero
+// è un task tanto semplice quanto comune in molti programmi.
+// Vedremo adesso come effettuare il parsing dei numeri in Go.
 
 package main
 
-// The built-in package `strconv` provides the number
-// parsing.
+// Il pacchetto `strconv` della standard library offre
+// le funzioni necessarie al parsing
 import "strconv"
 import "fmt"
 
 func main() {
 
-    // With `ParseFloat`, this `64` tells how many bits of
-    // precision to parse.
-    f, _ := strconv.ParseFloat("1.234", 64)
-    fmt.Println(f)
+	// Tramite la funzione `ParseFloat` è possibile indicare il
+	// numero di bit della precisione da utilizzare (in questo
+	// caso 64).
+	f, _ := strconv.ParseFloat("1.234", 64)
+	fmt.Println(f)
 
-    // For `ParseInt`, the `0` means infer the base from
-    // the string. `64` requires that the result fit in 64
-    // bits.
-    i, _ := strconv.ParseInt("123", 0, 64)
-    fmt.Println(i)
+	// Tramite la funzione `ParseInt` è possibile indicare la
+	// base da utilizzare per il parsing, tramite il secondo
+	// parametro. Il valore `0` sta ad indicare che la base
+	// deve essere inferita automaticamente dalla stringa.
+	// Il parametro `64` richiede che il risultato sia
+	// rappresentabile con 64 bit.
+	i, _ := strconv.ParseInt("123", 0, 64)
+	fmt.Println(i)
 
-    // `ParseInt` will recognize hex-formatted numbers.
-    d, _ := strconv.ParseInt("0x1c8", 0, 64)
-    fmt.Println(d)
+	// La funzione `ParseInt` riconosce anche i numeri esadecimali
+	d, _ := strconv.ParseInt("0x1c8", 0, 64)
+	fmt.Println(d)
 
-    // A `ParseUint` is also available.
-    u, _ := strconv.ParseUint("789", 0, 64)
-    fmt.Println(u)
+	// È disponibile anche la funzione `ParseUint`
+	u, _ := strconv.ParseUint("789", 0, 64)
+	fmt.Println(u)
 
-    // `Atoi` is a convenience function for basic base-10
-    // `int` parsing.
-    k, _ := strconv.Atoi("135")
-    fmt.Println(k)
+	// La funzione `Atoi` è una funzione di convenienza per
+	// convertire da numeri in base 10 a `int`
+	k, _ := strconv.Atoi("135")
+	fmt.Println(k)
 
-    // Parse functions return an error on bad input.
-    _, e := strconv.Atoi("wat")
-    fmt.Println(e)
+	// Le funzioni di parsing possono ritornare un errore
+	_, e := strconv.Atoi("wat")
+	fmt.Println(e)
 }
