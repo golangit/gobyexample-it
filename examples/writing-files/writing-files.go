@@ -18,7 +18,7 @@ func check(e error) {
 
 func main() {
 
-	// Come prima cosa, questo è si può scrivere una
+	// Come prima cosa, vediamo come si può scrivere una
 	// stringa (o dei byte) in un file.
 	d1 := []byte("ciao\ngo\n")
 	err := ioutil.WriteFile("/tmp/dat1", d1, 0644)
@@ -30,7 +30,7 @@ func main() {
 	check(err)
 
 	// È idiomatico fare un defer di `Close` subito dopo
-	// aver aperto un file (e aver controllato per
+	// aver aperto un file (ed aver controllato
 	// eventuali errori, ovviamente.)
 	defer f.Close()
 
