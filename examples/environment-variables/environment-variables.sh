@@ -1,6 +1,6 @@
-# Eseguendo il programma vedremo che il programma
-# stamperà il valore di `FOO` che abbiamo impostato nel
-# programma stesso, ma che `BAR` è vuoto.
+# Eseguendo il programma verrà stampato il valore di
+# `FOO`, impostato da noi nel sorgente, mentre il valore
+# di `BAR` sarà vuoto.
 $ go run environment-variables.go
 FOO: 1
 BAR: 
