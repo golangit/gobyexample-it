@@ -1,6 +1,6 @@
 // Spesso i nostri programmi potrebbero aver bisogno di
 // ottenere il numero di secondi, millisecondi o
-// nanosecondi dall'<a href="https://it.wikipedia.org/wiki/Tempo_(Unix)">Unix Epoch</a>.
+// nanosecondi dallo <a href="https://it.wikipedia.org/wiki/Tempo_(Unix)">Unix Epoch</a>.
 // Ecco come si può fare in Go.
 
 package main
@@ -11,7 +11,7 @@ import "time"
 func main() {
 
 	// Usa `time.Now` con `Unix` o `UnixNano` per
-	// ottenere il tempo passato dall'Unix Epoch
+	// ottenere il tempo passato dallo Unix Epoch
 	// rispettivamente in secondi o millisecondi.
 	now := time.Now()
 	secs := now.Unix()
@@ -20,7 +20,7 @@ func main() {
 
 	// Nota che non c'è nessun `UnixMillis`, quindi per
 	// ottenere i millisecondi devi dividere manualmente
-	// dai nanosecondi.
+	// i nanosecondi.
 	millis := nanos / 1000000
 	fmt.Println(secs)
 	fmt.Println(millis)
