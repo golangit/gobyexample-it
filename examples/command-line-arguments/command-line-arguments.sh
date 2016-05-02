@@ -1,6 +1,6 @@
 # To experiment with command-line arguments it's best to
 # build a binary with `go build` first.
-#`Per sperimentare con gli argomenti della linea di
+# Per sperimentare con gli argomenti della linea di
 # comando, è meglio creare un file binario con `go build`
 # prima.
 $ go build command-line-arguments.go
