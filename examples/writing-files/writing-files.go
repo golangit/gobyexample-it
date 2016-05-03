@@ -1,58 +1,64 @@
-// Writing files in Go follows similar patterns to the
-// ones we saw earlier for reading.
+// Scrivere file in Go segue dei pattern simili a quelli
+// che abbiamo visto in precedenza per la lettura.
 
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "io/ioutil"
-    "os"
+	"bufio"
+	"fmt"
+	"io/ioutil"
+	"os"
 )
 
 func check(e error) {
-    if e != nil {
-        panic(e)
-    }
+	if e != nil {
+		panic(e)
+	}
 }
 
 func main() {
 
-    // To start, here's how to dump a string (or just
-    // bytes) into a file.
-    d1 := []byte("hello\ngo\n")
-    err := ioutil.WriteFile("/tmp/dat1", d1, 0644)
-    check(err)
+	// Come prima cosa, vediamo come si può scrivere una
+	// stringa (o dei byte) in un file.
+	d1 := []byte("ciao\ngo\n")
+	err := ioutil.WriteFile("/tmp/dat1", d1, 0644)
+	check(err)
 
-    // For more granular writes, open a file for writing.
-    f, err := os.Create("/tmp/dat2")
-    check(err)
+	// Per delle scritture più "scandite", apriamo un file
+	// per la scrittura.
+	f, err := os.Create("/tmp/dat2")
+	check(err)
 
-    // It's idiomatic to defer a `Close` immediately
-    // after opening a file.
-    defer f.Close()
+	// È idiomatico fare un defer di `Close` subito dopo
+	// aver aperto un file (ed aver controllato
+	// eventuali errori, ovviamente.)
+	defer f.Close()
 
-    // You can `Write` byte slices as you'd expect.
-    d2 := []byte{115, 111, 109, 101, 10}
-    n2, err := f.Write(d2)
-    check(err)
-    fmt.Printf("wrote %d bytes\n", n2)
+	// Puoi usare `Write` per scrivere slice di byte,
+	// come ci si aspetterebbe.
+	d2 := []byte{100, 101, 105, 10}
+	n2, err := f.Write(d2)
+	check(err)
+	fmt.Printf("scritti %d byte\n", n2)
 
-    // A `WriteString` is also available.
-    n3, err := f.WriteString("writes\n")
-    fmt.Printf("wrote %d bytes\n", n3)
+	// Per comodità, c'è anche `WriteString`.
+	n3, err := f.WriteString("write\n")
+	fmt.Printf("scritti %d byte\n", n3)
 
-    // Issue a `Sync` to flush writes to stable storage.
-    f.Sync()
+	// Usa un `Sync` per assicurarti che i dati siano
+	// scritti su disco.
+	f.Sync()
 
-    // `bufio` provides buffered writers in addition
-    // to the buffered readers we saw earlier.
-    w := bufio.NewWriter(f)
-    n4, err := w.WriteString("buffered\n")
-    fmt.Printf("wrote %d bytes\n", n4)
+	// Il package `bufio` dispone di writer
+	// bufferizzati, oltre ai reader bufferizzati che
+	// abbiamo visto in precenza.
+	w := bufio.NewWriter(f)
+	n4, err := w.WriteString("bufferizzati\n")
+	fmt.Printf("scritti %d byte\n", n4)
 
-    // Use `Flush` to ensure all buffered operations have
-    // been applied to the underlying writer.
-    w.Flush()
+	// Anche in questo caso, usa `Flush` per essere sicuro
+	// che tutte le operazioni siano state apportate sul
+	// writer vero e proprio.
+	w.Flush()
 
 }
