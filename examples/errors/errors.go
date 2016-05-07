@@ -19,9 +19,10 @@ import "fmt"
 func f1(arg int) (int, error) {
 	if arg == 42 {
 
-		// `errors.New` crea un errore basico con il
+		// `errors.New` crea un errore base con il
 		// messaggio di errore dato.
-		return -1, errors.New("impossibile calcolare con 42")
+		err := errors.New("impossibile calcolare con 42")
+		return -1, err
 
 	}
 
@@ -50,7 +51,7 @@ func f2(arg int) (int, error) {
 		// In questo caso, usiamo la sintassi
 		// `&argError` per costruire una nuova struct ed
 		// inserire i valori dei due campi, `arg` e `prob`.
-		return -1, &argError{arg, "impossibile calcolare usandolo"}
+		return -1, &argError{arg, "impossibile calcolare"}
 	}
 	return arg + 3, nil
 }

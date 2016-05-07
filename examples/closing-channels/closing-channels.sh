@@ -8,5 +8,6 @@ received job 3
 sent all jobs
 received all jobs
 
-# L'esempio che segue deriva direttamente dal concetto di chiusura
-# di un channel: come effettuare un `range` su un channel.
+# L'esempio che segue deriva direttamente dal concetto di
+# chiusura di un channel: come effettuare un `range`
+# su un channel.

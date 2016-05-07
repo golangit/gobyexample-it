@@ -13,7 +13,7 @@ import "time"
 // `Sleep` da un secondo per simulare un task oneroso.
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
-		fmt.Println("worker", id, "sta eseguendo il task", j)
+		fmt.Println("worker", id, "sta eseguendo task", j)
 		time.Sleep(time.Second)
 		results <- j * 2
 	}

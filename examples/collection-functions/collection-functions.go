@@ -79,7 +79,8 @@ func Filtra(vs []string, f func(string) bool) []string {
 // Ritorna un nuovo slice che contiene i risultati
 // dell'applicazione della funzione `f` su ogni stringa
 // dello slice `vs`.
-func Applica(vs []string, f func(string) string) []string {
+func Applica(vs []string,
+	f func(string) string) []string {
 	vsa := make([]string, len(vs))
 	for i, v := range vs {
 		vsa[i] = f(v)
