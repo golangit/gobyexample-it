@@ -2,7 +2,7 @@
 
 ## Go by Example - IT (gobyexample.it)
 
-Versiona italiana di [Go by Example](https://gobyexample.com),
+Versione italiana di [Go by Example](https://gobyexample.com),
 un sito che insegna a programmare in Go utilizzando
 degli esempi pratici commentati.
 
