@@ -16,32 +16,32 @@ import "syscall"
 
 func main() {
 
-	// I segnali su Go vengono gestiti tramite l'invio
-	// di valori di tipo `os.Signal` su un channel.
-	// Qui creiamo un channel per ricevere queste notifiche,
-	// ed uno che utilizzeremo per la terminazione del programma.
-	sigs := make(chan os.Signal, 1)
-	done := make(chan bool, 1)
+    // I segnali su Go vengono gestiti tramite l'invio
+    // di valori di tipo `os.Signal` su un channel.
+    // Qui creiamo un channel per ricevere queste notifiche,
+    // ed uno che utilizzeremo per la terminazione del programma.
+    sigs := make(chan os.Signal, 1)
+    done := make(chan bool, 1)
 
-	// La funzione `signal.Notify` registra questo channel
-	// per la ricezione di specifici segnali.
-	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
+    // La funzione `signal.Notify` registra questo channel
+    // per la ricezione di specifici segnali.
+    signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
-	// Questa goroutine si blocca sul channel `sigs` in
-	// attesa di un segnale. Quando lo riceve, lo stamperà
-	// a schermo e aggiungerà un messaggio nel channel
-	// `done`, per notificare la goroutine main che può
-	// terminare.
-	go func() {
-		sig := <-sigs
-		fmt.Println()
-		fmt.Println(sig)
-		done <- true
-	}()
+    // Questa goroutine si blocca sul channel `sigs` in
+    // attesa di un segnale. Quando lo riceve, lo stamperà
+    // a schermo e aggiungerà un messaggio nel channel
+    // `done`, per notificare la goroutine main che può
+    // terminare.
+    go func() {
+        sig := <-sigs
+        fmt.Println()
+        fmt.Println(sig)
+        done <- true
+    }()
 
-	// Il programma si bloccherà qui in attesa di un valore
-	// sul channel `done` e poi terminerà.
-	fmt.Println("awaiting signal")
-	<-done
-	fmt.Println("exiting")
+    // Il programma si bloccherà qui in attesa di un valore
+    // sul channel `done` e poi terminerà.
+    fmt.Println("awaiting signal")
+    <-done
+    fmt.Println("exiting")
 }

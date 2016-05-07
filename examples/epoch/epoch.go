@@ -10,24 +10,24 @@ import "time"
 
 func main() {
 
-	// Usa `time.Now` con `Unix` o `UnixNano` per
-	// ottenere il tempo passato dallo Unix Epoch
-	// rispettivamente in secondi o millisecondi.
-	now := time.Now()
-	secs := now.Unix()
-	nanos := now.UnixNano()
-	fmt.Println(now)
+    // Usa `time.Now` con `Unix` o `UnixNano` per
+    // ottenere il tempo passato dallo Unix Epoch
+    // rispettivamente in secondi o millisecondi.
+    now := time.Now()
+    secs := now.Unix()
+    nanos := now.UnixNano()
+    fmt.Println(now)
 
-	// Nota che non c'è nessun `UnixMillis`, quindi per
-	// ottenere i millisecondi devi dividere manualmente
-	// i nanosecondi.
-	millis := nanos / 1000000
-	fmt.Println(secs)
-	fmt.Println(millis)
-	fmt.Println(nanos)
+    // Nota che non c'è nessun `UnixMillis`, quindi per
+    // ottenere i millisecondi devi dividere manualmente
+    // i nanosecondi.
+    millis := nanos / 1000000
+    fmt.Println(secs)
+    fmt.Println(millis)
+    fmt.Println(nanos)
 
-	// Puoi anche convertire un int con il numero di
-	// secondi o di millisecondi ad un `time.Time`.
-	fmt.Println(time.Unix(secs, 0))
-	fmt.Println(time.Unix(0, nanos))
+    // Puoi anche convertire un int con il numero di
+    // secondi o di millisecondi ad un `time.Time`.
+    fmt.Println(time.Unix(secs, 0))
+    fmt.Println(time.Unix(0, nanos))
 }

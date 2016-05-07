@@ -10,19 +10,19 @@ import "fmt"
 
 func main() {
 
-	// `os.Args` fornisce accesso dirretto agli argomenti
-	// della linea di comando. Nota che il primo valore
-	// in questa slice è il percorso del programma, e
-	// `os.Args[1:]` contiene i veri argomenti del
-	// programma.
-	argsConProg := os.Args
-	argsSenzaProg := os.Args[1:]
+    // `os.Args` fornisce accesso dirretto agli argomenti
+    // della linea di comando. Nota che il primo valore
+    // in questa slice è il percorso del programma, e
+    // `os.Args[1:]` contiene i veri argomenti del
+    // programma.
+    argsConProg := os.Args
+    argsSenzaProg := os.Args[1:]
 
-	// Puoi ottenere gli argomenti individualmente con
-	// l'indexing.
-	arg := os.Args[3]
+    // Puoi ottenere gli argomenti individualmente con
+    // l'indexing.
+    arg := os.Args[3]
 
-	fmt.Println(argsConProg)
-	fmt.Println(argsSenzaProg)
-	fmt.Println(arg)
+    fmt.Println(argsConProg)
+    fmt.Println(argsSenzaProg)
+    fmt.Println(arg)
 }

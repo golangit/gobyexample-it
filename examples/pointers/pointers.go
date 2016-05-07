@@ -14,7 +14,7 @@ import "fmt"
 // parametro `ival` verrà copiato da quello della
 // funzione chiamante.
 func zeroval(ival int) {
-	ival = 0
+    ival = 0
 }
 
 // `zeroptr` invece ha un parametro di tipo `*int`, e ciò
@@ -25,21 +25,21 @@ func zeroval(ival int) {
 // ad `*iptr` si va a modificare il valore all'indirizzo di memoria
 // puntanto.
 func zeroptr(iptr *int) {
-	*iptr = 0
+    *iptr = 0
 }
 
 func main() {
-	i := 1
-	fmt.Println("iniziale: ", i)
+    i := 1
+    fmt.Println("iniziale: ", i)
 
-	zeroval(i)
-	fmt.Println("zeroval:  ", i)
+    zeroval(i)
+    fmt.Println("zeroval:  ", i)
 
-	// La formula `&i` ritorna l'indirizzo nella memoria
-	// di `i`, ovvero un puntatore ad `i`.
-	zeroptr(&i)
-	fmt.Println("zeroptr:  ", i)
+    // La formula `&i` ritorna l'indirizzo nella memoria
+    // di `i`, ovvero un puntatore ad `i`.
+    zeroptr(&i)
+    fmt.Println("zeroptr:  ", i)
 
-	// Anche i puntatori possono essere stampati.
-	fmt.Println("puntatore:", &i)
+    // Anche i puntatori possono essere stampati.
+    fmt.Println("puntatore:", &i)
 }

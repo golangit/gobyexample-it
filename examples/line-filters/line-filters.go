@@ -10,34 +10,34 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
+    "bufio"
+    "fmt"
+    "os"
+    "strings"
 )
 
 func main() {
 
-	// Tramite `NewScanner` creiamo un wrapper intorno a
-	// `os.Stdin` (che è non bufferizzato), permettendoci
-	// di invocare la funzione `Scan` per ottenere il
-	// prossimo token (in questo caso la prossima linea).
-	scanner := bufio.NewScanner(os.Stdin)
+    // Tramite `NewScanner` creiamo un wrapper intorno a
+    // `os.Stdin` (che è non bufferizzato), permettendoci
+    // di invocare la funzione `Scan` per ottenere il
+    // prossimo token (in questo caso la prossima linea).
+    scanner := bufio.NewScanner(os.Stdin)
 
-	for scanner.Scan() {
-		// `Text` ritorna il token corrente, in questo caso
-		// la prossima linea dall'input.
-		ucl := strings.ToUpper(scanner.Text())
+    for scanner.Scan() {
+        // `Text` ritorna il token corrente, in questo caso
+        // la prossima linea dall'input.
+        ucl := strings.ToUpper(scanner.Text())
 
-		// Stampa la linea in maiuscolo.
-		fmt.Println(ucl)
-	}
+        // Stampa la linea in maiuscolo.
+        fmt.Println(ucl)
+    }
 
-	// Controlla eventuali errori durante lo `Scan`.
-	// Un _End of file_ è atteso dallo scanner e non viene
-	// quindi considerato un errore
-	if err := scanner.Err(); err != nil {
-		fmt.Fprintln(os.Stderr, "error:", err)
-		os.Exit(1)
-	}
+    // Controlla eventuali errori durante lo `Scan`.
+    // Un _End of file_ è atteso dallo scanner e non viene
+    // quindi considerato un errore
+    if err := scanner.Err(); err != nil {
+        fmt.Fprintln(os.Stderr, "error:", err)
+        os.Exit(1)
+    }
 }

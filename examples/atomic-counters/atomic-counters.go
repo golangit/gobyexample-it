@@ -16,38 +16,38 @@ import "runtime"
 
 func main() {
 
-	// Utilizzermo un unsigned integer per rappresentare
-	// il nostro contatore (che non sarà mai negativo).
-	var ops uint64 = 0
+    // Utilizzermo un unsigned integer per rappresentare
+    // il nostro contatore (che non sarà mai negativo).
+    var ops uint64 = 0
 
-	// Per simulare degli aggiornamenti concorrenti,
-	// avvieremo 50 goroutine. Queste goroutine incrementeranno
-	// il contatore circa ogni millisecondo.
-	for i := 0; i < 50; i++ {
-		go func() {
-			for {
-				// Per incrementare in modo atomico il
-				// contatore utilizziamo la funzione `AddUint64`
-				// passandogli il puntatore alla variabile `ops`
-				// utilizzando l'operatore `&`.
-				atomic.AddUint64(&ops, 1)
+    // Per simulare degli aggiornamenti concorrenti,
+    // avvieremo 50 goroutine. Queste goroutine incrementeranno
+    // il contatore circa ogni millisecondo.
+    for i := 0; i < 50; i++ {
+        go func() {
+            for {
+                // Per incrementare in modo atomico il
+                // contatore utilizziamo la funzione `AddUint64`
+                // passandogli il puntatore alla variabile `ops`
+                // utilizzando l'operatore `&`.
+                atomic.AddUint64(&ops, 1)
 
-				// Permettiamo alle altre goroutine di procedere.
-				runtime.Gosched()
-			}
-		}()
-	}
+                // Permettiamo alle altre goroutine di procedere.
+                runtime.Gosched()
+            }
+        }()
+    }
 
-	// Attendiamo un secondo per permettere alle goroutine
-	// di effettuare qualche incremento.
-	time.Sleep(time.Second)
+    // Attendiamo un secondo per permettere alle goroutine
+    // di effettuare qualche incremento.
+    time.Sleep(time.Second)
 
-	// Al fine di poter leggere il contatore in modo sicuro,
-	// mentre viene ancora aggiornato dalle goroutine, possiamo
-	// estrarne una copia del valore e salvarlo dentro
-	// `opsFinal` tramite la funzione `LoadUint64`.
-	// Come sopra, dobbiamo passare a questa funzione
-	// il puntatore `&ops` dal quale leggere il valore
-	opsFinal := atomic.LoadUint64(&ops)
-	fmt.Println("ops:", opsFinal)
+    // Al fine di poter leggere il contatore in modo sicuro,
+    // mentre viene ancora aggiornato dalle goroutine, possiamo
+    // estrarne una copia del valore e salvarlo dentro
+    // `opsFinal` tramite la funzione `LoadUint64`.
+    // Come sopra, dobbiamo passare a questa funzione
+    // il puntatore `&ops` dal quale leggere il valore
+    opsFinal := atomic.LoadUint64(&ops)
+    fmt.Println("ops:", opsFinal)
 }
