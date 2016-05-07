@@ -8,12 +8,12 @@ import "os"
 
 func main() {
 
-	// I `defer` _non_ saranno eseguiti con `os.Exit`,
-	// quindi questo `fmt.Println` non verrà mai eseguito.
-	defer fmt.Println("!")
+    // I `defer` _non_ saranno eseguiti con `os.Exit`,
+    // quindi questo `fmt.Println` non verrà mai eseguito.
+    defer fmt.Println("!")
 
-	// Terminiamo il programma col valore di uscita 3.
-	os.Exit(3)
+    // Terminiamo il programma col valore di uscita 3.
+    os.Exit(3)
 }
 
 // Nota che a differenza di C e simili, Go non usa un

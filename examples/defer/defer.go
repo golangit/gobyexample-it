@@ -13,31 +13,31 @@ import "os"
 // farlo utilizzando `defer`.
 func main() {
 
-	// Subito dopo aver creato un file con la funzione
-	// `createFile`, utilizziamo `defer` su `closeFile`.
-	// Questa funzione sarà eseguita al termine della funzione
-	// dentro la quale è stata chiamata (in questo caso
-	// `main`), appena la funzione `writeFile` avrà terminato.
-	f := createFile("/tmp/defer.txt")
-	defer closeFile(f)
-	writeFile(f)
+    // Subito dopo aver creato un file con la funzione
+    // `createFile`, utilizziamo `defer` su `closeFile`.
+    // Questa funzione sarà eseguita al termine della funzione
+    // dentro la quale è stata chiamata (in questo caso
+    // `main`), appena la funzione `writeFile` avrà terminato.
+    f := createFile("/tmp/defer.txt")
+    defer closeFile(f)
+    writeFile(f)
 }
 
 func createFile(p string) *os.File {
-	fmt.Println("creazione")
-	f, err := os.Create(p)
-	if err != nil {
-		panic(err)
-	}
-	return f
+    fmt.Println("creazione")
+    f, err := os.Create(p)
+    if err != nil {
+        panic(err)
+    }
+    return f
 }
 
 func writeFile(f *os.File) {
-	fmt.Println("scrittura")
-	fmt.Fprintln(f, "data")
+    fmt.Println("scrittura")
+    fmt.Fprintln(f, "data")
 }
 
 func closeFile(f *os.File) {
-	fmt.Println("chiusura")
-	f.Close()
+    fmt.Println("chiusura")
+    f.Close()
 }

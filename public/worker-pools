@@ -2,31 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Worker Pools</title>
+    <title>Go by Example - IT: Worker Pools</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="worker-pools">
-      <h2><a href="./">Go by Example</a>: Worker Pools</h2>
+      <h2><a href="./">Go by Example - IT</a>: Worker Pools</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll look at how to implement
-a <em>worker pool</em> using goroutines and channels.</p>
+            <p>In questo esempio vedremo come implementare
+un <em>worker pool</em> usando le goroutine e i channel.</p>
 
           </td>
           <td class="code empty leading">
@@ -40,7 +28,7 @@ a <em>worker pool</em> using goroutines and channels.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/y12QxBsKtT"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -62,18 +50,18 @@ a <em>worker pool</em> using goroutines and channels.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker, of which we&rsquo;ll run several
-concurrent instances. These workers will receive
-work on the <code>jobs</code> channel and send the corresponding
-results on <code>results</code>. We&rsquo;ll sleep a second per job to
-simulate an expensive task.</p>
+            <p>Questo è il worker, sul quale eseguiremo i nostri
+task concorrenti. Questi worker riceveranno i task da
+eseguire sul channel <code>jobs</code> ed invieranno i risultati sul
+channel <code>results</code>. In questo esempio abbiamo inserito una
+<code>Sleep</code> da un secondo per simulare un task oneroso.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">worker</span><span class="p">(</span><span class="nx">id</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">jobs</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">results</span> <span class="kd">chan</span><span class="o">&lt;-</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">jobs</span> <span class="p">{</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;worker&quot;</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="s">&quot;processing job&quot;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;worker&quot;</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="s">&quot;sta eseguendo task&quot;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
         <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
         <span class="nx">results</span> <span class="o">&lt;-</span> <span class="nx">j</span> <span class="o">*</span> <span class="mi">2</span>
     <span class="p">}</span>
@@ -97,9 +85,9 @@ simulate an expensive task.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use our pool of workers we need to send
-them work and collect their results. We make 2
-channels for this.</p>
+            <p>Per poter utilizzare il pool di worker dobbiamo
+poter inviare i task e poter ricevere i risultati,
+creiamo dunque due channel per questo</p>
 
           </td>
           <td class="code leading">
@@ -113,8 +101,8 @@ channels for this.</p>
         
         <tr>
           <td class="docs">
-            <p>This starts up 3 workers, initially blocked
-because there are no jobs yet.</p>
+            <p>Questo farà partire 3 worker, che saranno inizialmente
+bloccati in quanto non hanno task da eseguire.</p>
 
           </td>
           <td class="code leading">
@@ -129,8 +117,9 @@ because there are no jobs yet.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we send 9 <code>jobs</code> and then <code>close</code> that
-channel to indicate that&rsquo;s all the work we have.</p>
+            <p>Inviamo 9 task da eseguire sul channel <code>job</code> ed invochiamo
+la <code>close</code> su quel canale, in modo da indicare che non
+ci sono altri task da eseguire.</p>
 
           </td>
           <td class="code leading">
@@ -146,7 +135,8 @@ channel to indicate that&rsquo;s all the work we have.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally we collect all the results of the work.</p>
+            <p>Infine recuperiamo i risultati delle computazioni sul
+channel <code>results</code></p>
 
           </td>
           <td class="code">
@@ -166,24 +156,25 @@ channel to indicate that&rsquo;s all the work we have.</p>
         
         <tr>
           <td class="docs">
-            <p>Our running program shows the 9 jobs being executed by
-various workers. The program only takes about 3 seconds
-despite doing about 9 seconds of total work because
-there are 3 workers operating concurrently.</p>
+            <p>Il nostro programma in esecuzione mostra i 9 task
+che vengono eseguiti dai vari worker. Il programma
+termina in circa 3 secondi, anche se il totale dei
+task avrebbe richiesto 9 secondi. Questo perchè ci
+sono 3 worker che vengono eseguiti in parallelo</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> <span class="nb">time </span>go run worker-pools.go 
-<span class="go">worker 1 processing job 1</span>
-<span class="go">worker 2 processing job 2</span>
-<span class="go">worker 3 processing job 3</span>
-<span class="go">worker 1 processing job 4</span>
-<span class="go">worker 2 processing job 5</span>
-<span class="go">worker 3 processing job 6</span>
-<span class="go">worker 1 processing job 7</span>
-<span class="go">worker 2 processing job 8</span>
-<span class="go">worker 3 processing job 9</span>
+<span class="go">worker 1 sta eseguendo task job 1</span>
+<span class="go">worker 2 sta eseguendo task job 2</span>
+<span class="go">worker 3 sta eseguendo task job 3</span>
+<span class="go">worker 1 sta eseguendo task job 4</span>
+<span class="go">worker 2 sta eseguendo task job 5</span>
+<span class="go">worker 3 sta eseguendo task job 6</span>
+<span class="go">worker 1 sta eseguendo task job 7</span>
+<span class="go">worker 2 sta eseguendo task job 8</span>
+<span class="go">worker 3 sta eseguendo task job 9</span>
 </pre></div>
 
           </td>
@@ -209,7 +200,7 @@ there are 3 workers operating concurrently.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/worker-pools">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

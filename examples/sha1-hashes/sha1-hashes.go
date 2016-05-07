@@ -14,27 +14,27 @@ import "crypto/sha1"
 import "fmt"
 
 func main() {
-	s := "sha1 this string"
+    s := "sha1 this string"
 
-	// Il pattern per creare un nuovo hash è `sha1.New()`,
-	// `sha1.Write(bytes)`, ed infine `sha1.Sum([]byte{})`.
-	// Iniziamo creando un nuovo hash.
-	h := sha1.New()
+    // Il pattern per creare un nuovo hash è `sha1.New()`,
+    // `sha1.Write(bytes)`, ed infine `sha1.Sum([]byte{})`.
+    // Iniziamo creando un nuovo hash.
+    h := sha1.New()
 
-	// La funzione `Write` lavora con i bytes.
-	// Se si deve calcolare l'hash di una stringa `s`
-	// è possibile utilizzare `[]byte(s)` per ottenerne i bytes.
-	h.Write([]byte(s))
+    // La funzione `Write` lavora con i bytes.
+    // Se si deve calcolare l'hash di una stringa `s`
+    // è possibile utilizzare `[]byte(s)` per ottenerne i bytes.
+    h.Write([]byte(s))
 
-	// Con la funzione `Sum` è possibile ottenere il valore
-	// dell'hash. L'argomento può essere utilizzato per
-	// accodare il valore calcolato ad uno slice di byte
-	// esistente, non è generalmente necessario.
-	bs := h.Sum(nil)
+    // Con la funzione `Sum` è possibile ottenere il valore
+    // dell'hash. L'argomento può essere utilizzato per
+    // accodare il valore calcolato ad uno slice di byte
+    // esistente, non è generalmente necessario.
+    bs := h.Sum(nil)
 
-	// Gli SHA-1 sono generalmente stampati in formato
-	// esadecimale (ad esempio nei commit di git). Utilizza
-	// '%x' per stampare il valore in esadecimale.
-	fmt.Println(s)
-	fmt.Printf("%x\n", bs)
+    // Gli SHA-1 sono generalmente stampati in formato
+    // esadecimale (ad esempio nei commit di git). Utilizza
+    // '%x' per stampare il valore in esadecimale.
+    fmt.Println(s)
+    fmt.Printf("%x\n", bs)
 }

@@ -11,16 +11,16 @@ import "fmt"
 
 func main() {
 
-	// Qui creiamo un channel di string (con `make`) con un
-	// buffer di dimensione 2.
-	messages := make(chan string, 2)
+    // Qui creiamo un channel di string (con `make`) con un
+    // buffer di dimensione 2.
+    messages := make(chan string, 2)
 
-	// Dato che questo channel è bufferizzato, possiamo inviare questi
-	// due valori sul channel senza che il processo si blocchi.
-	messages <- "buffered"
-	messages <- "channel"
+    // Dato che questo channel è bufferizzato, possiamo inviare questi
+    // due valori sul channel senza che il processo si blocchi.
+    messages <- "buffered"
+    messages <- "channel"
 
-	// Possiamo recuperare successivamente i valori ricevuti sul channel.
-	fmt.Println(<-messages)
-	fmt.Println(<-messages)
+    // Possiamo recuperare successivamente i valori ricevuti sul channel.
+    fmt.Println(<-messages)
+    fmt.Println(<-messages)
 }

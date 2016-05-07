@@ -2,33 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Mutexes</title>
+    <title>Go by Example - IT: Mutexes</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="mutexes">
-      <h2><a href="./">Go by Example</a>: Mutexes</h2>
+      <h2><a href="./">Go by Example - IT</a>: Mutexes</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In the previous example we saw how to manage simple
-counter state using atomic operations. For more complex
-state we can use a _<a href="http://en.wikipedia.org/wiki/Mutual_exclusion">mutex</a>_
-to safely access data across multiple goroutines.</p>
+            <p>Nell&rsquo;esempio precedente abbiamo visto come gestire
+semplici addizioni utilizzando delle operazioni
+atomiche. Per una gestione dello stato più complessa
+usiamo le <em><a href="https://it.wikipedia.org/wiki/Mutex">mutex</a></em>
+per accedere con sicurezza a dati condivisi
+attraverso multiple goroutine.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +32,7 @@ to safely access data across multiple goroutines.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/-_LKNceBru"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -82,12 +72,13 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example the <code>state</code> will be a map.</p>
+            <p>Per il nostro esempio lo <code>stato</code> sarà una
+mappa.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">state</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">stato</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -95,7 +86,7 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>mutex</code> will synchronize access to <code>state</code>.</p>
+            <p>Questa <code>mutex</code> sincronizzerà l&rsquo;accesso a <code>stato</code>.</p>
 
           </td>
           <td class="code leading">
@@ -108,9 +99,9 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>To compare the mutex-based approach with another
-we&rsquo;ll see later, <code>ops</code> will count how many
-operations we perform against the state.</p>
+            <p>Per confrontare l&rsquo;approccio basato sulle mutex
+piuttosto che altri, <code>ops</code> conterà quante
+operazioni effettuiamo su <code>stato</code>.</p>
 
           </td>
           <td class="code leading">
@@ -123,15 +114,16 @@ operations we perform against the state.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we start 100 goroutines to execute repeated
-reads against the state.</p>
+            <p>Di seguito facciamo partire 100 goroutine che
+dovranno eseguire ripetute operazioni di lettura
+sullo stato.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">r</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">r</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">r</span><span class="o">++</span> <span class="p">{</span>
         <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nx">total</span> <span class="o">:=</span> <span class="mi">0</span>
+            <span class="nx">totale</span> <span class="o">:=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="p">{</span>
 </pre></div>
 
@@ -140,19 +132,21 @@ reads against the state.</p>
         
         <tr>
           <td class="docs">
-            <p>For each read we pick a key to access,
-<code>Lock()</code> the <code>mutex</code> to ensure
-exclusive access to the <code>state</code>, read
-the value at the chosen key,
-<code>Unlock()</code> the mutex, and increment
-the <code>ops</code> count.</p>
+            <p>Per ogni lettura scegliamo una chiave
+per accedere alla map, facciamo un
+<code>Lock()</code> sulla <code>mutex</code> per avere
+controllo esclusivo sullo <code>stato</code>,
+leggiamo il valore alla chiave
+scelta, sblocchiamo (<code>Unlock()</code>) la
+mutex, e incrementiamo il numero di
+operazioni (<code>ops</code>).</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>                <span class="nx">key</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <div class="highlight"><pre>                <span class="nx">chiave</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
                 <span class="nx">mutex</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
-                <span class="nx">total</span> <span class="o">+=</span> <span class="nx">state</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+                <span class="nx">totale</span> <span class="o">+=</span> <span class="nx">stato</span><span class="p">[</span><span class="nx">chiave</span><span class="p">]</span>
                 <span class="nx">mutex</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
                 <span class="nx">atomic</span><span class="p">.</span><span class="nx">AddInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">ops</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -162,14 +156,16 @@ the <code>ops</code> count.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to ensure that this goroutine
-doesn&rsquo;t starve the scheduler, we explicitly
-yield after each operation with
-<code>runtime.Gosched()</code>. This yielding is
-handled automatically with e.g. every
-channel operation and for blocking
-calls like <code>time.Sleep</code>, but in this
-case we need to do it manually.</p>
+            <p>Per essere sicuri che questa goroutine
+non blocchi lo scheduler, cediamo
+esplicitamente il controllo dopo ogni
+operazione utilizzando
+<code>runtime.Gosched()</code>. In genere viene
+eseguito automaticamente ad esempio
+con le operazioni sui channel o con
+funzioni come <code>time.Sleep</code>, ma in
+questo caso abbiamo bisogno di farlo
+manualmente.</p>
 
           </td>
           <td class="code leading">
@@ -185,8 +181,9 @@ case we need to do it manually.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll also start 10 goroutines to simulate writes,
-using the same pattern we did for reads.</p>
+            <p>Faremo inoltre partire altre 10 goroutine per
+simulare la scrittura, con lo stesso pattern
+che abbiamo usato per la lettura.</p>
 
           </td>
           <td class="code leading">
@@ -194,10 +191,10 @@ using the same pattern we did for reads.</p>
             <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">w</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">w</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">w</span><span class="o">++</span> <span class="p">{</span>
         <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
             <span class="k">for</span> <span class="p">{</span>
-                <span class="nx">key</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-                <span class="nx">val</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+                <span class="nx">chiave</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+                <span class="nx">valore</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
                 <span class="nx">mutex</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
-                <span class="nx">state</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">=</span> <span class="nx">val</span>
+                <span class="nx">stato</span><span class="p">[</span><span class="nx">chiave</span><span class="p">]</span> <span class="p">=</span> <span class="nx">valore</span>
                 <span class="nx">mutex</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
                 <span class="nx">atomic</span><span class="p">.</span><span class="nx">AddInt64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">ops</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
                 <span class="nx">runtime</span><span class="p">.</span><span class="nx">Gosched</span><span class="p">()</span>
@@ -211,8 +208,8 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Let the 10 goroutines work on the <code>state</code> and
-<code>mutex</code> for a second.</p>
+            <p>Lasciamo ora lavorare le 10 goroutine per un
+secondo.</p>
 
           </td>
           <td class="code leading">
@@ -225,7 +222,8 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Take and report a final operations count.</p>
+            <p>Prendiamo e stampiamo il numero di operazioni
+finale.</p>
 
           </td>
           <td class="code leading">
@@ -239,13 +237,14 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>With a final lock of <code>state</code>, show how it ended up.</p>
+            <p>Con un lock finale sullo <code>stato</code>, vediamo come
+si è evoluto lo stato.</p>
 
           </td>
           <td class="code">
 	        
             <div class="highlight"><pre>    <span class="nx">mutex</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;state:&quot;</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;stato:&quot;</span><span class="p">,</span> <span class="nx">stato</span><span class="p">)</span>
     <span class="nx">mutex</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
@@ -259,16 +258,16 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that we executed about
-3,500,000 operations against our <code>mutex</code>-synchronized
-<code>state</code>.</p>
+            <p>Eseguendo il nostro programma vedremo che abbiamo
+eseguito circa 4,000,000 di operazioni sul nostro
+<code>stato</code> sincronizzato da <code>mutex</code>.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run mutexes.go
-<span class="go">ops: 3598302</span>
-<span class="go">state: map[1:38 4:98 2:23 3:85 0:44]</span>
+<span class="go">ops: 4272750</span>
+<span class="go">stato: map[4:29 3:50 0:39 1:71 2:51]</span>
 </pre></div>
 
           </td>
@@ -276,8 +275,9 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at implementing this same state
-management task using only goroutines and channels.</p>
+            <p>Come prossima cosa, vedremo come come implementare
+questa gestione della memoria condivisa usando
+esclusivamente goroutine e channel.</p>
 
           </td>
           <td class="code empty">
@@ -294,7 +294,7 @@ management task using only goroutines and channels.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/mutexes">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

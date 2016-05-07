@@ -38,9 +38,10 @@ fork: false
 svar: bar
 trailing: [a1 a2 a3 -numb=7]
 
-# Usa `-h` o `--help` per ottenere i suggerimenti automatici
-# sull'utilizzo dei flag (che vengono generati a partire
-# dalle definizioni che mettiamo nel programma).
+# Usa `-h` o `--help` per ottenere i suggerimenti 
+# automatici sull'utilizzo dei flag (che vengono 
+# generati a partire dalle definizioni che mettiamo
+# nel programma).
 $ ./command-line-flags -h
 Usage of ./command-line-flags:
   -fork=false: a bool
@@ -56,5 +57,5 @@ flag provided but not defined: -wat
 Usage of ./command-line-flags:
 ...
 
-# Vedremo adesso le variabili d'ambiente. Un altro modo comune
-# per rendere parametrici i programmi.
+# Vedremo adesso le variabili d'ambiente. Un altro modo
+# comune per rendere parametrici i programmi.

@@ -10,20 +10,20 @@ import "fmt"
 
 func main() {
 
-	// Itereremo su 2 valori nel canale `queue`.
-	queue := make(chan string, 2)
-	queue <- "one"
-	queue <- "two"
-	close(queue)
+    // Itereremo su 2 valori nel canale `queue`.
+    queue := make(chan string, 2)
+    queue <- "one"
+    queue <- "two"
+    close(queue)
 
-	// Questo `range` reitera su ogni elemento ogni qual
-	// volta che viene ricevuto dal channel `queue`.
-	// Poiché abbiamo effettuato un `close` sul canale
-	// in precedenza, la iterazione terminerà dopo aver
-	// ricevuto i 2 elementi. Se non avessimo effettuato
-	// il `close` sul canale, allora saremmo bloccati ad
-	// attendere per un terzo futuro valore
-	for elem := range queue {
-		fmt.Println(elem)
-	}
+    // Questo `range` reitera su ogni elemento ogni qual
+    // volta che viene ricevuto dal channel `queue`.
+    // Poiché abbiamo effettuato un `close` sul canale
+    // in precedenza, la iterazione terminerà dopo aver
+    // ricevuto i 2 elementi. Se non avessimo effettuato
+    // il `close` sul canale, allora saremmo bloccati ad
+    // attendere per un terzo futuro valore
+    for elem := range queue {
+        fmt.Println(elem)
+    }
 }

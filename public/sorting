@@ -2,32 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Sorting</title>
+    <title>Go by Example - IT: Sorting</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="sorting">
-      <h2><a href="./">Go by Example</a>: Sorting</h2>
+      <h2><a href="./">Go by Example - IT</a>: Sorting</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <code>sort</code> package implements sorting for builtins
-and user-defined types. We&rsquo;ll look at sorting for
-builtins first.</p>
+            <p>Il package <code>sort</code> di Go permette di ordinare tipi
+sia built-in, sia user-defined. Daremo per prima cosa
+un&rsquo;occhiata al sorting per i built-in.</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +29,7 @@ builtins first.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/roQOJXtqAb"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -75,10 +63,13 @@ builtins first.</p>
         
         <tr>
           <td class="docs">
-            <p>Sort methods are specific to the builtin type;
-here&rsquo;s an example for strings. Note that sorting is
-in-place, so it changes the given slice and doesn&rsquo;t
-return a new one.</p>
+            <p>I metodi di sort sono specifici per il tipo
+built-in; qui vediamo un esempio per le string.
+Nota che il sorting non richiede né l&rsquo;uso dei
+pointer, né ritorna un nuovo slice, ma modifica
+lo slice che viene passato ordinando
+direttamente elementi gli elementi al suo
+interno.</p>
 
           </td>
           <td class="code leading">
@@ -93,7 +84,7 @@ return a new one.</p>
         
         <tr>
           <td class="docs">
-            <p>An example of sorting <code>int</code>s.</p>
+            <p>Un esempio del sorting di <code>int</code>.</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +99,8 @@ return a new one.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also use <code>sort</code> to check if a slice is
-already in sorted order.</p>
+            <p>Possiamo anche usare <code>sort</code> per determinare
+se uno slice è già stato ordinato.</p>
 
           </td>
           <td class="code">
@@ -128,8 +119,9 @@ already in sorted order.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program prints the sorted string and int
-slices and <code>true</code> as the result of our <code>AreSorted</code> test.</p>
+            <p>Eseguendo il nostro programma verrano stampati gli
+slice di stringhe e di int, e <code>true</code> come risultato
+della nostra chiamata alla funzione <code>AreSorted</code>.</p>
 
           </td>
           <td class="code">
@@ -151,7 +143,7 @@ slices and <code>true</code> as the result of our <code>AreSorted</code> test.</
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/sorting">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

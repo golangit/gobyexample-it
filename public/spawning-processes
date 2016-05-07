@@ -2,49 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Spawning Processes</title>
+    <title>Go by Example - IT: Spawning Processes</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="spawning-processes">
-      <h2><a href="./">Go by Example</a>: Spawning Processes</h2>
+      <h2><a href="./">Go by Example - IT</a>: Spawning Processes</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Sometimes our Go programs need to spawn other, non-Go
-processes. For example, the syntax highlighting on this
-site is <a href="https://github.com/mmcgrana/gobyexample/blob/master/tools/generate.go">implemented</a>
-by spawning a <a href="http://pygments.org/"><code>pygmentize</code></a>
-process from a Go program. Let&rsquo;s look at a few examples
-of spawning processes from Go.</p>
+            <p>Talvolta i programmi Go hanno bisogno di far partire
+altri processi, che possono non essere scritti in Go. Ad esempio
+l&rsquo;highlight della sintassi in questo sito è <a href="https://github.com/golangit/gobyexample-it/blob/master/tools/generate.go">realizzata</a>
+facendo partire un processo <a href="http://pygments.org/"><code>pygmentize</code></a>
+da un programma Go.
+Vediamo qualche esempio su come poter eseguire processi
+arbitrari da Go.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/y6SB6Mf2VQ"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -79,10 +58,10 @@ of spawning processes from Go.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll start with a simple command that takes no
-arguments or input and just prints something to
-stdout. The <code>exec.Command</code> helper creates an object
-to represent this external process.</p>
+            <p>Inizieremo con un programma semplice, che non ha argomenti
+o input ma che stampa solamente sul stdout. La funzione
+<code>exec.Command</code> è un helper che rappresenta il processo
+che andremo ad eseguire</p>
 
           </td>
           <td class="code leading">
@@ -95,10 +74,10 @@ to represent this external process.</p>
         
         <tr>
           <td class="docs">
-            <p><code>.Output</code> is another helper that handles the common
-case of running a command, waiting for it to finish,
-and collecting its output. If there were no errors,
-<code>dateOut</code> will hold bytes with the date info.</p>
+            <p>Tramite la funzione <code>.Output</code> è possibile eseguire il
+processo, attendere che finisca ed ottenere il output.
+Se non ci sono stati errori <code>dateOut</code> conterrà i byte
+della data.</p>
 
           </td>
           <td class="code leading">
@@ -116,14 +95,14 @@ and collecting its output. If there were no errors,
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at a slightly more involved case
-where we pipe data to the external process on its
-<code>stdin</code> and collect the results from its <code>stdout</code>.</p>
+            <p>Adesso vedremo un esempio leggermente più complesso
+dove forniremo alcuni dati sullo stdin di un processo,
+e raccoglieremo il suo output sullo stdout.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">grepCmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;grep&quot;</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">grepCmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;grep&quot;</span><span class="p">,</span> <span class="s">&quot;ciao&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -131,10 +110,10 @@ where we pipe data to the external process on its
         
         <tr>
           <td class="docs">
-            <p>Here we explicitly grab input/output pipes, start
-the process, write some input to it, read the
-resulting output, and finally wait for the process
-to exit.</p>
+            <p>Qui possiamo vedere come ottenere lo stdin e lo stdout
+di un futuro comando, scrivere dei dati sullo stdin,
+leggere dei dati dallo stdout e attendere che il processo
+termini.</p>
 
           </td>
           <td class="code leading">
@@ -142,7 +121,7 @@ to exit.</p>
             <div class="highlight"><pre>    <span class="nx">grepIn</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">StdinPipe</span><span class="p">()</span>
     <span class="nx">grepOut</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">StdoutPipe</span><span class="p">()</span>
     <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">Start</span><span class="p">()</span>
-    <span class="nx">grepIn</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;hello grep\ngoodbye grep&quot;</span><span class="p">))</span>
+    <span class="nx">grepIn</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;ciao grep\naddio grep&quot;</span><span class="p">))</span>
     <span class="nx">grepIn</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
     <span class="nx">grepBytes</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">grepOut</span><span class="p">)</span>
     <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span>
@@ -153,11 +132,12 @@ to exit.</p>
         
         <tr>
           <td class="docs">
-            <p>We ommited error checks in the above example, but
-you could use the usual <code>if err != nil</code> pattern for
-all of them. We also only collect the <code>StdoutPipe</code>
-results, but you could collect the <code>StderrPipe</code> in
-exactly the same way.</p>
+            <p>Abbiamo tralasciato il controllo degli errori nelle
+righe precedenti, ma ricordiamoci che possiamo usare
+il classico pattern <code>if err != nil</code> per tutti loro.
+Ci limitiamo inoltre a leggere dallo <code>StdoutPipe</code>,
+ma potremmo leggere anche da <code>StderrPipe</code> nello stesso
+identico modo.</p>
 
           </td>
           <td class="code leading">
@@ -171,12 +151,12 @@ exactly the same way.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that when spawning commands we need to
-provide an explicitly delineated command and
-argument array, vs. being able to just pass in one
-command-line string. If you want to spawn a full
-command with a string, you can use <code>bash</code>&rsquo;s <code>-c</code>
-option:</p>
+            <p>Nota che per eseguire processi con flag e parametri
+è necessario passare un array che li contenga, non è
+possibile passare semplicemente una stringa.
+Se si vuole eseguire un processo passando la sua stringa
+è possibile utilizzare il comando <code>bash</code> con il
+flag <code>-c</code> e passare la stringa del processo da eseguire.</p>
 
           </td>
           <td class="code">
@@ -200,8 +180,9 @@ option:</p>
         
         <tr>
           <td class="docs">
-            <p>The spawned programs return output that is the same
-as if we had run them directly from the command-line.</p>
+            <p>Il processo eseguito stampa lo stesso output
+che avrebbe stampato se lo avessimo eseguito
+direttamente da terminale</p>
 
           </td>
           <td class="code leading">
@@ -220,8 +201,8 @@ as if we had run them directly from the command-line.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">&gt;</span> grep hello
-<span class="go">hello grep</span>
+            <div class="highlight"><pre><span class="gp">&gt;</span> grep ciao
+<span class="go">ciao grep</span>
 </pre></div>
 
           </td>
@@ -250,7 +231,7 @@ as if we had run them directly from the command-line.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/spawning-processes">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

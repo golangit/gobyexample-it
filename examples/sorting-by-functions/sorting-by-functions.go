@@ -25,13 +25,13 @@ type ByLength []string
 // in baso alla lunghezza, utilizzeremo `len(s[i])` e
 // `len(s[j])` per effettuare il confronto.
 func (s ByLength) Len() int {
-	return len(s)
+    return len(s)
 }
 func (s ByLength) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
+    s[i], s[j] = s[j], s[i]
 }
 func (s ByLength) Less(i, j int) bool {
-	return len(s[i]) < len(s[j])
+    return len(s[i]) < len(s[j])
 }
 
 // Dopo aver dichiarato queste funzioni, è possibile
@@ -39,7 +39,7 @@ func (s ByLength) Less(i, j int) bool {
 // dello slice `fruits` al tipo `ByLength` sul quale chiameremo
 // la funzione `sort.Sort`.
 func main() {
-	fruits := []string{"pesca", "banana", "kiwi"}
-	sort.Sort(ByLength(fruits))
-	fmt.Println(fruits)
+    fruits := []string{"pesca", "banana", "kiwi"}
+    sort.Sort(ByLength(fruits))
+    fmt.Println(fruits)
 }

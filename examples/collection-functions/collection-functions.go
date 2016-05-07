@@ -28,90 +28,91 @@ import "fmt"
 // corrispondente a `t`, o -1 se nessuna corrispondenza
 // viene trovata.
 func Indice(vs []string, t string) int {
-	for i, v := range vs {
-		if v == t {
-			return i
-		}
-	}
-	return -1
+    for i, v := range vs {
+        if v == t {
+            return i
+        }
+    }
+    return -1
 }
 
 // Ritorna `true` se la stringa `t` è nello slice `vs`.
 func Incluso(vs []string, t string) bool {
-	return Indice(vs, t) >= 0
+    return Indice(vs, t) >= 0
 }
 
 // Ritorna `true` se una delle stringhe nello slice
 // soddisfa la funzione condizionale `f`.
 func AlmenoUno(vs []string, f func(string) bool) bool {
-	for _, v := range vs {
-		if f(v) {
-			return true
-		}
-	}
-	return false
+    for _, v := range vs {
+        if f(v) {
+            return true
+        }
+    }
+    return false
 }
 
 // Ritorna `true` se tutte le `string` nello slice
 // soddisfano la funzione condizionale `f`.
 func Tutti(vs []string, f func(string) bool) bool {
-	for _, v := range vs {
-		if !f(v) {
-			return false
-		}
-	}
-	return true
+    for _, v := range vs {
+        if !f(v) {
+            return false
+        }
+    }
+    return true
 }
 
 // Ritorna un nuovo slice che contiene tutte le stringhe
 // nello slice `vs` che soddisfano la funzione
 // condizionale `f`.
 func Filtra(vs []string, f func(string) bool) []string {
-	vsf := make([]string, 0)
-	for _, v := range vs {
-		if f(v) {
-			vsf = append(vsf, v)
-		}
-	}
-	return vsf
+    vsf := make([]string, 0)
+    for _, v := range vs {
+        if f(v) {
+            vsf = append(vsf, v)
+        }
+    }
+    return vsf
 }
 
 // Ritorna un nuovo slice che contiene i risultati
 // dell'applicazione della funzione `f` su ogni stringa
 // dello slice `vs`.
-func Applica(vs []string, f func(string) string) []string {
-	vsa := make([]string, len(vs))
-	for i, v := range vs {
-		vsa[i] = f(v)
-	}
-	return vsa
+func Applica(vs []string,
+    f func(string) string) []string {
+    vsa := make([]string, len(vs))
+    for i, v := range vs {
+        vsa[i] = f(v)
+    }
+    return vsa
 }
 
 func main() {
 
-	// Di seguito proviamo ad utilizzare le nostre varie
-	// funzioni di collezione.
-	var strs = []string{"pesca", "mela", "pera", "prugna"}
+    // Di seguito proviamo ad utilizzare le nostre varie
+    // funzioni di collezione.
+    var strs = []string{"pesca", "mela", "pera", "prugna"}
 
-	fmt.Println(Indice(strs, "pera"))
+    fmt.Println(Indice(strs, "pera"))
 
-	fmt.Println(Incluso(strs, "uva"))
+    fmt.Println(Incluso(strs, "uva"))
 
-	fmt.Println(AlmenoUno(strs, func(v string) bool {
-		return strings.HasPrefix(v, "p")
-	}))
+    fmt.Println(AlmenoUno(strs, func(v string) bool {
+        return strings.HasPrefix(v, "p")
+    }))
 
-	fmt.Println(Tutti(strs, func(v string) bool {
-		return strings.HasPrefix(v, "p")
-	}))
+    fmt.Println(Tutti(strs, func(v string) bool {
+        return strings.HasPrefix(v, "p")
+    }))
 
-	fmt.Println(Filtra(strs, func(v string) bool {
-		return strings.Contains(v, "r")
-	}))
+    fmt.Println(Filtra(strs, func(v string) bool {
+        return strings.Contains(v, "r")
+    }))
 
-	// Gli esempi sovrastanti usavano tutti funzioni
-	// anonime, ma puoi anche usare funzioni pre-esistenti
-	// (non anonime) con il tipo corretto.
-	fmt.Println(Applica(strs, strings.ToUpper))
+    // Gli esempi sovrastanti usavano tutti funzioni
+    // anonime, ma puoi anche usare funzioni pre-esistenti
+    // (non anonime) con il tipo corretto.
+    fmt.Println(Applica(strs, strings.ToUpper))
 
 }

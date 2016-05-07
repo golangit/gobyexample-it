@@ -2,32 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Pointers</title>
+    <title>Go by Example - IT: Pointers</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="pointers">
-      <h2><a href="./">Go by Example</a>: Pointers</h2>
+      <h2><a href="./">Go by Example - IT</a>: Pointers</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em><a href="http://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-allowing you to pass references to values and records
-within your program.</p>
+            <p>Go permette l&rsquo;utilizzo dei <a href="https://it.wikipedia.org/wiki/Puntatore_(programmazione)"><em>puntatori</em></a>,
+che si traduce nell&rsquo;abilità di passare riferimenti a
+valori all&rsquo;interno del programma.</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +29,7 @@ within your program.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/KdE4TBbUL2"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -62,11 +50,13 @@ within your program.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll show how pointers work in contrast to values with
-2 functions: <code>zeroval</code> and <code>zeroptr</code>. <code>zeroval</code> has an
-<code>int</code> parameter, so arguments will be passed to it by
-value. <code>zeroval</code> will get a copy of <code>ival</code> distinct
-from the one in the calling function.</p>
+            <p>Dimostreremo come i puntatori funzionino diversamente
+dai valori tramite 2 funzioni: <code>zeroval</code> e <code>zeroptr</code>.
+<code>zeroval</code> ha un parametro di tipo <code>int</code>, quindi il
+parametro passato sarà un valore, non un puntatore.
+Quando chiameremo la funzione <code>zeroval</code>, il suo
+parametro <code>ival</code> verrà copiato da quello della
+funzione chiamante.</p>
 
           </td>
           <td class="code leading">
@@ -81,12 +71,13 @@ from the one in the calling function.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroptr</code> in contrast has an <code>*int</code> parameter, meaning
-that it takes an <code>int</code> pointer. The <code>*iptr</code> code in the
-function body then <em>dereferences</em> the pointer from its
-memory address to the current value at that address.
-Assigning a value to a dereferenced pointer changes the
-value at the referenced address.</p>
+            <p><code>zeroptr</code> invece ha un parametro di tipo <code>*int</code>, e ciò
+significa che è un puntatore a un <code>int</code>. L&rsquo;istruzione
+<code>*iptr</code> nel corpo della funzione permette di
+<em>dereferenziare</em> l&rsquo;indirizzo di memoria puntato da <code>iptr</code> in
+modo da otternere il suo valore. Se si assegna un valore
+ad <code>*iptr</code> si va a modificare il valore all&rsquo;indirizzo di memoria
+puntanto.</p>
 
           </td>
           <td class="code leading">
@@ -107,7 +98,7 @@ value at the referenced address.</p>
 	        
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;initial:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;iniziale: &quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -120,7 +111,7 @@ value at the referenced address.</p>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="nx">zeroval</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroval:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroval:  &quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -128,14 +119,14 @@ value at the referenced address.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&amp;i</code> syntax gives the memory address of <code>i</code>,
-i.e. a pointer to <code>i</code>.</p>
+            <p>La formula <code>&amp;i</code> ritorna l&rsquo;indirizzo nella memoria
+di <code>i</code>, ovvero un puntatore ad <code>i</code>.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="nx">zeroptr</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroptr:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroptr:  &quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -143,12 +134,12 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Pointers can be printed too.</p>
+            <p>Anche i puntatori possono essere stampati.</p>
 
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;pointer:&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;puntatore:&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -161,18 +152,18 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroval</code> doesn&rsquo;t change the <code>i</code> in <code>main</code>, but
-<code>zeroptr</code> does because it has a reference to
-the memory address for that variable.</p>
+            <p><code>zeroval</code> non cambia il valore di <code>i</code> in <code>main</code>,
+<code>zeroptr</code> invece sì perché ha un riferimento al valore
+nella memoria di quell&rsquo;indirizzo.</p>
 
           </td>
           <td class="code">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run pointers.go
-<span class="go">initial: 1</span>
-<span class="go">zeroval: 1</span>
-<span class="go">zeroptr: 0</span>
-<span class="go">pointer: 0x42131100</span>
+<span class="go">iniziale:  1</span>
+<span class="go">zeroval:   1</span>
+<span class="go">zeroptr:   0</span>
+<span class="go">puntatore: 0x42131100</span>
 </pre></div>
 
           </td>
@@ -186,7 +177,7 @@ the memory address for that variable.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/pointers">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

@@ -2,33 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Command-Line Arguments</title>
+    <title>Go by Example - IT: Command-Line Arguments</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="command-line-arguments">
-      <h2><a href="./">Go by Example</a>: Command-Line Arguments</h2>
+      <h2><a href="./">Go by Example - IT</a>: Command-Line Arguments</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="http://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Command-line arguments</em></a>
-are a common way to parameterize execution of programs.
-For example, <code>go run hello.go</code> uses <code>run</code> and
-<code>hello.go</code> arguments to the <code>go</code> program.</p>
+            <p>Gli <em>argomenti della linea di comando</em> sono un metodo
+comune per passare parametri ai programmi.
+Ad esempio, <code>go run hello.go</code> usa <code>run</code> e <code>hello.go</code>
+come parametri al programma <code>go</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +30,7 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/44uyYt_TRl"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -76,16 +64,17 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
         
         <tr>
           <td class="docs">
-            <p><code>os.Args</code> provides access to raw command-line
-arguments. Note that the first value in this slice
-is the path to the program, and <code>os.Args[1:]</code>
-holds the arguments to the program.</p>
+            <p><code>os.Args</code> fornisce accesso dirretto agli argomenti
+della linea di comando. Nota che il primo valore
+in questa slice è il percorso del programma, e
+<code>os.Args[1:]</code> contiene i veri argomenti del
+programma.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">argsWithProg</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span>
-    <span class="nx">argsWithoutProg</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <div class="highlight"><pre>    <span class="nx">argsConProg</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span>
+    <span class="nx">argsSenzaProg</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 </pre></div>
 
           </td>
@@ -93,7 +82,8 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>You can get individual args with normal indexing.</p>
+            <p>Puoi ottenere gli argomenti individualmente con
+l&rsquo;indexing.</p>
 
           </td>
           <td class="code leading">
@@ -110,8 +100,8 @@ holds the arguments to the program.</p>
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">argsWithProg</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">argsWithoutProg</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">argsConProg</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">argsSenzaProg</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
@@ -126,7 +116,10 @@ holds the arguments to the program.</p>
         <tr>
           <td class="docs">
             <p>To experiment with command-line arguments it&rsquo;s best to
-build a binary with <code>go build</code> first.</p>
+build a binary with <code>go build</code> first.
+Per sperimentare con gli argomenti della linea di
+comando, è meglio creare un file binario con <code>go build</code>
+prima.</p>
 
           </td>
           <td class="code leading">
@@ -143,8 +136,8 @@ build a binary with <code>go build</code> first.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at more advanced command-line processing
-with flags.</p>
+            <p>Nel prossimo esempio vedremo come analizzare gli
+argomenti in un modo più avanzato con le flag.</p>
 
           </td>
           <td class="code empty">
@@ -161,7 +154,7 @@ with flags.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/command-line-arguments">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

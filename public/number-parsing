@@ -2,31 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Number Parsing</title>
+    <title>Go by Example - IT: Number Parsing</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="number-parsing">
-      <h2><a href="./">Go by Example</a>: Number Parsing</h2>
+      <h2><a href="./">Go by Example - IT</a>: Number Parsing</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Parsing numbers from strings is a basic but common task
-in many programs; here&rsquo;s how to do it in Go.</p>
+            <p>Effettuare il parsing da una stringa ad un numero
+è un task tanto semplice quanto comune in molti programmi.
+Vedremo adesso come effettuare il parsing dei numeri in Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -40,7 +29,7 @@ in many programs; here&rsquo;s how to do it in Go.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/N90EppECFk"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -49,8 +38,8 @@ in many programs; here&rsquo;s how to do it in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>The built-in package <code>strconv</code> provides the number
-parsing.</p>
+            <p>Il pacchetto <code>strconv</code> della standard library offre
+le funzioni necessarie al parsing</p>
 
           </td>
           <td class="code leading">
@@ -76,8 +65,9 @@ parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>With <code>ParseFloat</code>, this <code>64</code> tells how many bits of
-precision to parse.</p>
+            <p>Tramite la funzione <code>ParseFloat</code> è possibile indicare il
+numero di bit della precisione da utilizzare (in questo
+caso 64).</p>
 
           </td>
           <td class="code leading">
@@ -91,9 +81,12 @@ precision to parse.</p>
         
         <tr>
           <td class="docs">
-            <p>For <code>ParseInt</code>, the <code>0</code> means infer the base from
-the string. <code>64</code> requires that the result fit in 64
-bits.</p>
+            <p>Tramite la funzione <code>ParseInt</code> è possibile indicare la
+base da utilizzare per il parsing, tramite il secondo
+parametro. Il valore <code>0</code> sta ad indicare che la base
+deve essere inferita automaticamente dalla stringa.
+Il parametro <code>64</code> richiede che il risultato sia
+rappresentabile con 64 bit.</p>
 
           </td>
           <td class="code leading">
@@ -107,7 +100,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ParseInt</code> will recognize hex-formatted numbers.</p>
+            <p>La funzione <code>ParseInt</code> riconosce anche i numeri esadecimali</p>
 
           </td>
           <td class="code leading">
@@ -121,7 +114,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>ParseUint</code> is also available.</p>
+            <p>È disponibile anche la funzione <code>ParseUint</code></p>
 
           </td>
           <td class="code leading">
@@ -135,8 +128,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Atoi</code> is a convenience function for basic base-10
-<code>int</code> parsing.</p>
+            <p>La funzione <code>Atoi</code> è una funzione di convenienza per
+convertire da numeri in base 10 a <code>int</code></p>
 
           </td>
           <td class="code leading">
@@ -150,7 +143,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse functions return an error on bad input.</p>
+            <p>Le funzioni di parsing possono ritornare un errore</p>
 
           </td>
           <td class="code">
@@ -187,7 +180,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at another common parsing task: URLs.</p>
+            <p>Vedremo ora un&rsquo;altro caso di parsing molto
+comune: gli URL.</p>
 
           </td>
           <td class="code empty">
@@ -204,7 +198,7 @@ bits.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/number-parsing">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

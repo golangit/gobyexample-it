@@ -2,35 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Atomic Counters</title>
+    <title>Go by Example - IT: Atomic Counters</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="atomic-counters">
-      <h2><a href="./">Go by Example</a>: Atomic Counters</h2>
+      <h2><a href="./">Go by Example - IT</a>: Atomic Counters</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The primary mechanism for managing state in Go is
-communication over channels. We saw this for example
-with <a href="worker-pools">worker pools</a>. There are a few other
-options for managing state though. Here we&rsquo;ll
-look at using the <code>sync/atomic</code> package for <em>atomic
-counters</em> accessed by multiple goroutines.</p>
+            <p>Il meccanismo principale per gestire lo stato in Go
+è quello di utilizzare i channel. Abbiamo visto
+questo meccanismo in azione nell&rsquo;esempio dei
+<a href="worker-pools">worker pool</a>. Ci sono una serie di altri
+meccanismi per gestire lo stato. Adesso vedremo
+come si possa utilizzare il package <code>sync/atomic</code>
+per realizzare un <em>contatore atomico</em> che viene
+letto e aggiornato da svariate goroutine.</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +34,7 @@ counters</em> accessed by multiple goroutines.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/2h8nvrnaHP"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -80,8 +70,8 @@ counters</em> accessed by multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use an unsigned integer to represent our
-(always-positive) counter.</p>
+            <p>Utilizzermo un unsigned integer per rappresentare
+il nostro contatore (che non sarà mai negativo).</p>
 
           </td>
           <td class="code leading">
@@ -94,9 +84,9 @@ counters</em> accessed by multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>To simulate concurrent updates, we&rsquo;ll start 50
-goroutines that each increment the counter about
-once a millisecond.</p>
+            <p>Per simulare degli aggiornamenti concorrenti,
+avvieremo 50 goroutine. Queste goroutine incrementeranno
+il contatore circa ogni millisecondo.</p>
 
           </td>
           <td class="code leading">
@@ -111,10 +101,10 @@ once a millisecond.</p>
         
         <tr>
           <td class="docs">
-            <p>To atomically increment the counter we
-use <code>AddUint64</code>, giving it the memory
-address of our <code>ops</code> counter with the
-<code>&amp;</code> syntax.</p>
+            <p>Per incrementare in modo atomico il
+contatore utilizziamo la funzione <code>AddUint64</code>
+passandogli il puntatore alla variabile <code>ops</code>
+utilizzando l&rsquo;operatore <code>&amp;</code>.</p>
 
           </td>
           <td class="code leading">
@@ -127,7 +117,7 @@ address of our <code>ops</code> counter with the
         
         <tr>
           <td class="docs">
-            <p>Allow other goroutines to proceed.</p>
+            <p>Permettiamo alle altre goroutine di procedere.</p>
 
           </td>
           <td class="code leading">
@@ -143,7 +133,8 @@ address of our <code>ops</code> counter with the
         
         <tr>
           <td class="docs">
-            <p>Wait a second to allow some ops to accumulate.</p>
+            <p>Attendiamo un secondo per permettere alle goroutine
+di effettuare qualche incremento.</p>
 
           </td>
           <td class="code leading">
@@ -156,12 +147,12 @@ address of our <code>ops</code> counter with the
         
         <tr>
           <td class="docs">
-            <p>In order to safely use the counter while it&rsquo;s still
-being updated by other goroutines, we extract a
-copy of the current value into <code>opsFinal</code> via
-<code>LoadUint64</code>. As above we need to give this
-function the memory address <code>&amp;ops</code> from which to
-fetch the value.</p>
+            <p>Al fine di poter leggere il contatore in modo sicuro,
+mentre viene ancora aggiornato dalle goroutine, possiamo
+estrarne una copia del valore e salvarlo dentro
+<code>opsFinal</code> tramite la funzione <code>LoadUint64</code>.
+Come sopra, dobbiamo passare a questa funzione
+il puntatore <code>&amp;ops</code> dal quale leggere il valore</p>
 
           </td>
           <td class="code">
@@ -180,8 +171,8 @@ fetch the value.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that we executed about
-40,000 operations.</p>
+            <p>Se si esegue il sorgente si vede che sono state eseguite
+circa 40.000 operazioni.</p>
 
           </td>
           <td class="code leading">
@@ -195,8 +186,8 @@ fetch the value.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at mutexes, another tool for managing
-state.</p>
+            <p>Adesso vedremo le mutex, un altro strumento per
+modificare lo stato.</p>
 
           </td>
           <td class="code empty">
@@ -213,7 +204,7 @@ state.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/atomic-counters">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

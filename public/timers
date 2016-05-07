@@ -2,34 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Timers</title>
+    <title>Go by Example - IT: Timers</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="timers">
-      <h2><a href="./">Go by Example</a>: Timers</h2>
+      <h2><a href="./">Go by Example - IT</a>: Timers</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>We often want to execute Go code at some point in the
-future, or repeatedly at some interval. Go&rsquo;s built-in
-<em>timer</em> and <em>ticker</em> features make both of these tasks
-easy. We&rsquo;ll look first at timers and then
-at <a href="tickers">tickers</a>.</p>
+            <p>Spesso ci troviamo nella situazione di voler eseguire
+del codice Go in un certo istante nel futuro, oppure
+ripeterne l&rsquo;esecuzione ad intervalli fissati. Le funzioni
+built-in di Go <em>timer</em> e <em>ticker</em> risolvono questi
+problemi facilmente. Vedremo prima i timer e a seguire
+i <a href="tickers">ticker</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -43,7 +32,7 @@ at <a href="tickers">tickers</a>.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/6fSHrYxpMu"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -77,10 +66,11 @@ at <a href="tickers">tickers</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Timers represent a single event in the future. You
-tell the timer how long you want to wait, and it
-provides a channel that will be notified at that
-time. This timer will wait 2 seconds.</p>
+            <p>I timer rappresentano un singolo evento nel futuro.
+Si indica al timer quanto si vuole attendere e
+questo ci fornisce un channel sul quale riceveremo
+una notifica dopo il tempo desiderato. In questo caso
+si aspettano due secondi.</p>
 
           </td>
           <td class="code leading">
@@ -93,15 +83,15 @@ time. This timer will wait 2 seconds.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-timer1.C</code> blocks on the timer&rsquo;s channel <code>C</code>
-until it sends a value indicating that the timer
-expired.</p>
+            <p>Il comando <code>&lt;-timer1.C</code> permette di bloccarsi sul
+channel del timer <code>C</code> fino a quando non riceve un
+valore, nel momento in cui il timer scatta.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="o">&lt;-</span><span class="nx">timer1</span><span class="p">.</span><span class="nx">C</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Timer 1 expired&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Timer 1 scaduto&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -109,10 +99,12 @@ expired.</p>
         
         <tr>
           <td class="docs">
-            <p>If you just wanted to wait, you could have used
-<code>time.Sleep</code>. One reason a timer may be useful is
-that you can cancel the timer before it expires.
-Here&rsquo;s an example of that.</p>
+            <p>Se si vuole semplicemente aspettare del tempo è
+possibile utilizzare la funzione <code>time.Sleep</code>.
+Un buon caso d&rsquo;uso per cui i timer risultano utili
+è rappresentato dalla necessità di fermare il timer
+prima che sia scattato. Qui vediamo un esempio di
+questo use caso d&rsquo;uso.</p>
 
           </td>
           <td class="code">
@@ -120,11 +112,11 @@ Here&rsquo;s an example of that.</p>
             <div class="highlight"><pre>    <span class="nx">timer2</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">NewTimer</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
     <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="o">&lt;-</span><span class="nx">timer2</span><span class="p">.</span><span class="nx">C</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Timer 2 expired&quot;</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Timer 2 scaduto&quot;</span><span class="p">)</span>
     <span class="p">}()</span>
     <span class="nx">stop2</span> <span class="o">:=</span> <span class="nx">timer2</span><span class="p">.</span><span class="nx">Stop</span><span class="p">()</span>
     <span class="k">if</span> <span class="nx">stop2</span> <span class="p">{</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Timer 2 stopped&quot;</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Timer 2 fermato&quot;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -138,16 +130,16 @@ Here&rsquo;s an example of that.</p>
         
         <tr>
           <td class="docs">
-            <p>The first timer will expire ~2s after we start the
-program, but the second should be stopped before it has
-a chance to expire.</p>
+            <p>Il primo timer scatterà dopo circa 2 secondi dall&rsquo;avvio
+del programma, mentre il secondo dovrebbe fermarsi prima
+avere il tempo di scattare.</p>
 
           </td>
           <td class="code">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run timers.go
-<span class="go">Timer 1 expired</span>
-<span class="go">Timer 2 stopped</span>
+<span class="go">Timer 1 scaduto</span>
+<span class="go">Timer 2 fermato</span>
 </pre></div>
 
           </td>
@@ -161,7 +153,7 @@ a chance to expire.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/timers">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>
