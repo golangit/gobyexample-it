@@ -7,5 +7,5 @@ $ go run epoch.go
 2012-10-31 16:13:58.292387 +0000 UTC
 
 # Adesso daremo un'occhiata ad un altro task
-# relativo al tempo: il parsing e il formattazione del
+# relativo al tempo: il parsing e la formattazione del
 # tempo.
