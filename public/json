@@ -2,32 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: JSON</title>
+    <title>Go by Example - IT: JSON</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="json">
-      <h2><a href="./">Go by Example</a>: JSON</h2>
+      <h2><a href="./">Go by Example - IT</a>: JSON</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for JSON encoding and
-decoding, including to and from built-in and custom
-data types.</p>
+            <p>Go ha il supporto builtin per l&rsquo;encoding e il decoding
+di JSON, con anche la possibilità di convertire verso o
+da tipi builtin e personalizzati.</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +29,8 @@ data types.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/WxRgpycMaH"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,19 +53,19 @@ data types.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use these two structs to demonstrate encoding and
-decoding of custom types below.</p>
+            <p>Useremo questi due struct per dimostrare l&rsquo;encoding e
+il decoding di tipi personalizzati.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="kd">type</span> <span class="nx">Response1</span> <span class="kd">struct</span> <span class="p">{</span>
-    <span class="nx">Page</span>   <span class="kt">int</span>
-    <span class="nx">Fruits</span> <span class="p">[]</span><span class="kt">string</span>
+    <span class="nx">Pagina</span> <span class="kt">int</span>
+    <span class="nx">Frutti</span> <span class="p">[]</span><span class="kt">string</span>
 <span class="p">}</span>
 <span class="kd">type</span> <span class="nx">Response2</span> <span class="kd">struct</span> <span class="p">{</span>
-    <span class="nx">Page</span>   <span class="kt">int</span>      <span class="s">`json:&quot;page&quot;`</span>
-    <span class="nx">Fruits</span> <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&quot;fruits&quot;`</span>
+    <span class="nx">Pagina</span> <span class="kt">int</span>      <span class="s">`json:&quot;pagina&quot;`</span>
+    <span class="nx">Frutti</span> <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&quot;frutti&quot;`</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -97,9 +86,9 @@ decoding of custom types below.</p>
         
         <tr>
           <td class="docs">
-            <p>First we&rsquo;ll look at encoding basic data types to
-JSON strings. Here are some examples for atomic
-values.</p>
+            <p>Come prima cosa vedremo come fare l&rsquo;encoding di
+datatype nativi per ottenere stringhe JSON. Ecco
+degli esempi per dei valori atomici.</p>
 
           </td>
           <td class="code leading">
@@ -152,13 +141,14 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>And here are some for slices and maps, which encode
-to JSON arrays and objects as you&rsquo;d expect.</p>
+            <p>E ora degli esempi con le slice e le map, che
+ritornano degli array e oggetti JSON come ti
+aspetteresti.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">slcD</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">}</span>
+            <div class="highlight"><pre>    <span class="nx">slcD</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;mela&quot;</span><span class="p">,</span> <span class="s">&quot;pesca&quot;</span><span class="p">,</span> <span class="s">&quot;pera&quot;</span><span class="p">}</span>
     <span class="nx">slcB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">slcD</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">slcB</span><span class="p">))</span>
 </pre></div>
@@ -172,7 +162,7 @@ to JSON arrays and objects as you&rsquo;d expect.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">mapD</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;lettuce&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+            <div class="highlight"><pre>    <span class="nx">mapD</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;mela&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;lattuga&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
     <span class="nx">mapB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">mapD</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">mapB</span><span class="p">))</span>
 </pre></div>
@@ -182,17 +172,18 @@ to JSON arrays and objects as you&rsquo;d expect.</p>
         
         <tr>
           <td class="docs">
-            <p>The JSON package can automatically encode your
-custom data types. It will only include exported
-fields in the encoded output and will by default
-use those names as the JSON keys.</p>
+            <p>Il package JSON può codificare automaticamente
+dei data type personalizzati, ad esempio delle
+struct. Includerà solo i field esportati
+nell&rsquo;output codificato e di default userà i nomi
+dei field per le chiavi JSON.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="nx">res1D</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Response1</span><span class="p">{</span>
-        <span class="nx">Page</span><span class="p">:</span>   <span class="mi">1</span><span class="p">,</span>
-        <span class="nx">Fruits</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">}}</span>
+        <span class="nx">Pagina</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">Frutti</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;mela&quot;</span><span class="p">,</span> <span class="s">&quot;pesca&quot;</span><span class="p">,</span> <span class="s">&quot;pera&quot;</span><span class="p">}}</span>
     <span class="nx">res1B</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">res1D</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">res1B</span><span class="p">))</span>
 </pre></div>
@@ -202,17 +193,18 @@ use those names as the JSON keys.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use tags on struct field declarations
-to customize the encoded JSON key names. Check the
-definition of <code>Response2</code> above to see an example
-of such tags.</p>
+            <p>Puoi usare dei <em>tag</em> sulle dichiarazioni dei field
+di una struct per personalizzare il nome della
+chiave nel JSON finale. Vedi la dichiarazione di
+<code>Response2</code> sopra per vedere un esempio di questi
+tag.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="nx">res2D</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Response2</span><span class="p">{</span>
-        <span class="nx">Page</span><span class="p">:</span>   <span class="mi">1</span><span class="p">,</span>
-        <span class="nx">Fruits</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">}}</span>
+        <span class="nx">Pagina</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">Frutti</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;mela&quot;</span><span class="p">,</span> <span class="s">&quot;pesca&quot;</span><span class="p">,</span> <span class="s">&quot;pera&quot;</span><span class="p">}}</span>
     <span class="nx">res2B</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">res2D</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">res2B</span><span class="p">))</span>
 </pre></div>
@@ -222,9 +214,9 @@ of such tags.</p>
         
         <tr>
           <td class="docs">
-            <p>Now let&rsquo;s look at decoding JSON data into Go
-values. Here&rsquo;s an example for a generic data
-structure.</p>
+            <p>Ora diamo un&rsquo;occhiata al decoding di valori JSON
+in valori builtin di Go. Di seguito un esempio di
+una struttura di dati generica.</p>
 
           </td>
           <td class="code leading">
@@ -237,10 +229,10 @@ structure.</p>
         
         <tr>
           <td class="docs">
-            <p>We need to provide a variable where the JSON
-package can put the decoded data. This
-<code>map[string]interface{}</code> will hold a map of strings
-to arbitrary data types.</p>
+            <p>Abbiamo bisogno di definire una variabile dove
+il package JSON metterà i dati decodificati. Questa
+<code>map[string]interface{}</code> sarà una map di stringhe
+che puntano a dati con datatype arbitrario.</p>
 
           </td>
           <td class="code leading">
@@ -253,8 +245,8 @@ to arbitrary data types.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual decoding, and a check for
-associated errors.</p>
+            <p>Qui avviene il vero decoding, dove controlleremo
+anche se c&rsquo;è stato un errore.</p>
 
           </td>
           <td class="code leading">
@@ -270,10 +262,10 @@ associated errors.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use the values in the decoded map,
-we&rsquo;ll need to cast them to their appropriate type.
-For example here we cast the value in <code>num</code> to
-the expected <code>float64</code> type.</p>
+            <p>Per poter usare i dati nella mappa decodificata,
+avremo bisogno di fare un type assertion al loro
+vero valore. Ad esempio, qui facciamo un type
+assertion del valore in <code>num</code> in un <code>float64</code>.</p>
 
           </td>
           <td class="code leading">
@@ -287,8 +279,8 @@ the expected <code>float64</code> type.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing nested data requires a series of
-casts.</p>
+            <p>Accedere a dati annidati richiede una serie
+di type assertion.</p>
 
           </td>
           <td class="code leading">
@@ -303,20 +295,21 @@ casts.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also decode JSON into custom data types.
-This has the advantages of adding additional
-type-safety to our programs and eliminating the
-need for type assertions when accessing the decoded
-data.</p>
+            <p>Possiamo anche fare il decode di JSON in data
+type personalizzati. Questo ha il vantaggio di
+aggiungere un&rsquo;ulteriore type-safety ai nostri
+programmi e elimina la necessità dell&rsquo;uso dei
+type assertion quando accediamo a dati
+decodificati.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">str</span> <span class="o">:=</span> <span class="s">`{&quot;page&quot;: 1, &quot;fruits&quot;: [&quot;apple&quot;, &quot;peach&quot;]}`</span>
+            <div class="highlight"><pre>    <span class="nx">str</span> <span class="o">:=</span> <span class="s">`{&quot;pagina&quot;: 1, &quot;frutti&quot;: [&quot;mela&quot;, &quot;pesca&quot;]}`</span>
     <span class="nx">res</span> <span class="o">:=</span> <span class="nx">Response2</span><span class="p">{}</span>
     <span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">str</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">res</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">Fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">Frutti</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
           </td>
@@ -324,17 +317,18 @@ data.</p>
         
         <tr>
           <td class="docs">
-            <p>In the examples above we always used bytes and
-strings as intermediates between the data and
-JSON representation on standard out. We can also
-stream JSON encodings directly to <code>os.Writer</code>s like
-<code>os.Stdout</code> or even HTTP response bodies.</p>
+            <p>Negli esempi precedenti abbiamo sempre usato i byte
+e le stringhe come tramiti tra i dati e la
+rappresentazione JSON sullo standard output.
+Possiamo anche indirizzare la codifica JSON
+direttamente a degli <code>io.Writer</code> come <code>os.Stdout</code>
+o addirittura nei corpi delle risposte HTTP.</p>
 
           </td>
           <td class="code">
 	        
             <div class="highlight"><pre>    <span class="nx">enc</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">NewEncoder</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">)</span>
-    <span class="nx">d</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;lettuce&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+    <span class="nx">d</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;mela&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;lettuce&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
     <span class="nx">enc</span><span class="p">.</span><span class="nx">Encode</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
@@ -357,16 +351,16 @@ stream JSON encodings directly to <code>os.Writer</code>s like
 <span class="go">1</span>
 <span class="go">2.34</span>
 <span class="go">&quot;gopher&quot;</span>
-<span class="go">[&quot;apple&quot;,&quot;peach&quot;,&quot;pear&quot;]</span>
-<span class="go">{&quot;apple&quot;:5,&quot;lettuce&quot;:7}</span>
-<span class="go">{&quot;Page&quot;:1,&quot;Fruits&quot;:[&quot;apple&quot;,&quot;peach&quot;,&quot;pear&quot;]}</span>
-<span class="go">{&quot;page&quot;:1,&quot;fruits&quot;:[&quot;apple&quot;,&quot;peach&quot;,&quot;pear&quot;]}</span>
+<span class="go">[&quot;mela&quot;,&quot;pesca&quot;,&quot;pera&quot;]</span>
+<span class="go">{&quot;lattuga&quot;:7,&quot;mela&quot;:5}</span>
+<span class="go">{&quot;Pagina&quot;:1,&quot;Frutti&quot;:[&quot;mela&quot;,&quot;pesca&quot;,&quot;pera&quot;]}</span>
+<span class="go">{&quot;pagina&quot;:1,&quot;frutti&quot;:[&quot;mela&quot;,&quot;pesca&quot;,&quot;pera&quot;]}</span>
 <span class="go">map[num:6.13 strs:[a b]]</span>
 <span class="go">6.13</span>
 <span class="go">a</span>
-<span class="go">{1 [apple peach]}</span>
-<span class="go">apple</span>
-<span class="go">{&quot;apple&quot;:5,&quot;lettuce&quot;:7}</span>
+<span class="go">{1 [mela pesca]}</span>
+<span class="go">mela</span>
+<span class="go">{&quot;lettuce&quot;:7,&quot;mela&quot;:5}</span>
 </pre></div>
 
           </td>
@@ -374,10 +368,10 @@ stream JSON encodings directly to <code>os.Writer</code>s like
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ve covered the basic of JSON in Go here, but check
-out the <a href="http://blog.golang.org/2011/01/json-and-go.html">JSON and Go</a>
-blog post and <a href="http://golang.org/pkg/encoding/json/">JSON package docs</a>
-for more.</p>
+            <p>In questo esempio abbiamo visto i fondamentali del
+JSON in Go, ma per avere ulteriori informazioni
+dai un&rsquo;occhiata al blog post <a href="http://blog.golang.org/2011/01/json-and-go.html">JSON and Go</a>
+e alla documentazione del <a href="http://golang.org/pkg/encoding/json/">pacchetto JSON</a></p>
 
           </td>
           <td class="code empty">
@@ -394,7 +388,7 @@ for more.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/json">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

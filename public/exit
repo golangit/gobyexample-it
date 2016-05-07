@@ -2,31 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Exit</title>
+    <title>Go by Example - IT: Exit</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="exit">
-      <h2><a href="./">Go by Example</a>: Exit</h2>
+      <h2><a href="./">Go by Example - IT</a>: Exit</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Use <code>os.Exit</code> to immediately exit with a given
-status.</p>
+            <p>Usa <code>os.Exit</code> per terminare immediatamente l&rsquo;esecuzione
+di un programma con un determinato <a href="https://it.wikipedia.org/wiki/Valore_di_uscita">valore di uscita</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -40,7 +28,8 @@ status.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/CDiAh9SXRM"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -74,8 +63,8 @@ status.</p>
         
         <tr>
           <td class="docs">
-            <p><code>defer</code>s will <em>not</em> be run when using <code>os.Exit</code>, so
-this <code>fmt.Println</code> will never be called.</p>
+            <p>I <code>defer</code> <em>non</em> saranno eseguiti con <code>os.Exit</code>,
+quindi questo <code>fmt.Println</code> non verrà mai eseguito.</p>
 
           </td>
           <td class="code leading">
@@ -88,7 +77,7 @@ this <code>fmt.Println</code> will never be called.</p>
         
         <tr>
           <td class="docs">
-            <p>Exit with status 3.</p>
+            <p>Terminiamo il programma col valore di uscita 3.</p>
 
           </td>
           <td class="code leading">
@@ -102,10 +91,10 @@ this <code>fmt.Println</code> will never be called.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that unlike e.g. C, Go does not use an integer
-return value from <code>main</code> to indicate exit status. If
-you&rsquo;d like to exit with a non-zero status you should
-use <code>os.Exit</code>.</p>
+            <p>Nota che a differenza di C e simili, Go non usa un
+valore di ritorno da <code>main()</code> per indicare il valore
+di uscita. Se vuoi terminare il programma con un valore
+non-zero, usa <code>os.Exit</code>.</p>
 
           </td>
           <td class="code empty">
@@ -120,8 +109,8 @@ use <code>os.Exit</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you run <code>exit.go</code> using <code>go run</code>, the exit
-will be picked up by <code>go</code> and printed.</p>
+            <p>Se esegui <code>exit.go</code> usando <code>go run</code>, il valore di uscita
+verrà intercettato da Go e stampato.</p>
 
           </td>
           <td class="code leading">
@@ -135,8 +124,8 @@ will be picked up by <code>go</code> and printed.</p>
         
         <tr>
           <td class="docs">
-            <p>By building and executing a binary you can see
-the status in the terminal.</p>
+            <p>Compilando e eseguendo il programma potrai anche vedere
+il valore di ritorno nel terminale.</p>
 
           </td>
           <td class="code leading">
@@ -152,7 +141,8 @@ the status in the terminal.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the <code>!</code> from our program never got printed.</p>
+            <p>Nota che il <code>!</code> del nostro programma non è mai stato
+stampato.</p>
 
           </td>
           <td class="code empty">
@@ -165,7 +155,7 @@ the status in the terminal.</p>
       
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/exit">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

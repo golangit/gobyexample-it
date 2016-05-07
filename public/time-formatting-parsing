@@ -2,31 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Time Formatting / Parsing</title>
+    <title>Go by Example - IT: Time Formatting / Parsing</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="time-formatting-parsing">
-      <h2><a href="./">Go by Example</a>: Time Formatting / Parsing</h2>
+      <h2><a href="./">Go by Example - IT</a>: Time Formatting / Parsing</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports time formatting and parsing via
-pattern-based layouts.</p>
+            <p>Go supporta la formattazione di struct di tipo <code>time.Time</code>
+che permettono di descrivere istanti temporali tramite
+layout personalizzabili.</p>
 
           </td>
           <td class="code empty leading">
@@ -40,7 +29,8 @@ pattern-based layouts.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/BFw556nWcM"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -75,9 +65,8 @@ pattern-based layouts.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example of formatting a time
-according to RFC3339, using the corresponding layout
-constant.</p>
+            <p>Ecco un esempio di come è possibile formattare un <code>time</code>
+secondo l&rsquo;RFC3339, utilizzando la costante corrispondente.</p>
 
           </td>
           <td class="code leading">
@@ -91,7 +80,8 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p>Time parsing uses the same layout values as <code>Format</code>.</p>
+            <p>Per effettuare il parsing di un <code>time</code> è possibile utilizzare
+gli stessi parametri di layout di <code>Format</code>.</p>
 
           </td>
           <td class="code leading">
@@ -107,13 +97,16 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Format</code> and <code>Parse</code> use example-based layouts. Usually
-you&rsquo;ll use a constant from <code>time</code> for these layouts, but
-you can also supply custom layouts. Layouts must use the
-reference time <code>Mon Jan 2 15:04:05 MST 2006</code> to show the
-pattern with which to format/parse a given time/string.
-The example time must be exactly as shown: the year 2006,
-15 for the hour, Monday for the day of the week, etc.</p>
+            <p>Sia <code>Format</code> che <code>Parse</code> utilizzano layout basati su esempi.
+Generalmente si utilizzando costanti di <code>time</code> invece di
+specificare il layout per esteso. È comunque possibile
+utilizzare layout personalizzati. I layout personalizzati
+devono utilizzare un tempo fissato di riferimento
+<code>Mon Jan 2 15:04:05 MST 2006</code> per costruire il pattern da
+utilizzare per formattare/parsare un <code>time</code>.
+Il tempo di riferimento non può essere variato, deve rimanere
+fissato al 2006, ore 15, etc. pena il fallimmento delle
+funzioni.</p>
 
           </td>
           <td class="code leading">
@@ -131,9 +124,10 @@ The example time must be exactly as shown: the year 2006,
         
         <tr>
           <td class="docs">
-            <p>For purely numeric representations you can also
-use standard string formatting with the extracted
-components of the time value.</p>
+            <p>Se si desidera solamente la rappresentazione numerica
+di una data, è possibile utilizzare la formattazione
+standard delle stringhe. La stringa verrà popolata
+con i valori numerici estratti dal <code>time</code>.</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +142,8 @@ components of the time value.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Parse</code> will return an error on malformed input
-explaining the parsing problem.</p>
+            <p><code>Parse</code> ritornerà un errore sugli input malformati,
+che spiegherà la natura degli errori.</p>
 
           </td>
           <td class="code">
@@ -195,7 +189,7 @@ explaining the parsing problem.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/time-formatting-parsing">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

@@ -2,32 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Random Numbers</title>
+    <title>Go by Example - IT: Random Numbers</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="random-numbers">
-      <h2><a href="./">Go by Example</a>: Random Numbers</h2>
+      <h2><a href="./">Go by Example - IT</a>: Random Numbers</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <code>math/rand</code> package provides
-<a href="http://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number</a>
-generation.</p>
+            <p>Il pacchetto <code>math/rand</code> di Go offre funzionalità per la
+generazione di <a href="https://it.wikipedia.org/wiki/Numeri_pseudo-casuali">numeri pseudo-casuali</a></p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +28,8 @@ generation.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/ZdFpbahgC1"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -76,8 +64,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>For example, <code>rand.Intn</code> returns a random <code>int</code> n,
-<code>0 &lt;= n &lt; 100</code>.</p>
+            <p>Ad esempio, <code>rand.Intn(100)</code> ritorna un <code>int</code> <code>n</code> tale
+che <code>0 &lt;= n &lt; 100</code>.</p>
 
           </td>
           <td class="code leading">
@@ -92,8 +80,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p><code>rand.Float64</code> returns a <code>float64</code> <code>f</code>,
-<code>0.0 &lt;= f &lt; 1.0</code>.</p>
+            <p><code>rand.Float64</code> ritorna un valore di tipo <code>float64</code> <code>f</code>
+tale che <code>0.0 &lt;= f &lt; 1.0</code>.</p>
 
           </td>
           <td class="code leading">
@@ -106,8 +94,9 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>This can be used to generate random floats in
-other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
+            <p>Questa espressione può essere utilizzata
+per genere float random in un altro intervallo,
+In questo caso<code>5.0 &lt;= f' &lt; 10.0</code>.</p>
 
           </td>
           <td class="code leading">
@@ -122,11 +111,14 @@ other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The default number generator is deterministic, so it&rsquo;ll
-produce the same sequence of numbers each time by default.
-To produce varying sequences, give it a seed that changes.
-Note that this is not safe to use for random numbers you
-intend to be secret, use <code>crypto/rand</code> for those.</p>
+            <p>Il generatore di numeri casuli è deterministico,
+produrrà quindi la stessa sequenza di numeri ad ogni
+esecuzione. Per generare sequenze casuali ad ogni
+esecuzione, dobbiamo settare un seed variabile.
+Tieni in considerazione che non è sicuro utilizzare
+questo metodo per generare numeri che devono essere
+segreti. Se hai tali necessità è consigliabile utilizzare
+il pacchetto <code>crypto/rand</code>.</p>
 
           </td>
           <td class="code leading">
@@ -140,8 +132,8 @@ intend to be secret, use <code>crypto/rand</code> for those.</p>
         
         <tr>
           <td class="docs">
-            <p>Call the resulting <code>rand.Rand</code> just like the
-functions on the <code>rand</code> package.</p>
+            <p>È quindi possibile invocare <code>rand.Rand</code> come
+la funzione <code>rand</code> del pacchetto.</p>
 
           </td>
           <td class="code leading">
@@ -156,8 +148,8 @@ functions on the <code>rand</code> package.</p>
         
         <tr>
           <td class="docs">
-            <p>If you seed a source with the same number, it
-produces the same sequence of random numbers.</p>
+            <p>Se imposti come seed lo stesso numero, vedrai
+che verrà generata la stessa sequenza di numeri</p>
 
           </td>
           <td class="code">
@@ -201,9 +193,10 @@ produces the same sequence of random numbers.</p>
         
         <tr>
           <td class="docs">
-            <p>See the <a href="http://golang.org/pkg/math/rand/"><code>math/rand</code></a>
-package docs for references on other random quantities
-that Go can provide.</p>
+            <p>Per sapere quali altre funzioni permettono
+di generare numeri casuali, è possibile
+consultare la documentazione del pacchetto.
+<a href="http://golang.org/pkg/math/rand/"><code>math/rand</code></a>.</p>
 
           </td>
           <td class="code empty">
@@ -220,7 +213,7 @@ that Go can provide.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/random-numbers">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

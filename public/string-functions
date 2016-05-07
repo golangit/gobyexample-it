@@ -2,32 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: String Functions</title>
+    <title>Go by Example - IT: String Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="string-functions">
-      <h2><a href="./">Go by Example</a>: String Functions</h2>
+      <h2><a href="./">Go by Example - IT</a>: String Functions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The standard library&rsquo;s <code>strings</code> package provides many
-useful string-related functions. Here are some examples
-to give you a sense of the package.</p>
+            <p>Il pacchetto <code>strings</code> della standard library contiene
+svariate funzioni per la gestione delle stringhe.
+Ecco qualche esempio di funzioni tratte da questo pacchetto</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +29,8 @@ to give you a sense of the package.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/COXm374QWe"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -63,8 +52,8 @@ to give you a sense of the package.</p>
         
         <tr>
           <td class="docs">
-            <p>We alias <code>fmt.Println</code> to a shorter name as we&rsquo;ll use
-it a lot below.</p>
+            <p>Diamo alla funzione <code>fmt.Println</code> un alias (<code>p</code>) in quanto
+l&rsquo;andremo ad usare parecchio in questo esempio</p>
 
           </td>
           <td class="code leading">
@@ -89,11 +78,11 @@ it a lot below.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a sample of the functions available in
-<code>strings</code>. Note that these are all functions from
-package, not methods on the string object itself.
-This means that we need pass the string in question
-as the first argument to the function.</p>
+            <p>Ecco un esempio delle funzioni disponibili nel
+pacchetto <code>strings</code>. Nota che queste sono tutte
+funzioni prevenienti dal pacchetto (e non proprie
+del tipo string). Questo significa che è necessario
+passare la stringa come primo parametro ogni volta</p>
 
           </td>
           <td class="code leading">
@@ -118,8 +107,8 @@ as the first argument to the function.</p>
         
         <tr>
           <td class="docs">
-            <p>You can find more functions in the <a href="http://golang.org/pkg/strings/"><code>strings</code></a>
-package docs.</p>
+            <p>Puoi trovare l&rsquo;elenco di tutte le funzioni del pacchetto
+<code>strings</code> sulla <a href="http://golang.org/pkg/strings/">documentazione ufficiale</a></p>
 
           </td>
           <td class="code empty leading">
@@ -130,9 +119,9 @@ package docs.</p>
         
         <tr>
           <td class="docs">
-            <p>Not part of <code>strings</code> but worth mentioning here are
-the mechanisms for getting the length of a string
-and getting a character by index.</p>
+            <p>Queste ultimi due comandi non fanno parte del pacchetto,
+ma vale comunque la pena citarli: ottenere la lunghezza
+di una stringa ed ottenere un carattere tramite indice</p>
 
           </td>
           <td class="code">
@@ -194,7 +183,7 @@ and getting a character by index.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/string-functions">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

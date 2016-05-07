@@ -2,38 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Exec'ing Processes</title>
+    <title>Go by Example - IT: Exec'ing Processes</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="execing-processes">
-      <h2><a href="./">Go by Example</a>: Exec'ing Processes</h2>
+      <h2><a href="./">Go by Example - IT</a>: Exec'ing Processes</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In the previous example we looked at
-<a href="spawning-processes">spawning external processes</a>. We
-do this when we need an external process accessible to
-a running Go process. Sometimes we just want to
-completely replace the current Go process with another
-(perhaps non-Go) one. To do this we&rsquo;ll use Go&rsquo;s
-implementation of the classic
-<a href="http://en.wikipedia.org/wiki/Exec_(operating_system)"><code>exec</code></a>
-function.</p>
+            <p>Nel precedente esempio abbiamo visto come <a href="spawning-processes">far partire
+processi esterni</a>. Facciamo ciò
+quando abbiamo bisogno di avere un processo esterno
+accessibile a un processo Go in esecuzione. A volte
+potremmo aver bisogno di rimpiazzare completamente
+il processo corrente con un altro (magari non scritto
+in Go). Per fare ciò utilizzaremo la implemntazione in
+Go della classica syscall
+<a href="https://en.wikipedia.org/wiki/Exec_(system_call)"><code>exec</code></a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +35,8 @@ function.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/neqdJ51KLN"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -82,10 +71,11 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll exec <code>ls</code>. Go requires an
-absolute path to the binary we want to execute, so
-we&rsquo;ll use <code>exec.LookPath</code> to find it (probably
-<code>/bin/ls</code>).</p>
+            <p>Per il nostro esempio &ldquo;execuiremo&rdquo; <code>ls</code>. Go
+richiede un percorso assoluto per il file binario
+che vogliamo eseguire, quindi eseguiremo
+<code>exec.LookPath</code> per trovarlo (probabilmente
+<code>/bin/ls</code>.)</p>
 
           </td>
           <td class="code leading">
@@ -101,10 +91,11 @@ we&rsquo;ll use <code>exec.LookPath</code> to find it (probably
         
         <tr>
           <td class="docs">
-            <p><code>Exec</code> requires arguments in slice form (as
-apposed to one big string). We&rsquo;ll give <code>ls</code> a few
-common arguments. Note that the first argument should
-be the program name.</p>
+            <p><code>Exec</code> richiede che gli argomenti siano in una
+slice (piuttosto che in una grande stringa).
+Daremo a <code>ls</code> un po&rsquo; di argomenti comuni. Nota che
+il primo argomento dovrebbe essere il nome del
+programma.</p>
 
           </td>
           <td class="code leading">
@@ -117,9 +108,10 @@ be the program name.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Exec</code> also needs a set of <a href="environment-variables">environment variables</a>
-to use. Here we just provide our current
-environment.</p>
+            <p><code>Exec</code> ha anche bisogno di una serie di <a href="environment-variables">variabili
+d&rsquo;ambiente</a> da usare. Di
+seguito forniamo semplicemente il nostro ambiente
+corrente.</p>
 
           </td>
           <td class="code leading">
@@ -132,11 +124,11 @@ environment.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual <code>syscall.Exec</code> call. If this call is
-successful, the execution of our process will end
-here and be replaced by the <code>/bin/ls -a -l -h</code>
-process. If there is an error we&rsquo;ll get a return
-value.</p>
+            <p>Qui facciamo finalmente la chiamata a <code>syscall.Exec</code>.
+Se questa chiamata ha successo, l&rsquo;esecuzione del
+nostro processo terminerà qui e verrà sostituita dal
+processo <code>ls -a -l -h</code>. Se c&rsquo;è qualche errore
+otterremo un valore di ritorno.</p>
 
           </td>
           <td class="code">
@@ -157,7 +149,8 @@ value.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run our program it is replaced by <code>ls</code>.</p>
+            <p>Quando eseguiamo il nostro processo verrà
+rimpiazzato da <code>ls</code></p>
 
           </td>
           <td class="code leading">
@@ -174,10 +167,11 @@ value.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that Go does not offer a classic Unix <code>fork</code>
-function. Usually this isn&rsquo;t an issue though, since
-starting goroutines, spawning processes, and exec&rsquo;ing
-processes covers most use cases for <code>fork</code>.</p>
+            <p>Nota che Go non offre la classica funzionalità di UNIX
+<code>fork</code>. Di solito, però, questo non è un problema,
+poiché l&rsquo;uso di goroutine, lo spawn di processi
+e l&rsquo;uso di <code>exec</code> coprono la maggior parte degli usi
+di <code>fork</code>.</p>
 
           </td>
           <td class="code empty">
@@ -194,7 +188,7 @@ processes covers most use cases for <code>fork</code>.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/execing-processes">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

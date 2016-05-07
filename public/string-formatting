@@ -2,32 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: String Formatting</title>
+    <title>Go by Example - IT: String Formatting</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="string-formatting">
-      <h2><a href="./">Go by Example</a>: String Formatting</h2>
+      <h2><a href="./">Go by Example - IT</a>: String Formatting</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers excellent support for string formatting in
-the <code>printf</code> tradition. Here are some examples of
-common string formatting tasks.</p>
+            <p>Go offre la possibilità di formattare le stringhe con
+il classico sistema di <code>printf</code>. Qui di seguito alcuni
+esempi di operazioni comuni di string formatting.</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +29,8 @@ common string formatting tasks.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/JJAAFGxHVq"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -67,7 +56,7 @@ common string formatting tasks.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">point</span> <span class="kd">struct</span> <span class="p">{</span>
+            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">punto</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span>
 <span class="p">}</span>
 </pre></div>
@@ -89,14 +78,15 @@ common string formatting tasks.</p>
         
         <tr>
           <td class="docs">
-            <p>Go offers several printing &ldquo;verbs&rdquo; designed to
-format general Go values. For example, this prints
-an instance of our <code>point</code> struct.</p>
+            <p>Go offre numerosi modi per stampare dati, alcuni
+disegnati appositamente per stampare strutture
+di dati del nostro programma. Per esempio, <code>%v</code>
+stampa la composizione della nostra struct <code>punto</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">point</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+            <div class="highlight"><pre>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">punto</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
 </pre></div>
 
@@ -105,8 +95,8 @@ an instance of our <code>point</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>If the value is a struct, the <code>%+v</code> variant will
-include the struct&rsquo;s field names.</p>
+            <p>Se il valore è una struct, la variante <code>%+v</code>
+includerà i nomi dei campi della struct in sé.</p>
 
           </td>
           <td class="code leading">
@@ -119,9 +109,10 @@ include the struct&rsquo;s field names.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>%#v</code> variant prints a Go syntax representation
-of the value, i.e. the source code snippet that
-would produce that value.</p>
+            <p>La variante <code>%#v</code> stampa una rappresentazione nella
+sintassi di Go, ovvero ciò che viene stampato
+potrebbe potenzialmente essere usato come codice
+per produrre quel valore.</p>
 
           </td>
           <td class="code leading">
@@ -134,7 +125,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>To print the type of a value, use <code>%T</code>.</p>
+            <p>Per stampare il tipo di un valore, usa <code>%T</code>.</p>
 
           </td>
           <td class="code leading">
@@ -147,7 +138,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>Formatting booleans is straight-forward.</p>
+            <p>Puoi, inoltre, stampare bool con <code>%t</code>.</p>
 
           </td>
           <td class="code leading">
@@ -160,8 +151,9 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>There are many options for formatting integers.
-Use <code>%d</code> for standard, base-10 formatting.</p>
+            <p>Ci sono, inoltre, numerose opzioni per stampare
+integer. Puoi usare <code>%d</code> per avere una
+rappresentazione standard in base 10.</p>
 
           </td>
           <td class="code leading">
@@ -174,7 +166,7 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints a binary representation.</p>
+            <p><code>%b</code> stampa la rappresentazione binaria.</p>
 
           </td>
           <td class="code leading">
@@ -187,8 +179,8 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints the character corresponding to the
-given integer.</p>
+            <p><code>%c</code> stampa il carattere corrispondente
+all&rsquo;integer dato.</p>
 
           </td>
           <td class="code leading">
@@ -201,7 +193,7 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%x</code> provides hex encoding.</p>
+            <p>Con <code>%x</code> puoi stampare il valore in esadecimale.</p>
 
           </td>
           <td class="code leading">
@@ -214,8 +206,9 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p>There are also several formatting options for
-floats. For basic decimal formatting use <code>%f</code>.</p>
+            <p>Ci sono anche numerose opzioni per il formatting
+dei float. Per stampare un float normalmente, usa
+<code>%f</code>.</p>
 
           </td>
           <td class="code leading">
@@ -228,8 +221,9 @@ floats. For basic decimal formatting use <code>%f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%e</code> and <code>%E</code> format the float in (slightly
-different versions of) scientific notation.</p>
+            <p><code>%e</code> e <code>%E</code> stampano il float in (versioni
+leggermente differenti di) notazione
+scientifica.</p>
 
           </td>
           <td class="code leading">
@@ -243,7 +237,7 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>For basic string printing use <code>%s</code>.</p>
+            <p>Per stampare stringhe normalmente, usa <code>%s</code>.</p>
 
           </td>
           <td class="code leading">
@@ -256,7 +250,8 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>To double-quote strings as in Go source, use <code>%q</code>.</p>
+            <p>Per mettere le virgolette alle stringhe come nel
+sorgente di Go, puoi usare <code>%q</code>.</p>
 
           </td>
           <td class="code leading">
@@ -269,14 +264,14 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>As with integers seen earlier, <code>%x</code> renders
-the string in base-16, with two output characters
-per byte of input.</p>
+            <p>Come per gli interi, si può stampare una versione
+esadecimale di una stringa sempre con <code>%x</code>, con
+due caratteri esadecimale per ogni byte passato.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;hex this&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;esadecimalami&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -284,7 +279,8 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>To print a representation of a pointer, use <code>%p</code>.</p>
+            <p>Per stampare la rappresentazione di un putatore,
+usa <code>%p</code>.</p>
 
           </td>
           <td class="code leading">
@@ -297,12 +293,12 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>When formatting numbers you will often want to
-control the width and precision of the resulting
-figure. To specify the width of an integer, use a
-number after the <code>%</code> in the verb. By default the
-result will be right-justified and padded with
-spaces.</p>
+            <p>Quando devi stampare dei numeri puoi spesso
+aver bisogno di controllare la lunghezza e la
+precisione della stringa risultante. Per
+specificare la lunghezza di un integer, dai un
+numero dopo il <code>%</code>. Normalmente il risultato
+sarà allineato a destra con degli spazi.</p>
 
           </td>
           <td class="code leading">
@@ -315,10 +311,11 @@ spaces.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also specify the width of printed floats,
-though usually you&rsquo;ll also want to restrict the
-decimal precision at the same time with the
-width.precision syntax.</p>
+            <p>Puoi anche specificare la lunghezza dei float
+che vuoi stampare, anche se spesso vorrai anche
+dare la lunghezza della precisione decimale
+allo stesso tempo della precisione del numero
+intero.</p>
 
           </td>
           <td class="code leading">
@@ -331,7 +328,7 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify, use the <code>-</code> flag.</p>
+            <p>Per allineare alla sinistra, usa la flag <code>-</code>.</p>
 
           </td>
           <td class="code leading">
@@ -344,9 +341,11 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>You may also want to control width when formatting
-strings, especially to ensure that they align in
-table-like output. For basic right-justified width.</p>
+            <p>Potrai anche aver bisogno di controllare la
+lunghezza quando stampi delle stringhe, soprattutto
+quando vuoi che si allineino per fare un output
+&ldquo;a mò di tabella&rdquo;. Puoi sempre specificare un
+numero per allineare alla destra.</p>
 
           </td>
           <td class="code leading">
@@ -359,7 +358,8 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify use the <code>-</code> flag as with numbers.</p>
+            <p>Per allineare alla destra, usa la flag <code>-</code> come
+per i numeri.</p>
 
           </td>
           <td class="code leading">
@@ -372,14 +372,15 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>So far we&rsquo;ve seen <code>Printf</code>, which prints the
-formatted string to <code>os.Stdout</code>. <code>Sprintf</code> formats
-and returns a string without printing it anywhere.</p>
+            <p>Fino ad ora abbiamo visto <code>Printf</code>, che stampa
+la stringa formattata a <code>os.Stdout</code>. <code>Sprintf</code>
+formatta la stringa e la ritorna senza stamparla
+da nessuna parte.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;a %s&quot;</span><span class="p">,</span> <span class="s">&quot;string&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;una %s&quot;</span><span class="p">,</span> <span class="s">&quot;stringa&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
 </pre></div>
 
@@ -388,13 +389,14 @@ and returns a string without printing it anywhere.</p>
         
         <tr>
           <td class="docs">
-            <p>You can format+print to <code>io.Writers</code> other than
-<code>os.Stdout</code> using <code>Fprintf</code>.</p>
+            <p>Puoi, inoltre, formattare+stampare a degli
+<code>io.Writer</code> oltre a <code>os.Stdout</code> tramite
+<code>Fprintf</code>.</p>
 
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&quot;an %s\n&quot;</span><span class="p">,</span> <span class="s">&quot;error&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&quot;un %s\n&quot;</span><span class="p">,</span> <span class="s">&quot;errore&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -414,8 +416,8 @@ and returns a string without printing it anywhere.</p>
             <div class="highlight"><pre><span class="gp">$</span> go run string-formatting.go
 <span class="go">{1 2}</span>
 <span class="go">{x:1 y:2}</span>
-<span class="go">main.point{x:1, y:2}</span>
-<span class="go">main.point</span>
+<span class="go">main.punto{x:1, y:2}</span>
+<span class="go">main.punto</span>
 <span class="go">true</span>
 <span class="go">123</span>
 <span class="go">1110</span>
@@ -426,15 +428,15 @@ and returns a string without printing it anywhere.</p>
 <span class="go">1.234000E+08</span>
 <span class="go">&quot;string&quot;</span>
 <span class="go">&quot;\&quot;string\&quot;&quot;</span>
-<span class="go">6865782074686973</span>
-<span class="go">0x42135100</span>
+<span class="go">657361646563696d616c616d69</span>
+<span class="go">0xc82000a2f0</span>
 <span class="go">|    12|   345|</span>
 <span class="go">|  1.20|  3.45|</span>
 <span class="go">|1.20  |3.45  |</span>
 <span class="go">|   foo|     b|</span>
 <span class="go">|foo   |b     |</span>
-<span class="go">a string</span>
-<span class="go">an error</span>
+<span class="go">una stringa</span>
+<span class="go">un errore</span>
 </pre></div>
 
           </td>
@@ -448,7 +450,7 @@ and returns a string without printing it anywhere.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/string-formatting">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

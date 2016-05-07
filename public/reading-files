@@ -2,32 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Reading Files</title>
+    <title>Go by Example - IT: Reading Files</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="reading-files">
-      <h2><a href="./">Go by Example</a>: Reading Files</h2>
+      <h2><a href="./">Go by Example - IT</a>: Reading Files</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Reading and writing files are basic tasks needed for
-many Go programs. First we&rsquo;ll look at some examples of
-reading files.</p>
+            <p>Leggere e scrivere su file è un task basilare
+necessario ad una marea di programmi. Vediamo prima
+qualche esempio di lettura da file.</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +29,8 @@ reading files.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/2kEKXq-kUV"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -68,8 +57,9 @@ reading files.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading files requires checking most calls for errors.
-This helper will streamline our error checks below.</p>
+            <p>La lettura da file richiede il controllo degli errori
+di svariate funzioni. Questo helper ci aiuterà a
+gestire gli errori che si potrebbero generare.</p>
 
           </td>
           <td class="code leading">
@@ -98,8 +88,8 @@ This helper will streamline our error checks below.</p>
         
         <tr>
           <td class="docs">
-            <p>Perhaps the most basic file reading task is
-slurping a file&rsquo;s entire contents into memory.</p>
+            <p>Il task più semplice è la lettura dell&rsquo;intero
+file in memoria</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +104,10 @@ slurping a file&rsquo;s entire contents into memory.</p>
         
         <tr>
           <td class="docs">
-            <p>You&rsquo;ll often want more control over how and what
-parts of a file are read. For these tasks, start
-by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
+            <p>Generalmente si vuole più controllo sul modo con
+viene letto un file. Per queste funzionalità si
+deve iniziare aprendo il file (con <code>os.Open</code>) al fine
+di ottenere un valore di tipo <code>os.File</code>.</p>
 
           </td>
           <td class="code leading">
@@ -130,9 +121,10 @@ by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
         
         <tr>
           <td class="docs">
-            <p>Read some bytes from the beginning of the file.
-Allow up to 5 to be read but also note how many
-actually were read.</p>
+            <p>Con <code>Read</code> è possibile leggere byte dall&rsquo;inizio del file.
+Qui si permette di leggere fino a 5 byte, ma si ottiene
+anche il numero di byte effettivamente letti (nel
+parametro n1).</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +140,8 @@ actually were read.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also <code>Seek</code> to a known location in the file
-and <code>Read</code> from there.</p>
+            <p>È possibile posizionarsi in un punto preciso del file
+tramite <code>Seek</code> ed effettuare una <code>Read</code> da quel punto</p>
 
           </td>
           <td class="code leading">
@@ -167,10 +159,10 @@ and <code>Read</code> from there.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>io</code> package provides some functions that may
-be helpful for file reading. For example, reads
-like the ones above can be more robustly
-implemented with <code>ReadAtLeast</code>.</p>
+            <p>Il pacchetto <code>io</code> offre svariate funzioni che possono
+essere utili durante la lettura da file. Ad esempio,
+una read come quella poco sopra può essere realizzata
+tramite la funzione <code>ReadAtLeast</code></p>
 
           </td>
           <td class="code leading">
@@ -188,8 +180,8 @@ implemented with <code>ReadAtLeast</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>There is no built-in rewind, but <code>Seek(0, 0)</code>
-accomplishes this.</p>
+            <p>Per posizionarsi all&rsquo;inizio del file è possibile
+utilizzare <code>Seek(0, 0)</code></p>
 
           </td>
           <td class="code leading">
@@ -203,10 +195,11 @@ accomplishes this.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>bufio</code> package implements a buffered
-reader that may be useful both for its efficiency
-with many small reads and because of the additional
-reading methods it provides.</p>
+            <p>Il pacchetto <code>bufio</code> offre una serie di metodi
+per la lettura bufferizzata su file.
+Questo pacchetto può essere utile per la sua
+efficienza nel caso di svariate piccole read, e per
+le funzioni addizionali che offre.</p>
 
           </td>
           <td class="code leading">
@@ -222,26 +215,15 @@ reading methods it provides.</p>
         
         <tr>
           <td class="docs">
-            <p>Close the file when you&rsquo;re done (usually this would
-be scheduled immediately after <code>Open</code>ing with
-<code>defer</code>).</p>
+            <p>Ricordati di chiudere il file quando hai terminato.
+Questo può essere effettuato subito dopo la <code>Open</code>
+utilizzando una <code>defer</code>.</p>
 
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">f</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre><span class="p">}</span>
+            <div class="highlight"><pre>    <span class="nx">f</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 
           </td>
@@ -273,7 +255,8 @@ be scheduled immediately after <code>Open</code>ing with
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at writing files.</p>
+            <p>Vedremo adesso come effettuare la scrittura
+su file.</p>
 
           </td>
           <td class="code empty">
@@ -290,7 +273,7 @@ be scheduled immediately after <code>Open</code>ing with
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/reading-files">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

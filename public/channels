@@ -2,33 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Channels</title>
+    <title>Go by Example - IT: Channels</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="channels">
-      <h2><a href="./">Go by Example</a>: Channels</h2>
+      <h2><a href="./">Go by Example - IT</a>: Channels</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Channels</em> are the pipes that connect concurrent
-goroutines. You can send values into channels from one
-goroutine and receive those values into another
-goroutine.</p>
+            <p>I <em>channel</em> sono i <a href="https://it.wikipedia.org/wiki/Pipe_(informatica)">pipe</a>
+che connettono goroutine concorrenti. Puoi mandare
+e ricevere dei valori da una goroutine a un&rsquo;altra
+goroutine attraverso un channel.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +30,8 @@ goroutine.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Kd8B0T_JGK"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -75,8 +64,9 @@ goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>Create a new channel with <code>make(chan val-type)</code>.
-Channels are typed by the values they convey.</p>
+            <p>Puoi creare un nuovo channel con la sintassi
+<code>make(chan tipo)</code>. I channel sono dichiarati con i
+tipi dei valori che possono veicolare.</p>
 
           </td>
           <td class="code leading">
@@ -89,9 +79,10 @@ Channels are typed by the values they convey.</p>
         
         <tr>
           <td class="docs">
-            <p><em>Send</em> a value into a channel using the <code>channel &lt;-</code>
-syntax. Here we send <code>&quot;ping&quot;</code>  to the <code>messages</code>
-channel we made above, from a new goroutine.</p>
+            <p>Puoi <em>inviare</em> un valore in un channel con la
+sintassi <code>channel &lt;-</code>. Di seguito mandiamo la
+stringa <code>&quot;ping&quot;</code> al channel <code>messages</code> che abbiamo
+dichiarato in precedenza, in una nuova goroutine.</p>
 
           </td>
           <td class="code leading">
@@ -104,9 +95,10 @@ channel we made above, from a new goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-channel</code> syntax <em>receives</em> a value from the
-channel. Here we&rsquo;ll receive the <code>&quot;ping&quot;</code> message
-we sent above and print it out.</p>
+            <p>Puoi <em>ricevere</em> un valore da un channel con la
+sintassi <code>&lt;-channel</code>. Di seguito riceveremo il
+messaggio <code>&quot;ping&quot;</code> che abbiamo inviato a messages
+precedentemente nella goroutine e lo stamperemo.</p>
 
           </td>
           <td class="code">
@@ -125,9 +117,9 @@ we sent above and print it out.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run the program the <code>&quot;ping&quot;</code> message is
-successfully passed from one goroutine to another via
-our channel.</p>
+            <p>Quando eseguiremo il programma potremmo vedere che
+<code>&quot;ping&quot;</code> è passato senza problemi da una goroutine
+all&rsquo;altra attraverso il nostro channel.</p>
 
           </td>
           <td class="code leading">
@@ -141,10 +133,11 @@ our channel.</p>
         
         <tr>
           <td class="docs">
-            <p>By default sends and receives block until both the
-sender and receiver are ready. This property allowed
-us to wait at the end of our program for the <code>&quot;ping&quot;</code>
-message without having to use any other synchronization.</p>
+            <p>Di default l&rsquo;invio e il ricevimento si bloccano finché
+sia il mittente che il destinatario non sono pronti.
+Questo ci ha permesso di aspettare alla fine del
+programma per il messaggio <code>&quot;ping&quot;</code> senza dover
+effetturare alcuna sincronizzazione.</p>
 
           </td>
           <td class="code empty">
@@ -161,7 +154,7 @@ message without having to use any other synchronization.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/channels">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

@@ -2,32 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Range</title>
+    <title>Go by Example - IT: Range</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="range">
-      <h2><a href="./">Go by Example</a>: Range</h2>
+      <h2><a href="./">Go by Example - IT</a>: Range</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>range</em> iterates over of elements in a variety of
-data structures. Let&rsquo;s see how to use <code>range</code> with some
-of the data structures we&rsquo;ve already learned.</p>
+            <p>I <em>range</em> statement permettono di iterare sugli
+elementi di una varietà di strutture di dati,
+similmente ai foreach di altri linguaggi. Vediamo
+come usare <code>range</code> con alcune delle strutture di
+dati che abbiamo già visto.</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +31,8 @@ of the data structures we&rsquo;ve already learned.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/u2yg3m1eFT"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -74,8 +65,9 @@ of the data structures we&rsquo;ve already learned.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use <code>range</code> to sum the numbers in a slice.
-Arrays work like this too.</p>
+            <p>Di seguito utilizziamo un <code>range</code> per sommare i
+numeri di uno slice. (Con gli array viene fatto
+allo stesso modo).</p>
 
           </td>
           <td class="code leading">
@@ -85,7 +77,7 @@ Arrays work like this too.</p>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">num</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nums</span> <span class="p">{</span>
         <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">num</span>
     <span class="p">}</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sum:&quot;</span><span class="p">,</span> <span class="nx">sum</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;somma:&quot;</span><span class="p">,</span> <span class="nx">sum</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -93,18 +85,19 @@ Arrays work like this too.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on arrays and slices provides both the
-index and value for each entry. Above we didn&rsquo;t
-need the index, so we ignored it with the
-blank identifier <code>_</code>. Sometimes we actually want
-the indexes though.</p>
+            <p><code>range</code> sugli array e sugli slice ritorna sia l&rsquo;indice
+sia il valore di ognuno degli elementi. Prima non
+avevamo bisogno di utilizzare l&rsquo;indice, quindi
+l&rsquo;avevamo ignorato utilizzando il blank identifier
+<code>_</code>. Qualche volta potremmo avere anche solo bisogno
+dell&rsquo;indice, e ignorare il suo valore.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">num</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nums</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">num</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">{</span>
-            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;index:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;indice:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
 </pre></div>
@@ -114,12 +107,13 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on map iterates over key/value pairs.</p>
+            <p><code>range</code> su una map itera sulle coppie
+chiave-valore.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">kvs</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">:</span> <span class="s">&quot;banana&quot;</span><span class="p">}</span>
+            <div class="highlight"><pre>    <span class="nx">kvs</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="s">&quot;alice&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">:</span> <span class="s">&quot;bob&quot;</span><span class="p">}</span>
     <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">kvs</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s -&gt; %s\n&quot;</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
     <span class="p">}</span>
@@ -130,9 +124,9 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on strings iterates over Unicode code
-points. The first value is the starting byte index
-of the <code>rune</code> and the second the <code>rune</code> itself.</p>
+            <p><code>range</code> sulle stringhe itera sui singoli codici Unicode
+della stringa. Il primo valore rappresenta l&rsquo;indice posizionale,
+il secondo valore rappresenta la <code>rune</code> Unicode in sè per sè.</p>
 
           </td>
           <td class="code">
@@ -156,11 +150,11 @@ of the <code>rune</code> and the second the <code>rune</code> itself.</p>
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run range.go 
-<span class="go">sum: 9</span>
-<span class="go">index: 1</span>
-<span class="go">a -&gt; apple</span>
-<span class="go">b -&gt; banana</span>
+            <div class="highlight"><pre><span class="gp">$</span> go run range.go
+<span class="go">somma: 9</span>
+<span class="go">indice: 1</span>
+<span class="go">a -&gt; alice</span>
+<span class="go">b -&gt; bob</span>
 <span class="go">0 103</span>
 <span class="go">1 111</span>
 </pre></div>
@@ -176,7 +170,7 @@ of the <code>rune</code> and the second the <code>rune</code> itself.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/range">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

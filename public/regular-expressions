@@ -2,32 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Regular Expressions</title>
+    <title>Go by Example - IT: Regular Expressions</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="regular-expressions">
-      <h2><a href="./">Go by Example</a>: Regular Expressions</h2>
+      <h2><a href="./">Go by Example - IT</a>: Regular Expressions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for <a href="http://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>.
-Here are some examples of  common regexp-related tasks
-in Go.</p>
+            <p>Go offre il supporto nativo alle <a href="https://it.wikipedia.org/wiki/Espressione_regolare">espressioni regolari</a>.
+Ecco qualche esempio di operazioni comuni con le regexp in Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +28,8 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/YeSiBTfhFq"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -76,7 +64,7 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>This tests whether a pattern matches a string.</p>
+            <p>Questo controlla che una stringa soddisfi una regexp</p>
 
           </td>
           <td class="code leading">
@@ -90,9 +78,10 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Above we used a string pattern directly, but for
-other regexp tasks you&rsquo;ll need to <code>Compile</code> an
-optimized <code>Regexp</code> struct.</p>
+            <p>Prima abbiamo utilizzato le regexp in modo diretto.
+In generale si invoca prima il <code>Compile</code> su una
+regexp, al fine di ottenere una struct <code>Regexp</code>
+ottimizzata.</p>
 
           </td>
           <td class="code leading">
@@ -105,8 +94,8 @@ optimized <code>Regexp</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>Many methods are available on these structs. Here&rsquo;s
-a match test like we saw earlier.</p>
+            <p>Su questa struttura abbiamo a disposizione svariati
+metodi. Ecco un test simile al nostro primo esempio.</p>
 
           </td>
           <td class="code leading">
@@ -119,7 +108,8 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This finds the match for the regexp.</p>
+            <p>Questo ritorna il primo match (una stringa) che
+soddisfa la regexp.</p>
 
           </td>
           <td class="code leading">
@@ -132,9 +122,9 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This also finds the first match but returns the
-start and end indexes for the match instead of the
-matching text.</p>
+            <p>Anche questo metodo ritorna il primo match,
+ma invece di ritornarne la stringa, ritorna l&rsquo;indice
+di inizio e di fine della stringa.</p>
 
           </td>
           <td class="code leading">
@@ -147,10 +137,10 @@ matching text.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Submatch</code> variants include information about
-both the whole-pattern matches and the submatches
-within those matches. For example this will return
-information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
+            <p>La variante <code>Submatch</code> include informazioni
+relativi al match del pattern e anche ai match di
+eventuali sotto-pattern. In questo caso ritornerebbe
+i match per i pattern <code>p([a-z]+)ch</code> e <code>([a-z]+)</code>.</p>
 
           </td>
           <td class="code leading">
@@ -163,8 +153,8 @@ information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Similarly this will return information about the
-indexes of matches and submatches.</p>
+            <p>In modo simile questo metodo ritornerà gli indici
+di inizio e di fine del match e dei sotto-match</p>
 
           </td>
           <td class="code leading">
@@ -177,9 +167,8 @@ indexes of matches and submatches.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>All</code> variants of these functions apply to all
-matches in the input, not just the first. For
-example to find all matches for a regexp.</p>
+            <p>La variante <code>All</code>, invece di ritornare solo la prima
+occorrenza del match, ritorna tutti i match.</p>
 
           </td>
           <td class="code leading">
@@ -192,8 +181,8 @@ example to find all matches for a regexp.</p>
         
         <tr>
           <td class="docs">
-            <p>These <code>All</code> variants are available for the other
-functions we saw above as well.</p>
+            <p>Questa variante <code>All</code> è disponibile per tutte le
+funzioni che abbiamo visto prima.</p>
 
           </td>
           <td class="code leading">
@@ -207,9 +196,10 @@ functions we saw above as well.</p>
         
         <tr>
           <td class="docs">
-            <p>Providing a non-negative integer as the second
-argument to these functions will limit the number
-of matches.</p>
+            <p>Se si passa un intero non negativo come secondo parametro
+di queste funzioni si sta limitando il numero
+di match da ritornare. Ad esempio in questo caso
+si è interessati solamente ai primi 2 match.</p>
 
           </td>
           <td class="code leading">
@@ -222,10 +212,10 @@ of matches.</p>
         
         <tr>
           <td class="docs">
-            <p>Our examples above had string arguments and used
-names like <code>MatchString</code>. We can also provide
-<code>[]byte</code> arguments and drop <code>String</code> from the
-function name.</p>
+            <p>Il nostro primo esempio mostrava la funzione
+<code>MatchString</code> che lavorava su stringhe. È possibile
+passare anche parametro di tipo <code>[]byte</code> ed
+utilizzare la funzione <code>Match</code>.</p>
 
           </td>
           <td class="code leading">
@@ -238,10 +228,10 @@ function name.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating constants with regular expressions
-you can use the <code>MustCompile</code> variation of
-<code>Compile</code>. A plain <code>Compile</code> won&rsquo;t work for
-constants because it has 2 return values.</p>
+            <p>Se si vuole creare una costante a partire da
+una regexp si può utilizzare la funzione <code>MustCompile</code>
+(invece di <code>Compile</code>). La classica <code>Compile</code> non
+funzionerà in quanto ha 2 valori di ritorno.</p>
 
           </td>
           <td class="code leading">
@@ -255,8 +245,8 @@ constants because it has 2 return values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>regexp</code> package can also be used to replace
-subsets of strings with other values.</p>
+            <p>Il pacchetto <code>regexp</code> può essere utilizzato anche per
+effettuare sostituzioni di stringhe/sottostringhe.</p>
 
           </td>
           <td class="code leading">
@@ -269,8 +259,9 @@ subsets of strings with other values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Func</code> variant allows you to transform matched
-text with a given function.</p>
+            <p>La variante <code>Func</code> permette di trasformare i match
+trovati passandogli una funzione che verrà applicata
+su ogni occorrenza</p>
 
           </td>
           <td class="code">
@@ -315,8 +306,9 @@ text with a given function.</p>
         
         <tr>
           <td class="docs">
-            <p>For a complete reference on Go regular expressions check
-the <a href="http://golang.org/pkg/regexp/"><code>regexp</code></a> package docs.</p>
+            <p>Per avere la documentazione completa delle
+espressioni regolari in Go, controlla la
+<a href="http://golang.org/pkg/regexp/">pagina del pacchetto <code>regexp</code></a></p>
 
           </td>
           <td class="code empty">
@@ -333,7 +325,7 @@ the <a href="http://golang.org/pkg/regexp/"><code>regexp</code></a> package docs
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/regular-expressions">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

@@ -2,33 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Timeouts</title>
+    <title>Go by Example - IT: Timeouts</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="timeouts">
-      <h2><a href="./">Go by Example</a>: Timeouts</h2>
+      <h2><a href="./">Go by Example - IT</a>: Timeouts</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Timeouts</em> are important for programs that connect to
-external resources or that otherwise need to bound
-execution time. Implementing timeouts in Go is easy and
-elegant thanks to channels and <code>select</code>.</p>
+            <p>I <em>Timeout</em> sono fondamentali per i programmi che si
+connettono a risorse esterne o che hanno comunque
+bisogno di limitare il tempo d&rsquo;esecuzione.
+Implementare i timeout in Go è semplice grazie ai
+channel e al costrutto <code>select</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +31,8 @@ elegant thanks to channels and <code>select</code>.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/CoBnJiRyx3"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -76,9 +66,9 @@ elegant thanks to channels and <code>select</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example, suppose we&rsquo;re executing an external
-call that returns its result on a channel <code>c1</code>
-after 2s.</p>
+            <p>Ai fini del nostro esempio, supponiamo di star
+eseguendo una chiamata esterna che ritorna il suo
+risultato sul channel <code>c1</code> dopo 2 secondi.</p>
 
           </td>
           <td class="code leading">
@@ -86,7 +76,7 @@ after 2s.</p>
             <div class="highlight"><pre>    <span class="nx">c1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="nx">c1</span> <span class="o">&lt;-</span> <span class="s">&quot;result 1&quot;</span>
+        <span class="nx">c1</span> <span class="o">&lt;-</span> <span class="s">&quot;risultato 1&quot;</span>
     <span class="p">}()</span>
 </pre></div>
 
@@ -95,12 +85,14 @@ after 2s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>select</code> implementing a timeout.
-<code>res := &lt;-c1</code> awaits the result and <code>&lt;-Time.After</code>
-awaits a value to be sent after the timeout of
-1s. Since <code>select</code> proceeds with the first
-receive that&rsquo;s ready, we&rsquo;ll take the timeout case
-if the operation takes more than the allowed 1s.</p>
+            <p>Qui mostriamo il <code>select</code> che implementa un timeout.
+Il comando <code>res := &lt;-c1</code> attende il risultato della funzione
+mentre il comando <code>&lt;-Time.After</code> emette un risultato dopo
+un timeout di 1 secondo.
+Dal momento che il comando <code>select</code> procede con il primo
+canale per cui è disponibile un valore, eseguiremo il caso
+del timout se la nostra chiamata esterna richiede più di
+1 secondo.</p>
 
           </td>
           <td class="code leading">
@@ -118,8 +110,10 @@ if the operation takes more than the allowed 1s.</p>
         
         <tr>
           <td class="docs">
-            <p>If we allow a longer timeout of 3s, then the receive
-from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
+            <p>In questo caso possiamo vedere come impostare un timeout di
+3 secondi sia sufficiente a far ritornare la nostra goroutine
+che scrive sul canale <code>c2</code>. Riusciremo infatti a vedere il
+risultato a schermo e a non far scattare il timeout.</p>
 
           </td>
           <td class="code">
@@ -127,7 +121,7 @@ from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
             <div class="highlight"><pre>    <span class="nx">c2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="nx">c2</span> <span class="o">&lt;-</span> <span class="s">&quot;result 2&quot;</span>
+        <span class="nx">c2</span> <span class="o">&lt;-</span> <span class="s">&quot;risultato 2&quot;</span>
     <span class="p">}()</span>
     <span class="k">select</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">res</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">c2</span><span class="p">:</span>
@@ -147,15 +141,16 @@ from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
         
         <tr>
           <td class="docs">
-            <p>Running this program shows the first operation timing
-out and the second succeeding.</p>
+            <p>Se si esegue questo programma si potrà notare come
+la prima operazione andrà in timeout, mentre la seconda
+verrà eseguita correttamente.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run timeouts.go 
 <span class="go">timeout 1</span>
-<span class="go">result 2</span>
+<span class="go">risultato 2</span>
 </pre></div>
 
           </td>
@@ -163,11 +158,12 @@ out and the second succeeding.</p>
         
         <tr>
           <td class="docs">
-            <p>Using this <code>select</code> timeout pattern requires
-communicating results over channels. This is a good
-idea in general because other important Go features are
-based on channels and <code>select</code>. We&rsquo;ll look at two
-examples of this next: timers and tickers.</p>
+            <p>Usare questo pattern con il <code>select</code> per implementare
+i timeout e la comunicazione attraverso i channel
+risulta essere particolarmente vantaggioso.
+Svariate altre funzionalità di Go sono basate su
+channel e <code>select</code>, vedremo due esempi di questo a
+breve: i <em>timer</em> e i <em>ticker</em>.</p>
 
           </td>
           <td class="code empty">
@@ -184,7 +180,7 @@ examples of this next: timers and tickers.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/timeouts">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

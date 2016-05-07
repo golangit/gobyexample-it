@@ -2,33 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Collection Functions</title>
+    <title>Go by Example - IT: Collection Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="collection-functions">
-      <h2><a href="./">Go by Example</a>: Collection Functions</h2>
+      <h2><a href="./">Go by Example - IT</a>: Collection Functions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>We often need our programs to perform operations on
-collections of data, like selecting all items that
-satisfy a given predicate or mapping all items to a new
-collection with a custom function.</p>
+            <p>Spesso abbiamo bisogno che i nostri programmi
+effettuino operazioni su collezioni di dati,
+come selezionare tutti gli elementi che
+soddisfino un determinato condizionale, oppure mappare
+gli elementi su una nuova collezione con un criterio
+specifico e una funzione ad hoc.</p>
 
           </td>
           <td class="code empty leading">
@@ -39,11 +29,12 @@ collection with a custom function.</p>
         
         <tr>
           <td class="docs">
-            <p>In some languages it&rsquo;s idiomatic to use <a href="http://en.wikipedia.org/wiki/Generic_programming">generic</a>
-data structures and algorithms. Go does not support
-generics; in Go it&rsquo;s common to provide collection
-functions if and when they are specifically needed for
-your program and data types.</p>
+            <p>In alcuni linguaggi è idiomatico l&rsquo;utilizzo di
+strutture di dati e algoritmi <a href="http://en.wikipedia.org/wiki/Generic_programming">generici</a>.
+Go non supporta algoritmi/strutture generiche: in
+genere si forniscono funzioni per collezioni se sono
+specificamente necessari per il tuo programma e per i
+tuoi tipi.</p>
 
           </td>
           <td class="code empty leading">
@@ -54,12 +45,12 @@ your program and data types.</p>
         
         <tr>
           <td class="docs">
-            <p>Here are some example collection functions for slices
-of <code>strings</code>. You can use these examples to build your
-own functions. Note that in some cases it may be
-clearest to just inline the collection-manipulating
-code directly, instead of creating and calling a
-helper function.</p>
+            <p>A seguire un po&rsquo; di esempi di funzioni che agiscono su
+slice di <code>string</code>. Puoi usare questi esempi per
+costruire le tue proprie funzioni. Nota che in alcuni
+casi può essere più chiaro scrivere il corpo della
+funzione direttamente nel tuo codice stesso, piuttosto
+che creare e chiamare una funzione helper.</p>
 
           </td>
           <td class="code empty leading">
@@ -73,7 +64,8 @@ helper function.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/3PNdke3Wia"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -95,13 +87,14 @@ helper function.</p>
         
         <tr>
           <td class="docs">
-            <p>Returns the first index of the target string <code>t</code>, or
--1 if no match is found.</p>
+            <p>Ritorna il primo indice del valore in <code>vs</code>
+corrispondente a <code>t</code>, o -1 se nessuna corrispondenza
+viene trovata.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Index</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Indice</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
     <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">v</span> <span class="o">==</span> <span class="nx">t</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">i</span>
@@ -116,14 +109,13 @@ helper function.</p>
         
         <tr>
           <td class="docs">
-            <p>Returns <code>true</code> if the target string t is in the
-slice.</p>
+            <p>Ritorna <code>true</code> se la stringa <code>t</code> è nello slice <code>vs</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">Index</span><span class="p">(</span><span class="nx">vs</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Incluso</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Indice</span><span class="p">(</span><span class="nx">vs</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -132,13 +124,13 @@ slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Returns <code>true</code> if one of the strings in the slice
-satisfies the predicate <code>f</code>.</p>
+            <p>Ritorna <code>true</code> se una delle stringhe nello slice
+soddisfa la funzione condizionale <code>f</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Any</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">AlmenoUno</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="kc">true</span>
@@ -153,13 +145,13 @@ satisfies the predicate <code>f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Returns <code>true</code> if all of the strings in the slice
-satisfy the predicate <code>f</code>.</p>
+            <p>Ritorna <code>true</code> se tutte le <code>string</code> nello slice
+soddisfano la funzione condizionale <code>f</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">All</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Tutti</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">!</span><span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="kc">false</span>
@@ -174,13 +166,14 @@ satisfy the predicate <code>f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Returns a new slice containing all strings in the
-slice that satisfy the predicate <code>f</code>.</p>
+            <p>Ritorna un nuovo slice che contiene tutte le stringhe
+nello slice <code>vs</code> che soddisfano la funzione
+condizionale <code>f</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Filter</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Filtra</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
     <span class="nx">vsf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
@@ -196,18 +189,20 @@ slice that satisfy the predicate <code>f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Returns a new slice containing the results of applying
-the function <code>f</code> to each string in the original slice.</p>
+            <p>Ritorna un nuovo slice che contiene i risultati
+dell&rsquo;applicazione della funzione <code>f</code> su ogni stringa
+dello slice <code>vs</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Map</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
-    <span class="nx">vsm</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">vs</span><span class="p">))</span>
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Applica</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span>
+    <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
+    <span class="nx">vsa</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">vs</span><span class="p">))</span>
     <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
-        <span class="nx">vsm</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+        <span class="nx">vsa</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">vsm</span>
+    <span class="k">return</span> <span class="nx">vsa</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -228,12 +223,13 @@ the function <code>f</code> to each string in the original slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we try out our various collection functions.</p>
+            <p>Di seguito proviamo ad utilizzare le nostre varie
+funzioni di collezione.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">strs</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">,</span> <span class="s">&quot;plum&quot;</span><span class="p">}</span>
+            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">strs</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;pesca&quot;</span><span class="p">,</span> <span class="s">&quot;mela&quot;</span><span class="p">,</span> <span class="s">&quot;pera&quot;</span><span class="p">,</span> <span class="s">&quot;prugna&quot;</span><span class="p">}</span>
 </pre></div>
 
           </td>
@@ -245,7 +241,7 @@ the function <code>f</code> to each string in the original slice.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Index</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">))</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Indice</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;pera&quot;</span><span class="p">))</span>
 </pre></div>
 
           </td>
@@ -257,7 +253,7 @@ the function <code>f</code> to each string in the original slice.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Include</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;grape&quot;</span><span class="p">))</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Incluso</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;uva&quot;</span><span class="p">))</span>
 </pre></div>
 
           </td>
@@ -269,7 +265,7 @@ the function <code>f</code> to each string in the original slice.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Any</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">AlmenoUno</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">HasPrefix</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&quot;p&quot;</span><span class="p">)</span>
     <span class="p">}))</span>
 </pre></div>
@@ -283,7 +279,7 @@ the function <code>f</code> to each string in the original slice.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">All</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Tutti</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">HasPrefix</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&quot;p&quot;</span><span class="p">)</span>
     <span class="p">}))</span>
 </pre></div>
@@ -297,8 +293,8 @@ the function <code>f</code> to each string in the original slice.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Filter</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Filtra</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
     <span class="p">}))</span>
 </pre></div>
 
@@ -307,14 +303,14 @@ the function <code>f</code> to each string in the original slice.</p>
         
         <tr>
           <td class="docs">
-            <p>The above examples all used anonymous functions,
-but you can also use named functions of the correct
-type.</p>
+            <p>Gli esempi sovrastanti usavano tutti funzioni
+anonime, ma puoi anche usare funzioni pre-esistenti
+(non anonime) con il tipo corretto.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Map</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">ToUpper</span><span class="p">))</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Applica</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">ToUpper</span><span class="p">))</span>
 </pre></div>
 
           </td>
@@ -347,8 +343,8 @@ type.</p>
 <span class="go">false</span>
 <span class="go">true</span>
 <span class="go">false</span>
-<span class="go">[peach apple pear]</span>
-<span class="go">[PEACH APPLE PEAR PLUM]</span>
+<span class="go">[pera prugna]</span>
+<span class="go">[PESCA MELA PERA PRUGNA]</span>
 </pre></div>
 
           </td>
@@ -362,7 +358,7 @@ type.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/collection-functions">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

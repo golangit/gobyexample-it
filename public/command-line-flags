@@ -2,33 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Command-Line Flags</title>
+    <title>Go by Example - IT: Command-Line Flags</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="command-line-flags">
-      <h2><a href="./">Go by Example</a>: Command-Line Flags</h2>
+      <h2><a href="./">Go by Example - IT</a>: Command-Line Flags</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="http://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Command-line flags</em></a>
-are a common way to specify options for command-line
-programs. For example, in <code>wc -l</code> the <code>-l</code> is a
-command-line flag.</p>
+            <p>I <em>Command-line flag</em> sono uno dei modi prioritari
+per specificare delle opzioni in una qualsiasi
+<a href="https://it.wikipedia.org/wiki/Interfaccia_a_riga_di_comando">interfaccia a riga di comando</a>
+Ad esempio in <code>wc -l</code>, il <code>-l</code> è un flag.</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +30,8 @@ command-line flag.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/NASEOq2R3n"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -51,9 +40,9 @@ command-line flag.</p>
         
         <tr>
           <td class="docs">
-            <p>Go provides a <code>flag</code> package supporting basic
-command-line flag parsing. We&rsquo;ll use this package to
-implement our example command-line program.</p>
+            <p>Go offre il pacchetto <code>flag</code> per supportare il parsing
+dei flag da linea di comando. Utilizzeremo questo pacchetto
+per implementare il nostro programma di esempio.</p>
 
           </td>
           <td class="code leading">
@@ -79,12 +68,13 @@ implement our example command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>Basic flag declarations are available for string,
-integer, and boolean options. Here we declare a
-string flag <code>word</code> with a default value <code>&quot;foo&quot;</code>
-and a short description. This <code>flag.String</code> function
-returns a string pointer (not a string value);
-we&rsquo;ll see how to use this pointer below.</p>
+            <p>Il pacchetto offre semplici funzioni per parsare
+stringhe, interi e booleani. Qui dichiariamo un
+flag di tipo string chiamato <code>word</code> che ha come
+valore di default <code>&quot;foo&quot;</code> ed una breve descrizione.
+Questa funzione <code>flag.String</code> ritorna il puntatore
+ad una stringa (non un valore di tipo stringa).
+Vedremo dopo come utilizzare questo puntatore.</p>
 
           </td>
           <td class="code leading">
@@ -97,8 +87,8 @@ we&rsquo;ll see how to use this pointer below.</p>
         
         <tr>
           <td class="docs">
-            <p>This declares <code>numb</code> and <code>fork</code> flags, using a
-similar approach to the <code>word</code> flag.</p>
+            <p>Qui dichiariamo due flag, <code>numb</code> e <code>fork</code>,
+utilizzando un approccio simile a <code>word</code>.</p>
 
           </td>
           <td class="code leading">
@@ -112,10 +102,10 @@ similar approach to the <code>word</code> flag.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s also possible to declare an option that uses an
-existing var declared elsewhere in the program.
-Note that we need to pass in a pointer to the flag
-declaration function.</p>
+            <p>È inoltre possibile dichiarare un flag che vada ad
+utilizzare una variabile precedentemente dichiarata
+nel programma con <code>var</code>. Nota che è necessario passare
+il puntatore a tale variabile.</p>
 
           </td>
           <td class="code leading">
@@ -129,8 +119,9 @@ declaration function.</p>
         
         <tr>
           <td class="docs">
-            <p>Once all flags are declared, call <code>flag.Parse()</code>
-to execute the command-line parsing.</p>
+            <p>Una volta che tutti i flag sono stati dichiarati è
+possibile invocare <code>flag.Parse()</code> per eseguire il
+parsing dei flag dalla linea di comando.</p>
 
           </td>
           <td class="code leading">
@@ -143,10 +134,11 @@ to execute the command-line parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we&rsquo;ll just dump out the parsed options and
-any trailing positional arguments. Note that we
-need to dereference the pointers with e.g. <code>*wordPtr</code>
-to get the actual option values.</p>
+            <p>Qui stampiamo i valori dei flag. Otterremo i valori
+di default se i flag non sono presenti sulla linea
+di comando. Nota che è necessario dereferenziare il
+puntatore (vedi <code>*wordPtr</code>) per ottenere il valore
+del flag.</p>
 
           </td>
           <td class="code">
@@ -168,9 +160,9 @@ to get the actual option values.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with the command-line flags program it&rsquo;s
-best to first compile it and then run the resulting
-binary directly.</p>
+            <p>Per fare qualche prova con la linea di comando è meglio
+prima compilare il programma ed eseguire direttamente
+il compilato.</p>
 
           </td>
           <td class="code leading">
@@ -183,8 +175,7 @@ binary directly.</p>
         
         <tr>
           <td class="docs">
-            <p>Try out the built program by first giving it values for
-all flags.</p>
+            <p>Proviamo ad eseguire passando tutti i flag</p>
 
           </td>
           <td class="code leading">
@@ -202,8 +193,8 @@ all flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that if you omit flags they automatically take
-their default values.</p>
+            <p>Nota che se non si settano i flag, vengono caricati
+i valori di default</p>
 
           </td>
           <td class="code leading">
@@ -221,8 +212,8 @@ their default values.</p>
         
         <tr>
           <td class="docs">
-            <p>Trailing positional arguments can be provided after
-any flags.</p>
+            <p>I parametri posizionali possono essere passati in
+fondo dopo tutti i flag</p>
 
           </td>
           <td class="code leading">
@@ -238,9 +229,10 @@ any flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the <code>flag</code> package requires all flags to
-appear before positional arguments (otherwise the flags
-will be interpreted as positional arguments).</p>
+            <p>Nota che il pacchetto <code>flag</code> richiede che tutti i flag
+siano possizionati necessarimente prima dei parametri.
+Eventuali flag che si trovano in coda vengono trattati
+come parametri e non riconosciuti correttamente</p>
 
           </td>
           <td class="code leading">
@@ -258,8 +250,10 @@ will be interpreted as positional arguments).</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>-h</code> or <code>--help</code> flags to get automatically
-generated help text for the command-line program.</p>
+            <p>Usa <code>-h</code> o <code>--help</code> per ottenere i suggerimenti
+automatici sull&rsquo;utilizzo dei flag (che vengono
+generati a partire dalle definizioni che mettiamo
+nel programma).</p>
 
           </td>
           <td class="code leading">
@@ -277,9 +271,9 @@ generated help text for the command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>If you provide a flag that wasn&rsquo;t specified to the
-<code>flag</code> package, the program will print an error message
-an show the help text again.</p>
+            <p>Se si utilizza un flag che non è stato dichiarato,
+il programma mostrerà un messaggio di errore e stamperà
+di nuovo il messaggio di informazione.</p>
 
           </td>
           <td class="code leading">
@@ -295,8 +289,8 @@ an show the help text again.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at environment variables, another common
-way to parameterize programs.</p>
+            <p>Vedremo adesso le variabili d&rsquo;ambiente. Un altro modo
+comune per rendere parametrici i programmi.</p>
 
           </td>
           <td class="code empty">
@@ -313,7 +307,7 @@ way to parameterize programs.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/command-line-flags">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

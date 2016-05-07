@@ -2,31 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: URL Parsing</title>
+    <title>Go by Example - IT: URL Parsing</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="url-parsing">
-      <h2><a href="./">Go by Example</a>: URL Parsing</h2>
+      <h2><a href="./">Go by Example - IT</a>: URL Parsing</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>URLs provide a <a href="http://adam.heroku.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">uniform way to locate resources</a>.
-Here&rsquo;s how to parse URLs in Go.</p>
+            <p>Gli URL offrono un modo semplice ed univoco per <a href="https://it.wikipedia.org/wiki/Uniform_Resource_Locator">localizzare le risorse</a>.
+Ecco come è possibile effettuare il parsing
+degli URL con Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -40,7 +29,8 @@ Here&rsquo;s how to parse URLs in Go.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/e8HvuLLUw_"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -75,9 +65,9 @@ Here&rsquo;s how to parse URLs in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll parse this example URL, which includes a
-scheme, authentication info, host, port, path,
-query params, and query fragment.</p>
+            <p>Effettueremo il parsing di questo URL, che include
+uno schema, informazioni sull&rsquo;autenticazione, host,
+porta, path, parametri della query e fragment.</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +80,8 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse the URL and ensure there are no errors.</p>
+            <p>Effettuiamo il parsing per assicurarci che non
+ci siano errori.</p>
 
           </td>
           <td class="code leading">
@@ -106,7 +97,7 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing the scheme is straightforward.</p>
+            <p>Ottenere lo schema è semplice.</p>
 
           </td>
           <td class="code leading">
@@ -119,9 +110,8 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p><code>User</code> contains all authentication info; call
-<code>Username</code> and <code>Password</code> on this for individual
-values.</p>
+            <p><code>User</code> contiene tutte le informazioni sull&rsquo;autenticazione.
+Invoca <code>Username</code> e <code>Password</code> per ottenere i singoli valori</p>
 
           </td>
           <td class="code leading">
@@ -137,8 +127,8 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Host</code> contains both the hostname and the port,
-if present. Use <code>SplitHostPort</code> to extract them.</p>
+            <p>Il campo <code>Host</code> contiene informazioni su hostname e porta,
+se presente. Utilizza <code>SplitHostPort</code> per estrarre la porta.</p>
 
           </td>
           <td class="code leading">
@@ -154,8 +144,8 @@ if present. Use <code>SplitHostPort</code> to extract them.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we extract the <code>path</code> and the fragment after
-the <code>#</code>.</p>
+            <p>Qui estraiamo il <code>path</code> e il fragment dopo il
+carattere <code>#</code>.</p>
 
           </td>
           <td class="code leading">
@@ -169,11 +159,13 @@ the <code>#</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To get query params in a string of <code>k=v</code> format,
-use <code>RawQuery</code>. You can also parse query params
-into a map. The parsed query param maps are from
-strings to slices of strings, so index into <code>[0]</code>
-if you only want the first value.</p>
+            <p>Per ottenere i parametri della query in un
+formato string del tipo <code>k=v</code> è possibile utilizzare
+<code>RawQuery</code>. È possibile effettuare il parsing
+dei parametri in una map tramite <code>ParseQuery</code>.
+Le chiavi della map saranno di tipo string, mentre
+i valori saranno di tipo slice di string, per cui
+è possibile recuperare il primo valore con <code>[0]</code>.</p>
 
           </td>
           <td class="code">
@@ -194,8 +186,9 @@ if you only want the first value.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our URL parsing program shows all the different
-pieces that we extracted.</p>
+            <p>Se eseguiamo il nostro programma che fa il parsing
+dell&rsquo;URL vedremo tutte le componenti dell&rsquo;URL che
+vengono estratte</p>
 
           </td>
           <td class="code">
@@ -226,7 +219,7 @@ pieces that we extracted.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/url-parsing">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>

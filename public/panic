@@ -2,33 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Panic</title>
+    <title>Go by Example - IT: Panic</title>
     <link rel=stylesheet href="site.css">
   </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-  </script>
   <body>
     <div class="example" id="panic">
-      <h2><a href="./">Go by Example</a>: Panic</h2>
+      <h2><a href="./">Go by Example - IT</a>: Panic</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>A <code>panic</code> typically means something went unexpectedly
-wrong. Mostly we use it to fail fast on errors that
-shouldn&rsquo;t occur during normal operation, or that we
-aren&rsquo;t prepared to handle gracefully.</p>
+            <p>Un <code>panic</code> in genere significa che qualcosa è andato
+fin troppo storto. In genere lo usiamo per fallimenti
+immediati su errori che non dovrebbero succedere
+durante una normale esecuzione del programma, o per
+cui non è possibile effettuare procedure di recovery</p>
 
           </td>
           <td class="code empty leading">
@@ -42,7 +31,8 @@ aren&rsquo;t prepared to handle gracefully.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/c86oXzfQOt"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -75,14 +65,15 @@ aren&rsquo;t prepared to handle gracefully.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use panic throughout this site to check for
-unexpected errors. This is the only program on the
-site designed to panic.</p>
+            <p>D&rsquo;ora in poi utilizzeremo i <code>panic</code> su questo
+sito per controllare errori inaspettati. Questo
+è l&rsquo;unico programma sul sito fatto apposta
+perché risulti in un <code>panic</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nb">panic</span><span class="p">(</span><span class="s">&quot;a problem&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nb">panic</span><span class="p">(</span><span class="s">&quot;un problema&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -90,10 +81,13 @@ site designed to panic.</p>
         
         <tr>
           <td class="docs">
-            <p>A common use of panic is to abort if a function
-returns an error value that we don&rsquo;t know how to
-(or want to) handle. Here&rsquo;s an example of
-<code>panic</code>king if we get an unexpected error when creating a new file.</p>
+            <p>Un uso comune del panic è l&rsquo;interruzione del
+programma quando ci troviamo davanti ad un errore
+ritornato da una funzione che non sappiamo come
+gestire o non vogliamo gestire per niente. Di
+seguito un esempio di <code>panic</code> quando riceviamo
+un errore inaspettato dopo aver tentato di creare
+un nuovo file.</p>
 
           </td>
           <td class="code">
@@ -114,15 +108,17 @@ returns an error value that we don&rsquo;t know how to
         
         <tr>
           <td class="docs">
-            <p>Running this program will cause it to panic, print
-an error message and goroutine traces, and exit with
-a non-zero status.</p>
+            <p>Eseguire questo programma risulterà in un panic,
+il che significa che il messaggio di errore verrà
+stampato e anche gli stacktrace delle varie goroutine.
+Inoltre, il programma terminerà con uno status
+non-zero.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run panic.go
-<span class="go">panic: a problem</span>
+<span class="go">panic: un problema</span>
 </pre></div>
 
           </td>
@@ -135,9 +131,9 @@ a non-zero status.</p>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="go">goroutine 1 [running]:</span>
-<span class="go">main.main()</span>
-<span class="go">	/.../panic.go:12 +0x47</span>
 <span class="go">...</span>
+<span class="go">main.main()</span>
+<span class="go">	/.../panic.go:21 +0x65</span>
 <span class="go">exit status 2</span>
 </pre></div>
 
@@ -146,9 +142,11 @@ a non-zero status.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that unlike some languages which use exceptions
-for handling of many errors, in Go it is idiomatic
-to use error-indicating return values wherever possible.</p>
+            <p>Nota che nonostante in molti linguaggi sia solito
+utilizzare le eccezioni per la gestione di tanti errori,
+in Go è idiomatico indicare gli errori in
+<a href="errors">un valore di ritorno a sé stante</a> ove
+possibile.</p>
 
           </td>
           <td class="code empty">
@@ -165,7 +163,7 @@ to use error-indicating return values wherever possible.</p>
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/panic">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
       </p>
     </div>
   </body>
