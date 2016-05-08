@@ -15,5 +15,5 @@ exit status 2
 # Nota che nonostante in molti linguaggi sia solito
 # utilizzare le eccezioni per la gestione di tanti errori,
 # in Go è idiomatico indicare gli errori in
-# [un valore di ritorno a sé stante](errors) ove
+# [un valore di ritorno a sé stante](errori) ove
 # possibile.

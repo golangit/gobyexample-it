@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Go by Example - IT: Hash SHA1</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <body>
+    <div class="example" id="hash-sha1">
+      <h2><a href="./">Go by Example - IT</a>: Hash SHA1</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>La funzione <a href="https://it.wikipedia.org/wiki/Secure_Hash_Algorithm"><em>SHA-1</em></a>
+viene frequentemente utilizzata per calcolare il <em>digest</em>
+(l&rsquo;impronta) dei file binari o di testo.
+Ad esempio il sistema di versionamento <a href="http://git-scm.com/">git</a>
+utilizza gli SHA-1 in modo intensivo per identificare
+i file e le cartelle versionate. Ecco come calcolare
+gli hash SHA-1 in Go.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Si possono trovare implementazioni di svariati algoritmi
+crittografici dentro il pacchetto <code>crypto/*</code>.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;crypto/sha1&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">s</span> <span class="o">:=</span> <span class="s">&quot;sha1 this string&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Il pattern per creare un nuovo hash è <code>sha1.New()</code>,
+<code>sha1.Write(bytes)</code>, ed infine <code>sha1.Sum([]byte{})</code>.
+Iniziamo creando un nuovo hash.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">h</span> <span class="o">:=</span> <span class="nx">sha1</span><span class="p">.</span><span class="nx">New</span><span class="p">()</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>La funzione <code>Write</code> lavora con i bytes.
+Se si deve calcolare l&rsquo;hash di una stringa <code>s</code>
+è possibile utilizzare <code>[]byte(s)</code> per ottenerne i bytes.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">h</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Con la funzione <code>Sum</code> è possibile ottenere il valore
+dell&rsquo;hash. L&rsquo;argomento può essere utilizzato per
+accodare il valore calcolato ad uno slice di byte
+esistente, non è generalmente necessario.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">bs</span> <span class="o">:=</span> <span class="nx">h</span><span class="p">.</span><span class="nx">Sum</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Gli SHA-1 sono generalmente stampati in formato
+esadecimale (ad esempio nei commit di git). Utilizza
+&lsquo;%x&rsquo; per stampare il valore in esadecimale.</p>
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="nx">bs</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Eseguendo il programma si nota che viene calcolato
+l&rsquo;hash della funzione e stampato in esadecimale
+a schermo</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run sha1-hashes.go
+<span class="go">sha1 this string</span>
+<span class="go">cf23df2207d99a74fbe169e3eba035e633b65d94</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>È possibile calcolare altre funzioni hash in un modo
+molto simile. Ad esempio per calcolare l&rsquo;MD5 è
+sufficiente importare <code>crypto/md5</code> ed usare
+<code>md5.New()</code>.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Nota che se necessiti di funzioni hash che siano sicure
+dal punto di vista crittografico, ti consigliamo di
+approfondire il tema dello <a href="http://en.wikipedia.org/wiki/Cryptographic_hash_function">hash strength</a>!</p>
+
+          </td>
+          <td class="code empty">
+	        
+            
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Prossimo esempio: <a href="codifica-base64">Codifica Base64</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
+      </p>
+    </div>
+  </body>
+</html>

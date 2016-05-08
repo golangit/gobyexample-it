@@ -1,13 +1,8 @@
-// _[Rate limiting](http://en.wikipedia.org/wiki/Rate_limiting)_
-// is an important mechanism for controlling resource
-// utilization and maintaining quality of service. Go
-// elegantly supports rate limiting with goroutines,
-// channels, and [tickers](tickers).
-// Il _[Rate limiting](https://en.wikipedia.org/wiki/Rate_limiting)_
+// Il [_Rate limiting_](https://en.wikipedia.org/wiki/Rate_limiting)
 // è un'importante tecnica per controllare l'uso delle
 // risorse e mantenere un'alta qualità di servizio. Go
 // supporta elegantemente il rate limiting tramite le
-// goroutine, i channel e i [ticker](tickers).
+// goroutine, i channel e i [ticker](ticker).
 
 package main
 
