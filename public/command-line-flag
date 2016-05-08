@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Go by Example - IT: Command-Line Flag</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <body>
+    <div class="example" id="command-line-flag">
+      <h2><a href="./">Go by Example - IT</a>: Command-Line Flag</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>I <em>Command-line flag</em> sono uno dei modi prioritari
+per specificare delle opzioni in una qualsiasi
+<a href="https://it.wikipedia.org/wiki/Interfaccia_a_riga_di_comando">interfaccia a riga di comando</a>
+Ad esempio in <code>wc -l</code>, il <code>-l</code> è un flag.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Go offre il pacchetto <code>flag</code> per supportare il parsing
+dei flag da linea di comando. Utilizzeremo questo pacchetto
+per implementare il nostro programma di esempio.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;flag&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Il pacchetto offre semplici funzioni per parsare
+stringhe, interi e booleani. Qui dichiariamo un
+flag di tipo string chiamato <code>word</code> che ha come
+valore di default <code>&quot;foo&quot;</code> ed una breve descrizione.
+Questa funzione <code>flag.String</code> ritorna il puntatore
+ad una stringa (non un valore di tipo stringa).
+Vedremo dopo come utilizzare questo puntatore.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">wordPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;word&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;a string&quot;</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Qui dichiariamo due flag, <code>numb</code> e <code>fork</code>,
+utilizzando un approccio simile a <code>word</code>.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">numbPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">Int</span><span class="p">(</span><span class="s">&quot;numb&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s">&quot;an int&quot;</span><span class="p">)</span>
+    <span class="nx">boolPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">Bool</span><span class="p">(</span><span class="s">&quot;fork&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&quot;a bool&quot;</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>È inoltre possibile dichiarare un flag che vada ad
+utilizzare una variabile precedentemente dichiarata
+nel programma con <code>var</code>. Nota che è necessario passare
+il puntatore a tale variabile.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">svar</span> <span class="kt">string</span>
+    <span class="nx">flag</span><span class="p">.</span><span class="nx">StringVar</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">svar</span><span class="p">,</span> <span class="s">&quot;svar&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">,</span> <span class="s">&quot;a string var&quot;</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Una volta che tutti i flag sono stati dichiarati è
+possibile invocare <code>flag.Parse()</code> per eseguire il
+parsing dei flag dalla linea di comando.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">flag</span><span class="p">.</span><span class="nx">Parse</span><span class="p">()</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Qui stampiamo i valori dei flag. Otterremo i valori
+di default se i flag non sono presenti sulla linea
+di comando. Nota che è necessario dereferenziare il
+puntatore (vedi <code>*wordPtr</code>) per ottenere il valore
+del flag.</p>
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;word:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">wordPtr</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;numb:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">numbPtr</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;fork:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">boolPtr</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;svar:&quot;</span><span class="p">,</span> <span class="nx">svar</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;tail:&quot;</span><span class="p">,</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">Args</span><span class="p">())</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Per fare qualche prova con la linea di comando è meglio
+prima compilare il programma ed eseguire direttamente
+il compilato.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go build <span class="nb">command</span>-line-flags.go
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Proviamo ad eseguire passando tutti i flag</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt -numb<span class="o">=</span>7 -fork -svar<span class="o">=</span>flag
+<span class="go">word: opt</span>
+<span class="go">numb: 7</span>
+<span class="go">fork: true</span>
+<span class="go">svar: flag</span>
+<span class="go">tail: []</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Nota che se non si settano i flag, vengono caricati
+i valori di default</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt
+<span class="go">word: opt</span>
+<span class="go">numb: 42</span>
+<span class="go">fork: false</span>
+<span class="go">svar: bar</span>
+<span class="go">tail: []</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>I parametri posizionali possono essere passati in
+fondo dopo tutti i flag</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt a1 a2 a3
+<span class="go">word: opt</span>
+<span class="go">...</span>
+<span class="go">tail: [a1 a2 a3]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Nota che il pacchetto <code>flag</code> richiede che tutti i flag
+siano possizionati necessarimente prima dei parametri.
+Eventuali flag che si trovano in coda vengono trattati
+come parametri e non riconosciuti correttamente</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt a1 a2 a3 -numb<span class="o">=</span>7
+<span class="go">word: opt</span>
+<span class="go">numb: 42</span>
+<span class="go">fork: false</span>
+<span class="go">svar: bar</span>
+<span class="go">trailing: [a1 a2 a3 -numb=7]</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Usa <code>-h</code> o <code>--help</code> per ottenere i suggerimenti
+automatici sull&rsquo;utilizzo dei flag (che vengono
+generati a partire dalle definizioni che mettiamo
+nel programma).</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -h
+<span class="go">Usage of ./command-line-flags:</span>
+<span class="go">  -fork=false: a bool</span>
+<span class="go">  -numb=42: an int</span>
+<span class="go">  -svar=&quot;bar&quot;: a string var</span>
+<span class="go">  -word=&quot;foo&quot;: a string</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Se si utilizza un flag che non è stato dichiarato,
+il programma mostrerà un messaggio di errore e stamperà
+di nuovo il messaggio di informazione.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -wat
+<span class="go">flag provided but not defined: -wat</span>
+<span class="go">Usage of ./command-line-flags:</span>
+<span class="go">...</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Vedremo adesso le variabili d&rsquo;ambiente. Un altro modo
+comune per rendere parametrici i programmi.</p>
+
+          </td>
+          <td class="code empty">
+	        
+            
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Prossimo esempio: <a href="variabili-dambiente">Variabili d'Ambiente</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Go by Example - IT: Segnali</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <body>
+    <div class="example" id="segnali">
+      <h2><a href="./">Go by Example - IT</a>: Segnali</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Talvolta è necessario che i nostri programmi Go
+gesticano in modo corretto i <a href="https://it.wikipedia.org/wiki/Segnale_(informatica)">segnali Unix</a>
+Ad esempio, potremmo volere che il nostro programma
+termini in modo corretto se riceve un <code>SIGTERM</code> oppure
+vorremmo dire ad un programma a linea di comando di
+interrompersi se riceve un <code>SIGINT</code>.
+In questo esempio vedremo come è semplice gestire i segnali
+con i channel di Go.</p>
+
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;os&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;os/signal&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;syscall&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>I segnali su Go vengono gestiti tramite l&rsquo;invio
+di valori di tipo <code>os.Signal</code> su un channel.
+Qui creiamo un channel per ricevere queste notifiche,
+ed uno che utilizzeremo per la terminazione del programma.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">sigs</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Signal</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nx">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>La funzione <code>signal.Notify</code> registra questo channel
+per la ricezione di specifici segnali.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">signal</span><span class="p">.</span><span class="nx">Notify</span><span class="p">(</span><span class="nx">sigs</span><span class="p">,</span> <span class="nx">syscall</span><span class="p">.</span><span class="nx">SIGINT</span><span class="p">,</span> <span class="nx">syscall</span><span class="p">.</span><span class="nx">SIGTERM</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Questa goroutine si blocca sul channel <code>sigs</code> in
+attesa di un segnale. Quando lo riceve, lo stamperà
+a schermo e aggiungerà un messaggio nel channel
+<code>done</code>, per notificare la goroutine main che può
+terminare.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">sig</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">sigs</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">()</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">sig</span><span class="p">)</span>
+        <span class="nx">done</span> <span class="o">&lt;-</span> <span class="kc">true</span>
+    <span class="p">}()</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Il programma si bloccherà qui in attesa di un valore
+sul channel <code>done</code> e poi terminerà.</p>
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;awaiting signal&quot;</span><span class="p">)</span>
+    <span class="o">&lt;-</span><span class="nx">done</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;exiting&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Quando eseguiamo questo programma si bloccherà in
+attesa di un segnale. Premendo <code>ctrl-C</code> (che il
+terminale mostrerà come <code>^C</code>) inviamo un segnale
+di tipo <code>SIGINT</code>, causando la scrittura di
+<code>interrupt</code> e la successiva terminazione del
+programma.</p>
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run signals.go
+<span class="go">awaiting signal</span>
+<span class="go">^C</span>
+<span class="go">interrupt</span>
+<span class="go">exiting</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Prossimo esempio: <a href="exit">Exit</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
+      </p>
+    </div>
+  </body>
+</html>

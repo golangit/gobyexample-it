@@ -13,16 +13,11 @@
         
         <tr>
           <td class="docs">
-            <p>_<a href="http://en.wikipedia.org/wiki/Rate_limiting">Rate limiting</a>_
-is an important mechanism for controlling resource
-utilization and maintaining quality of service. Go
-elegantly supports rate limiting with goroutines,
-channels, and <a href="tickers">tickers</a>.
-Il _<a href="https://en.wikipedia.org/wiki/Rate_limiting">Rate limiting</a>_
+            <p>Il <a href="https://en.wikipedia.org/wiki/Rate_limiting"><em>Rate limiting</em></a>
 è un&rsquo;importante tecnica per controllare l&rsquo;uso delle
 risorse e mantenere un&rsquo;alta qualità di servizio. Go
 supporta elegantemente il rate limiting tramite le
-goroutine, i channel e i <a href="tickers">ticker</a>.</p>
+goroutine, i channel e i <a href="ticker">ticker</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -36,7 +31,8 @@ goroutine, i channel e i <a href="tickers">ticker</a>.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -248,7 +244,7 @@ millisecondi l&rsquo;una dall&rsquo;altra.</p>
       
       
       <p class="next">
-        Prossimo esempio: <a href="atomic-counters">Atomic Counters</a>.
+        Prossimo esempio: <a href="contatori-atomici">Contatori Atomici</a>.
       </p>
       
       <p class="footer">

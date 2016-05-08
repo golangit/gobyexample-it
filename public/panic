@@ -144,7 +144,7 @@ non-zero.</p>
             <p>Nota che nonostante in molti linguaggi sia solito
 utilizzare le eccezioni per la gestione di tanti errori,
 in Go è idiomatico indicare gli errori in
-<a href="errors">un valore di ritorno a sé stante</a> ove
+<a href="errori">un valore di ritorno a sé stante</a> ove
 possibile.</p>
 
           </td>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Go by Example - IT: Eseguire Sottoprocessi</title>
+    <link rel=stylesheet href="site.css">
+  </head>
+  <body>
+    <div class="example" id="eseguire-sottoprocessi">
+      <h2><a href="./">Go by Example - IT</a>: Eseguire Sottoprocessi</h2>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Talvolta i programmi Go hanno bisogno di far partire
+altri processi, che possono non essere scritti in Go. Ad esempio
+l&rsquo;highlight della sintassi in questo sito è <a href="https://github.com/golangit/gobyexample-it/blob/master/tools/generate.go">realizzata</a>
+facendo partire un processo <a href="http://pygments.org/"><code>pygmentize</code></a>
+da un programma Go.
+Vediamo qualche esempio su come poter eseguire processi
+arbitrari da Go.</p>
+
+          </td>
+          <td class="code leading">
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
+            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;io/ioutil&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;os/exec&quot;</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Inizieremo con un programma semplice, che non ha argomenti
+o input ma che stampa solamente sul stdout. La funzione
+<code>exec.Command</code> è un helper che rappresenta il processo
+che andremo ad eseguire</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">dateCmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Tramite la funzione <code>.Output</code> è possibile eseguire il
+processo, attendere che finisca ed ottenere il output.
+Se non ci sono stati errori <code>dateOut</code> conterrà i byte
+della data.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">dateOut</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">dateCmd</span><span class="p">.</span><span class="nx">Output</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;&gt; date&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">dateOut</span><span class="p">))</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Adesso vedremo un esempio leggermente più complesso
+dove forniremo alcuni dati sullo stdin di un processo,
+e raccoglieremo il suo output sullo stdout.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">grepCmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;grep&quot;</span><span class="p">,</span> <span class="s">&quot;ciao&quot;</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Qui possiamo vedere come ottenere lo stdin e lo stdout
+di un futuro comando, scrivere dei dati sullo stdin,
+leggere dei dati dallo stdout e attendere che il processo
+termini.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">grepIn</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">StdinPipe</span><span class="p">()</span>
+    <span class="nx">grepOut</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">StdoutPipe</span><span class="p">()</span>
+    <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">Start</span><span class="p">()</span>
+    <span class="nx">grepIn</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;ciao grep\naddio grep&quot;</span><span class="p">))</span>
+    <span class="nx">grepIn</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+    <span class="nx">grepBytes</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">grepOut</span><span class="p">)</span>
+    <span class="nx">grepCmd</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Abbiamo tralasciato il controllo degli errori nelle
+righe precedenti, ma ricordiamoci che possiamo usare
+il classico pattern <code>if err != nil</code> per tutti loro.
+Ci limitiamo inoltre a leggere dallo <code>StdoutPipe</code>,
+ma potremmo leggere anche da <code>StderrPipe</code> nello stesso
+identico modo.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;&gt; grep hello&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">grepBytes</span><span class="p">))</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Nota che per eseguire processi con flag e parametri
+è necessario passare un array che li contenga, non è
+possibile passare semplicemente una stringa.
+Se si vuole eseguire un processo passando la sua stringa
+è possibile utilizzare il comando <code>bash</code> con il
+flag <code>-c</code> e passare la stringa del processo da eseguire.</p>
+
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre>    <span class="nx">lsCmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">Command</span><span class="p">(</span><span class="s">&quot;bash&quot;</span><span class="p">,</span> <span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="s">&quot;ls -a -l -h&quot;</span><span class="p">)</span>
+    <span class="nx">lsOut</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">lsCmd</span><span class="p">.</span><span class="nx">Output</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;&gt; ls -a -l -h&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">lsOut</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      <table>
+        
+        <tr>
+          <td class="docs">
+            <p>Il processo eseguito stampa lo stesso output
+che avrebbe stampato se lo avessimo eseguito
+direttamente da terminale</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">$</span> go run spawning-processes.go 
+<span class="gp">&gt;</span> date
+<span class="go">Wed Oct 10 09:53:11 PDT 2012</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="gp">&gt;</span> grep ciao
+<span class="go">ciao grep</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="gp">&gt;</span> ls -a -l -h
+<span class="go">drwxr-xr-x  4 mark 136B Oct 3 16:29 .</span>
+<span class="go">drwxr-xr-x 91 mark 3.0K Oct 3 12:50 ..</span>
+<span class="go">-rw-r--r--  1 mark 1.3K Oct 3 16:28 spawning-processes.go</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
+      
+      <p class="next">
+        Prossimo esempio: <a href="rimpiazzare-il-processo">Rimpiazzare il Processo</a>.
+      </p>
+      
+      <p class="footer">
+        by <a href="https://twitter.com/cortinico">@cortinico</a> &amp; <a href="https://twitter.com/_tyge">@_tyge</a> | <a href="mailto:dahhowl@gmail.com,corti.nico@gmail.com">feedback</a> | <a href="https://github.com/golangit/gobyexample-it">source</a> | <a href="https://github.com/golangit/gobyexample-it#license">license</a>
+      </p>
+    </div>
+  </body>
+</html>
