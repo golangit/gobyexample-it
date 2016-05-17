@@ -91,7 +91,7 @@ quindi questo <code>fmt.Println</code> non verrà mai eseguito.</p>
         <tr>
           <td class="docs">
             <p>Nota che a differenza di C e simili, Go non usa un
-valore di ritorno da <code>main()</code> per indicare il valore
+valore restituito da <code>main()</code> per indicare il valore
 di uscita. Se vuoi terminare il programma con un valore
 non-zero, usa <code>os.Exit</code>.</p>
 
@@ -124,7 +124,7 @@ verrà intercettato da Go e stampato.</p>
         <tr>
           <td class="docs">
             <p>Compilando e eseguendo il programma potrai anche vedere
-il valore di ritorno nel terminale.</p>
+il valore restituito nel terminale.</p>
 
           </td>
           <td class="code leading">

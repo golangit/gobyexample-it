@@ -141,7 +141,7 @@ degli esempi per dei valori atomici.</p>
         <tr>
           <td class="docs">
             <p>E ora degli esempi con le slice e le map, che
-ritornano degli array e oggetti JSON come ti
+restituiscono degli array e oggetti JSON come ti
 aspetteresti.</p>
 
           </td>

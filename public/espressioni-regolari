@@ -107,7 +107,7 @@ metodi. Ecco un test simile al nostro primo esempio.</p>
         
         <tr>
           <td class="docs">
-            <p>Questo ritorna il primo match (una stringa) che
+            <p>Questo restituisce il primo match (una stringa) che
 soddisfa la regexp.</p>
 
           </td>
@@ -121,8 +121,8 @@ soddisfa la regexp.</p>
         
         <tr>
           <td class="docs">
-            <p>Anche questo metodo ritorna il primo match,
-ma invece di ritornarne la stringa, ritorna l&rsquo;indice
+            <p>Anche questo metodo restituisce il primo match,
+ma invece di restituirne la stringa, restituisce l&rsquo;indice
 di inizio e di fine della stringa.</p>
 
           </td>
@@ -138,7 +138,7 @@ di inizio e di fine della stringa.</p>
           <td class="docs">
             <p>La variante <code>Submatch</code> include informazioni
 relativi al match del pattern e anche ai match di
-eventuali sotto-pattern. In questo caso ritornerebbe
+eventuali sotto-pattern. In questo caso restituirebbe
 i match per i pattern <code>p([a-z]+)ch</code> e <code>([a-z]+)</code>.</p>
 
           </td>
@@ -152,7 +152,7 @@ i match per i pattern <code>p([a-z]+)ch</code> e <code>([a-z]+)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>In modo simile questo metodo ritornerà gli indici
+            <p>In modo simile questo metodo restituirà gli indici
 di inizio e di fine del match e dei sotto-match</p>
 
           </td>
@@ -166,8 +166,8 @@ di inizio e di fine del match e dei sotto-match</p>
         
         <tr>
           <td class="docs">
-            <p>La variante <code>All</code>, invece di ritornare solo la prima
-occorrenza del match, ritorna tutti i match.</p>
+            <p>La variante <code>All</code>, invece di restituire solo la prima
+occorrenza del match, restituisce tutti i match.</p>
 
           </td>
           <td class="code leading">
@@ -197,7 +197,7 @@ funzioni che abbiamo visto prima.</p>
           <td class="docs">
             <p>Se si passa un intero non negativo come secondo parametro
 di queste funzioni si sta limitando il numero
-di match da ritornare. Ad esempio in questo caso
+di match da restituire. Ad esempio in questo caso
 si è interessati solamente ai primi 2 match.</p>
 
           </td>
@@ -230,7 +230,7 @@ utilizzare la funzione <code>Match</code>.</p>
             <p>Se si vuole creare una costante a partire da
 una regexp si può utilizzare la funzione <code>MustCompile</code>
 (invece di <code>Compile</code>). La classica <code>Compile</code> non
-funzionerà in quanto ha 2 valori di ritorno.</p>
+funzionerà in quanto ha 2 valori restituiti.</p>
 
           </td>
           <td class="code leading">

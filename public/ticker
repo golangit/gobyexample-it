@@ -33,8 +33,7 @@ periodicamente finché non lo fermiamo.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Forbidden
-"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 

@@ -14,7 +14,7 @@ import "errors"
 import "fmt"
 
 // Per convenzione, gli errori sono l'ultimo valore
-// restituito ritorno, e il loro tipo è `error`,
+// restituito, e il loro tipo è `error`,
 // un'interfaccia built-in.
 func f1(arg int) (int, error) {
     if arg == 42 {

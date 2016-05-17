@@ -373,7 +373,7 @@ per i numeri.</p>
           <td class="docs">
             <p>Fino ad ora abbiamo visto <code>Printf</code>, che stampa
 la stringa formattata a <code>os.Stdout</code>. <code>Sprintf</code>
-formatta la stringa e la ritorna senza stamparla
+formatta la stringa e la restituisce senza stamparla
 da nessuna parte.</p>
 
           </td>

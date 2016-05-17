@@ -86,7 +86,7 @@ che creare e chiamare una funzione helper.</p>
         
         <tr>
           <td class="docs">
-            <p>Ritorna il primo indice del valore in <code>vs</code>
+            <p>Restituisce il primo indice del valore in <code>vs</code>
 corrispondente a <code>t</code>, o -1 se nessuna corrispondenza
 viene trovata.</p>
 
@@ -108,7 +108,7 @@ viene trovata.</p>
         
         <tr>
           <td class="docs">
-            <p>Ritorna <code>true</code> se la stringa <code>t</code> è nello slice <code>vs</code>.</p>
+            <p>Restituisce <code>true</code> se la stringa <code>t</code> è nello slice <code>vs</code>.</p>
 
           </td>
           <td class="code leading">
@@ -123,7 +123,7 @@ viene trovata.</p>
         
         <tr>
           <td class="docs">
-            <p>Ritorna <code>true</code> se una delle stringhe nello slice
+            <p>Restituisce <code>true</code> se una delle stringhe nello slice
 soddisfa la funzione condizionale <code>f</code>.</p>
 
           </td>
@@ -144,7 +144,7 @@ soddisfa la funzione condizionale <code>f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Ritorna <code>true</code> se tutte le <code>string</code> nello slice
+            <p>Restituisce <code>true</code> se tutte le <code>string</code> nello slice
 soddisfano la funzione condizionale <code>f</code>.</p>
 
           </td>
@@ -165,7 +165,7 @@ soddisfano la funzione condizionale <code>f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Ritorna un nuovo slice che contiene tutte le stringhe
+            <p>Restituisce un nuovo slice che contiene tutte le stringhe
 nello slice <code>vs</code> che soddisfano la funzione
 condizionale <code>f</code>.</p>
 
@@ -188,7 +188,7 @@ condizionale <code>f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Ritorna un nuovo slice che contiene i risultati
+            <p>Restituisce un nuovo slice che contiene i risultati
 dell&rsquo;applicazione della funzione <code>f</code> su ogni stringa
 dello slice <code>vs</code>.</p>
 

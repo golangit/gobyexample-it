@@ -82,7 +82,7 @@ perché risulti in un <code>panic</code>.</p>
           <td class="docs">
             <p>Un uso comune del panic è l&rsquo;interruzione del
 programma quando ci troviamo davanti ad un errore
-ritornato da una funzione che non sappiamo come
+restituito da una funzione che non sappiamo come
 gestire o non vogliamo gestire per niente. Di
 seguito un esempio di <code>panic</code> quando riceviamo
 un errore inaspettato dopo aver tentato di creare
@@ -144,7 +144,7 @@ non-zero.</p>
             <p>Nota che nonostante in molti linguaggi sia solito
 utilizzare le eccezioni per la gestione di tanti errori,
 in Go è idiomatico indicare gli errori in
-<a href="errori">un valore di ritorno a sé stante</a> ove
+<a href="errori">un valore restituito a sé stante</a> ove
 possibile.</p>
 
           </td>

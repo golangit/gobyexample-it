@@ -63,7 +63,7 @@ generazione di <a href="https://it.wikipedia.org/wiki/Numeri_pseudo-casuali">num
         
         <tr>
           <td class="docs">
-            <p>Ad esempio, <code>rand.Intn(100)</code> ritorna un <code>int</code> <code>n</code> tale
+            <p>Ad esempio, <code>rand.Intn(100)</code> restituisce un <code>int</code> <code>n</code> tale
 che <code>0 &lt;= n &lt; 100</code>.</p>
 
           </td>
@@ -79,7 +79,7 @@ che <code>0 &lt;= n &lt; 100</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>rand.Float64</code> ritorna un valore di tipo <code>float64</code> <code>f</code>
+            <p><code>rand.Float64</code> restituisce un valore di tipo <code>float64</code> <code>f</code>
 tale che <code>0.0 &lt;= f &lt; 1.0</code>.</p>
 
           </td>

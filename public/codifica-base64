@@ -94,7 +94,7 @@ un cast della nostra <code>string</code> a quel tipo.</p>
         
         <tr>
           <td class="docs">
-            <p>Il decoding può ritornare un errore, che può essere
+            <p>Il decoding può restituire un errore, che può essere
 utile analizzare se non si è sicuri che il valore
 in input sia una string base64 valida.</p>
 

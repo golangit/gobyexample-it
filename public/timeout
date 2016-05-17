@@ -66,7 +66,7 @@ channel e al costrutto <code>select</code>.</p>
         <tr>
           <td class="docs">
             <p>Ai fini del nostro esempio, supponiamo di star
-eseguendo una chiamata esterna che ritorna il suo
+eseguendo una chiamata esterna che restituisce il suo
 risultato sul channel <code>c1</code> dopo 2 secondi.</p>
 
           </td>
@@ -110,7 +110,7 @@ del timout se la nostra chiamata esterna richiede più di
         <tr>
           <td class="docs">
             <p>In questo caso possiamo vedere come impostare un timeout di
-3 secondi sia sufficiente a far ritornare la nostra goroutine
+3 secondi sia sufficiente a far restituire la nostra goroutine
 che scrive sul canale <code>c2</code>. Riusciremo infatti a vedere il
 risultato a schermo e a non far scattare il timeout.</p>
 

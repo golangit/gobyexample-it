@@ -119,7 +119,7 @@ puntanto.</p>
         
         <tr>
           <td class="docs">
-            <p>La formula <code>&amp;i</code> ritorna l&rsquo;indirizzo nella memoria
+            <p>La formula <code>&amp;i</code> restituisce l&rsquo;indirizzo nella memoria
 di <code>i</code>, ovvero un puntatore ad <code>i</code>.</p>
 
           </td>

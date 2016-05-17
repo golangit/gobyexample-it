@@ -84,7 +84,7 @@ allo stesso modo).</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> sugli array e sugli slice ritorna sia l&rsquo;indice
+            <p><code>range</code> sugli array e sugli slice restituisce sia l&rsquo;indice
 sia il valore di ognuno degli elementi. Prima non
 avevamo bisogno di utilizzare l&rsquo;indice, quindi
 l&rsquo;avevamo ignorato utilizzando il blank identifier
