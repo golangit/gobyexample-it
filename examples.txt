@@ -10,7 +10,7 @@ Slice
 Map
 Range
 Funzioni
-Valori di Ritorno Multipli
+Multipli Valori Restituiti
 Funzioni Variadiche
 Chiusure
 Ricorsione
