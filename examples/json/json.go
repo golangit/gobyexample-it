@@ -37,7 +37,7 @@ func main() {
     fmt.Println(string(strB))
 
     // E ora degli esempi con le slice e le map, che
-    // ritornano degli array e oggetti JSON come ti
+    // restituiscono degli array e oggetti JSON come ti
     // aspetteresti.
     slcD := []string{"mela", "pesca", "pera"}
     slcB, _ := json.Marshal(slcD)

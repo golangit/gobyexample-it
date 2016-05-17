@@ -25,17 +25,17 @@ func main() {
     fmt.Println("set:", s)
     fmt.Println("get:", s[2])
 
-    // `len` ritorna, come ci si potrebbe aspettare, la
+    // `len` restituisce, come ci si potrebbe aspettare, la
     // lunghezza dello slice.
     fmt.Println("len:", len(s))
 
     // Oltre a queste operazioni di base, gli slice ne
     // hanno molte altre che permettono loro di essere
     // più funzionali degli array. Una di queste è la
-    // funzione `append`, che ritorna uno slice
+    // funzione `append`, che restituisce uno slice
     // contentente uno o più ulteriori valori.
     // Nota che abbiamo bisogno di accettare il valore
-    // ritornato da append, visto che potremmo ricevere
+    // restituito da append, visto che potremmo ricevere
     // uno slice completamente nuovo.
     s = append(s, "d")
     s = append(s, "e", "f")

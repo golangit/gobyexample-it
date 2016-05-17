@@ -54,9 +54,9 @@ func main() {
     // Questa goroutine effettuerà delle `select` sui due
     // channel e risponderà alle richieste che arrivano.
     // La goroutine si occuperà di gestire la richiesta e
-    // ritornerà un valore sul channel `resp` per indicare
+    // restituirà un valore sul channel `resp` per indicare
     // un successo (nel caso di una richiesta `reads` verrà
-    // ritornato il valore richiesto).
+    // restituito il valore richiesto).
     go func() {
         var state = make(map[int]int)
         for {

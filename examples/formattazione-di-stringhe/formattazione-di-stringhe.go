@@ -109,7 +109,7 @@ func main() {
 
     // Fino ad ora abbiamo visto `Printf`, che stampa
     // la stringa formattata a `os.Stdout`. `Sprintf`
-    // formatta la stringa e la ritorna senza stamparla
+    // formatta la stringa e la restituisce senza stamparla
     // da nessuna parte.
     s := fmt.Sprintf("una %s", "stringa")
     fmt.Println(s)

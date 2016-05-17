@@ -43,7 +43,7 @@ func main() {
     // Se questa chiamata ha successo, l'esecuzione del
     // nostro processo terminerà qui e verrà sostituita dal
     // processo `ls -a -l -h`. Se c'è qualche errore
-    // otterremo un valore di ritorno.
+    // otterremo un valore restituito.
     execErr := syscall.Exec(binary, args, env)
     if execErr != nil {
         panic(execErr)

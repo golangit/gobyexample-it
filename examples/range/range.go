@@ -20,7 +20,7 @@ func main() {
     }
     fmt.Println("somma:", sum)
 
-    // `range` sugli array e sugli slice ritorna sia l'indice
+    // `range` sugli array e sugli slice restituisce sia l'indice
     // sia il valore di ognuno degli elementi. Prima non
     // avevamo bisogno di utilizzare l'indice, quindi
     // l'avevamo ignorato utilizzando il blank identifier

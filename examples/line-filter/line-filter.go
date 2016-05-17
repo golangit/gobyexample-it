@@ -25,7 +25,7 @@ func main() {
     scanner := bufio.NewScanner(os.Stdin)
 
     for scanner.Scan() {
-        // `Text` ritorna il token corrente, in questo caso
+        // `Text` restituisce il token corrente, in questo caso
         // la prossima linea dall'input.
         ucl := strings.ToUpper(scanner.Text())
 

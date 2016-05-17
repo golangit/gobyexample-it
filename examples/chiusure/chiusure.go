@@ -7,9 +7,9 @@ package main
 
 import "fmt"
 
-// Questa funzione `intSeq` ritorna un'altra funzione, che
+// Questa funzione `intSeq` restituisce un'altra funzione, che
 // definiamo anonimamente dentro il corpo della funzione
-// `intSeq`. La funzione ritornata _racchiude_ la
+// `intSeq`. La funzione restituita _racchiude_ la
 // variabile `i` per formare una chiusura.
 func intSeq() func() int {
     i := 0

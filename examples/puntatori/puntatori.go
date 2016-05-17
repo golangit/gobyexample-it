@@ -35,7 +35,7 @@ func main() {
     zeroval(i)
     fmt.Println("zeroval:  ", i)
 
-    // La formula `&i` ritorna l'indirizzo nella memoria
+    // La formula `&i` restituisce l'indirizzo nella memoria
     // di `i`, ovvero un puntatore ad `i`.
     zeroptr(&i)
     fmt.Println("zeroptr:  ", i)

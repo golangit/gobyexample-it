@@ -12,7 +12,7 @@ func main() {
     // I metodi di sort sono specifici per il tipo
     // built-in; qui vediamo un esempio per le string.
     // Nota che il sorting non richiede né l'uso dei
-    // pointer, né ritorna un nuovo slice, ma modifica
+    // pointer, né restituisce un nuovo slice, ma modifica
     // lo slice che viene passato ordinando
     // direttamente elementi gli elementi al suo
     // interno.

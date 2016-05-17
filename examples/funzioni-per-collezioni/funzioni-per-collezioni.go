@@ -24,7 +24,7 @@ package main
 import "strings"
 import "fmt"
 
-// Ritorna il primo indice del valore in `vs`
+// Restituisce il primo indice del valore in `vs`
 // corrispondente a `t`, o -1 se nessuna corrispondenza
 // viene trovata.
 func Indice(vs []string, t string) int {
@@ -36,12 +36,12 @@ func Indice(vs []string, t string) int {
     return -1
 }
 
-// Ritorna `true` se la stringa `t` è nello slice `vs`.
+// Restituisce `true` se la stringa `t` è nello slice `vs`.
 func Incluso(vs []string, t string) bool {
     return Indice(vs, t) >= 0
 }
 
-// Ritorna `true` se una delle stringhe nello slice
+// Restituisce `true` se una delle stringhe nello slice
 // soddisfa la funzione condizionale `f`.
 func AlmenoUno(vs []string, f func(string) bool) bool {
     for _, v := range vs {
@@ -52,7 +52,7 @@ func AlmenoUno(vs []string, f func(string) bool) bool {
     return false
 }
 
-// Ritorna `true` se tutte le `string` nello slice
+// Restituisce `true` se tutte le `string` nello slice
 // soddisfano la funzione condizionale `f`.
 func Tutti(vs []string, f func(string) bool) bool {
     for _, v := range vs {
@@ -63,7 +63,7 @@ func Tutti(vs []string, f func(string) bool) bool {
     return true
 }
 
-// Ritorna un nuovo slice che contiene tutte le stringhe
+// Restituisce un nuovo slice che contiene tutte le stringhe
 // nello slice `vs` che soddisfano la funzione
 // condizionale `f`.
 func Filtra(vs []string, f func(string) bool) []string {
@@ -76,7 +76,7 @@ func Filtra(vs []string, f func(string) bool) []string {
     return vsf
 }
 
-// Ritorna un nuovo slice che contiene i risultati
+// Restituisce un nuovo slice che contiene i risultati
 // dell'applicazione della funzione `f` su ogni stringa
 // dello slice `vs`.
 func Applica(vs []string,

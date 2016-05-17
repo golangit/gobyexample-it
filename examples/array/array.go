@@ -23,7 +23,7 @@ func main() {
     fmt.Println("set:", a)
     fmt.Println("get:", a[4])
 
-    // La funzione builtin `len` ritorna la lunghezza dell'array.
+    // La funzione builtin `len` restituisce la lunghezza dell'array.
     fmt.Println("len:", len(a))
 
     // Utilizza questa sintassi per dichiarare ed inizializzare

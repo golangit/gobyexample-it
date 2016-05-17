@@ -1,5 +1,5 @@
 // In Go si è soliti comunicare errori attraverso un
-// valore di ritorno esplicito e separato. Questo a
+// valore restituito esplicito e separato. Questo a
 // contrario delle eccezioni usate in linguaggi come Java
 // e Ruby, e l'overloading in un singolo risultato
 // l'errore, come a volte viene fatto in C. L'approccio
@@ -13,9 +13,9 @@ package main
 import "errors"
 import "fmt"
 
-// Per convenzione, gli errori sono l'ultimo valore di
-// ritorno, e il loro tipo è `error`, un'interfaccia
-// built-in.
+// Per convenzione, gli errori sono l'ultimo valore
+// restituito ritorno, e il loro tipo è `error`,
+// un'interfaccia built-in.
 func f1(arg int) (int, error) {
     if arg == 42 {
 
@@ -59,7 +59,7 @@ func f2(arg int) (int, error) {
 func main() {
 
     // I due cicli che seguono provano ognuna delle nostre
-    // funzioni che ritornano un errore. Nota che l'uso di
+    // funzioni che restituiscono un errore. Nota che l'uso di
     // un controllo di errori sulla stessa linea dell'`if`
     // è una pratica comune in Go.
     for _, i := range []int{7, 42} {

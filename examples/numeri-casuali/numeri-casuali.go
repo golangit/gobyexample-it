@@ -9,13 +9,13 @@ import "math/rand"
 
 func main() {
 
-    // Ad esempio, `rand.Intn(100)` ritorna un `int` `n` tale
+    // Ad esempio, `rand.Intn(100)` restituisce un `int` `n` tale
     // che `0 <= n < 100`.
     fmt.Print(rand.Intn(100), ",")
     fmt.Print(rand.Intn(100))
     fmt.Println()
 
-    // `rand.Float64` ritorna un valore di tipo `float64` `f`
+    // `rand.Float64` restituisce un valore di tipo `float64` `f`
     // tale che `0.0 <= f < 1.0`.
     fmt.Println(rand.Float64())
 

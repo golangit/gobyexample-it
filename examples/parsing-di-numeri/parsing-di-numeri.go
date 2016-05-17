@@ -39,7 +39,7 @@ func main() {
     k, _ := strconv.Atoi("135")
     fmt.Println(k)
 
-    // Le funzioni di parsing possono ritornare un errore
+    // Le funzioni di parsing possono restituire un errore
     _, e := strconv.Atoi("wat")
     fmt.Println(e)
 }

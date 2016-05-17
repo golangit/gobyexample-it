@@ -6,11 +6,11 @@ package main
 import "fmt"
 
 // Questa è una funzione che accetta due parametri
-// di tipo `int` e ritorna la loro somma (sempre di tipo `int`).
+// di tipo `int` e restituisce la loro somma (sempre di tipo `int`).
 func plus(a int, b int) int {
 
-    // Go non ritornerà il valore dell'ultima espressione: se
-    // bisogna ritornare un valore, lo si deve ritornare
+    // Go non restituirà il valore dell'ultima espressione: se
+    // bisogna restituire un valore, lo si deve restituire
     // esplicitamente con il comando `return`
     return a + b
 }
