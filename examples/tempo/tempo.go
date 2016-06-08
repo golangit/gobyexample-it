@@ -44,7 +44,7 @@ func main() {
     p(then.After(now))
     p(then.Equal(now))
 
-    // Il metodo `Sub` ritorna una `Duration` che rappresenta
+    // Il metodo `Sub` restituisce una `Duration` che rappresenta
     // l'intervallo di tempo fra due `time`.
     diff := now.Sub(then)
     p(diff)

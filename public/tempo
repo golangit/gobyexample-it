@@ -148,7 +148,7 @@ se due <code>time</code> sono uguali.</p>
         
         <tr>
           <td class="docs">
-            <p>Il metodo <code>Sub</code> ritorna una <code>Duration</code> che rappresenta
+            <p>Il metodo <code>Sub</code> restituisce una <code>Duration</code> che rappresenta
 l&rsquo;intervallo di tempo fra due <code>time</code>.</p>
 
           </td>

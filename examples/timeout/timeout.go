@@ -12,7 +12,7 @@ import "fmt"
 func main() {
 
     // Ai fini del nostro esempio, supponiamo di star
-    // eseguendo una chiamata esterna che ritorna il suo
+    // eseguendo una chiamata esterna che restituisce il suo
     // risultato sul channel `c1` dopo 2 secondi.
     c1 := make(chan string, 1)
     go func() {
@@ -36,7 +36,7 @@ func main() {
     }
 
     // In questo caso possiamo vedere come impostare un timeout di
-    // 3 secondi sia sufficiente a far ritornare la nostra goroutine
+    // 3 secondi sia sufficiente a far restituire la nostra goroutine
     // che scrive sul canale `c2`. Riusciremo infatti a vedere il
     // risultato a schermo e a non far scattare il timeout.
     c2 := make(chan string, 1)

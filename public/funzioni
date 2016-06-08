@@ -28,7 +28,7 @@ Capiremo come usare le funzioni tramite una serie di esempi</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/dkBVJR0L1s"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -50,7 +50,7 @@ Capiremo come usare le funzioni tramite una serie di esempi</p>
         <tr>
           <td class="docs">
             <p>Questa è una funzione che accetta due parametri
-di tipo <code>int</code> e ritorna la loro somma (sempre di tipo <code>int</code>).</p>
+di tipo <code>int</code> e restituisce la loro somma (sempre di tipo <code>int</code>).</p>
 
           </td>
           <td class="code leading">
@@ -63,8 +63,8 @@ di tipo <code>int</code> e ritorna la loro somma (sempre di tipo <code>int</code
         
         <tr>
           <td class="docs">
-            <p>Go non ritornerà il valore dell&rsquo;ultima espressione: se
-bisogna ritornare un valore, lo si deve ritornare
+            <p>Go non restituirà il valore dell&rsquo;ultima espressione: se
+bisogna restituire un valore, lo si deve restituire
 esplicitamente con il comando <code>return</code></p>
 
           </td>
@@ -157,7 +157,7 @@ sintassi <code>nomefunzione(parametri)</code>.</p>
         <tr>
           <td class="docs">
             <p>Go possiede svariate features legate alle funzioni.
-Una di queste è la possibilità di ritornare valori
+Una di queste è la possibilità di restituire valori
 multipli, come vedremo nel prossimo esempio.</p>
 
           </td>
@@ -171,7 +171,7 @@ multipli, come vedremo nel prossimo esempio.</p>
       
       
       <p class="next">
-        Prossimo esempio: <a href="valori-di-ritorno-multipli">Valori di Ritorno Multipli</a>.
+        Prossimo esempio: <a href="multipli-valori-restituiti">Multipli Valori Restituiti</a>.
       </p>
       
       <p class="footer">

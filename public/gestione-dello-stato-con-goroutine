@@ -138,9 +138,9 @@ ma in questo caso visibile solo alla goroutine.
 Questa goroutine effettuerà delle <code>select</code> sui due
 channel e risponderà alle richieste che arrivano.
 La goroutine si occuperà di gestire la richiesta e
-ritornerà un valore sul channel <code>resp</code> per indicare
+restituirà un valore sul channel <code>resp</code> per indicare
 un successo (nel caso di una richiesta <code>reads</code> verrà
-ritornato il valore richiesto).</p>
+restituito il valore richiesto).</p>
 
           </td>
           <td class="code leading">

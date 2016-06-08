@@ -20,7 +20,7 @@ func main() {
     sEnc := b64.StdEncoding.EncodeToString([]byte(data))
     fmt.Println(sEnc)
 
-    // Il decoding può ritornare un errore, che può essere
+    // Il decoding può restituire un errore, che può essere
     // utile analizzare se non si è sicuri che il valore
     // in input sia una string base64 valida.
     sDec, _ := b64.StdEncoding.DecodeString(sEnc)

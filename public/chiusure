@@ -51,9 +51,9 @@ funzione senza darle un nome.</p>
         
         <tr>
           <td class="docs">
-            <p>Questa funzione <code>intSeq</code> ritorna un&rsquo;altra funzione, che
+            <p>Questa funzione <code>intSeq</code> restituisce un&rsquo;altra funzione, che
 definiamo anonimamente dentro il corpo della funzione
-<code>intSeq</code>. La funzione ritornata <em>racchiude</em> la
+<code>intSeq</code>. La funzione restituita <em>racchiude</em> la
 variabile <code>i</code> per formare una chiusura.</p>
 
           </td>

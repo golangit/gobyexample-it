@@ -18,7 +18,7 @@ func main() {
 
     // Un uso comune del panic è l'interruzione del
     // programma quando ci troviamo davanti ad un errore
-    // ritornato da una funzione che non sappiamo come
+    // restituito da una funzione che non sappiamo come
     // gestire o non vogliamo gestire per niente. Di
     // seguito un esempio di `panic` quando riceviamo
     // un errore inaspettato dopo aver tentato di creare

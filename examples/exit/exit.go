@@ -17,6 +17,6 @@ func main() {
 }
 
 // Nota che a differenza di C e simili, Go non usa un
-// valore di ritorno da `main()` per indicare il valore
+// valore restituito da `main()` per indicare il valore
 // di uscita. Se vuoi terminare il programma con un valore
 // non-zero, usa `os.Exit`.

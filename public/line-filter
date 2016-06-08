@@ -88,7 +88,7 @@ prossimo token (in questo caso la prossima linea).</p>
         
         <tr>
           <td class="docs">
-            <p><code>Text</code> ritorna il token corrente, in questo caso
+            <p><code>Text</code> restituisce il token corrente, in questo caso
 la prossima linea dall&rsquo;input.</p>
 
           </td>

@@ -2,20 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example - IT: Valori di Ritorno Multipli</title>
+    <title>Go by Example - IT: Multipli Valori Restituiti</title>
     <link rel=stylesheet href="site.css">
   </head>
   <body>
-    <div class="example" id="valori-di-ritorno-multipli">
-      <h2><a href="./">Go by Example - IT</a>: Valori di Ritorno Multipli</h2>
+    <div class="example" id="multipli-valori-restituiti">
+      <h2><a href="./">Go by Example - IT</a>: Multipli Valori Restituiti</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supporta <em>valori di ritorno multipli</em>, similmente
+            <p>Go supporta <em>valori restituiti multipli</em>, similmente
 a python. Questa funzionalità è usata spesso nel Go
-idiomatico, per esempio per ritornare sia il valore
+idiomatico, per esempio per restituire sia il valore
 sia l&rsquo;eventuale errore nell&rsquo;esecuzione di una funzione.</p>
 
           </td>
@@ -52,7 +52,7 @@ sia l&rsquo;eventuale errore nell&rsquo;esecuzione di una funzione.</p>
         <tr>
           <td class="docs">
             <p>L&rsquo;indicazione <code>(int, int)</code> in questa funzione ci dice
-che la funzione ritorna due <code>int</code>.</p>
+che la funzione restituisce due <code>int</code>.</p>
 
           </td>
           <td class="code leading">
@@ -80,7 +80,7 @@ che la funzione ritorna due <code>int</code>.</p>
         <tr>
           <td class="docs">
             <p>Di seguito utilizzando il <em>multiple assignment</em>
-creiamo due diverse variabili dai valori di ritorno
+creiamo due diverse variabili dai valori restituiti
 della funzione <code>vals()</code>.</p>
 
           </td>
@@ -97,7 +97,7 @@ della funzione <code>vals()</code>.</p>
         <tr>
           <td class="docs">
             <p>Se vuoi soltanto avere una parte dei valori
-ritornati, usa il blank identifier <code>_</code>.</p>
+restituiti, usa il blank identifier <code>_</code>.</p>
 
           </td>
           <td class="code">

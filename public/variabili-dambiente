@@ -31,8 +31,7 @@ d&rsquo;ambiente.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Forbidden
-"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -70,7 +69,7 @@ d&rsquo;ambiente.</p>
             <p>Per impostare una variabile d&rsquo;ambiente tramite una
 coppia chiave/valore <code>os.Setenv</code>. Per ottenere il
 valore di una chiave, usa <code>os.Getenv</code>. Questo
-ritornerà una stringa vuota nel caso la chiave non
+restituirà una stringa vuota nel caso la chiave non
 sia presente nell&rsquo;ambiente.</p>
 
           </td>
@@ -87,7 +86,7 @@ sia presente nell&rsquo;ambiente.</p>
         <tr>
           <td class="docs">
             <p>Usa <code>os.Environ</code> per elencare tutte le coppie
-chiave/valore nell&rsquo;ambiente. Questo ritornerà una
+chiave/valore nell&rsquo;ambiente. Questo restituirà una
 slice di stringhe nella forma <code>CHIAVE=valore</code>. Puoi
 usare <code>strings.Split</code> sulle stringhe per ottenere una
 slice contente al primo posto la chiave e al

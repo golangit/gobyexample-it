@@ -15,14 +15,14 @@ func main() {
     // Per impostare una variabile d'ambiente tramite una
     // coppia chiave/valore `os.Setenv`. Per ottenere il
     // valore di una chiave, usa `os.Getenv`. Questo
-    // ritornerà una stringa vuota nel caso la chiave non
+    // restituirà una stringa vuota nel caso la chiave non
     // sia presente nell'ambiente.
     os.Setenv("FOO", "1")
     fmt.Println("FOO:", os.Getenv("FOO"))
     fmt.Println("BAR:", os.Getenv("BAR"))
 
     // Usa `os.Environ` per elencare tutte le coppie
-    // chiave/valore nell'ambiente. Questo ritornerà una
+    // chiave/valore nell'ambiente. Questo restituirà una
     // slice di stringhe nella forma `CHIAVE=valore`. Puoi
     // usare `strings.Split` sulle stringhe per ottenere una
     // slice contente al primo posto la chiave e al

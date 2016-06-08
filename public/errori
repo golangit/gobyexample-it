@@ -14,7 +14,7 @@
         <tr>
           <td class="docs">
             <p>In Go si è soliti comunicare errori attraverso un
-valore di ritorno esplicito e separato. Questo a
+valore restituito esplicito e separato. Questo a
 contrario delle eccezioni usate in linguaggi come Java
 e Ruby, e l&rsquo;overloading in un singolo risultato
 l&rsquo;errore, come a volte viene fatto in C. L&rsquo;approccio
@@ -35,7 +35,8 @@ non riguardi la gestione degli errori.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden
+"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -57,9 +58,9 @@ non riguardi la gestione degli errori.</p>
         
         <tr>
           <td class="docs">
-            <p>Per convenzione, gli errori sono l&rsquo;ultimo valore di
-ritorno, e il loro tipo è <code>error</code>, un&rsquo;interfaccia
-built-in.</p>
+            <p>Per convenzione, gli errori sono l&rsquo;ultimo valore
+restituito, e il loro tipo è <code>error</code>,
+un&rsquo;interfaccia built-in.</p>
 
           </td>
           <td class="code leading">
@@ -193,7 +194,7 @@ inserire i valori dei due campi, <code>arg</code> e <code>prob</code>.</p>
         <tr>
           <td class="docs">
             <p>I due cicli che seguono provano ognuna delle nostre
-funzioni che ritornano un errore. Nota che l&rsquo;uso di
+funzioni che restituiscono un errore. Nota che l&rsquo;uso di
 un controllo di errori sulla stessa linea dell&rsquo;<code>if</code>
 è una pratica comune in Go.</p>
 

@@ -23,27 +23,27 @@ func main() {
     // metodi. Ecco un test simile al nostro primo esempio.
     fmt.Println(r.MatchString("peach"))
 
-    // Questo ritorna il primo match (una stringa) che
+    // Questo restituisce il primo match (una stringa) che
     // soddisfa la regexp.
     fmt.Println(r.FindString("peach punch"))
 
-    // Anche questo metodo ritorna il primo match,
-    // ma invece di ritornarne la stringa, ritorna l'indice
+    // Anche questo metodo restituisce il primo match,
+    // ma invece di restituirne la stringa, restituisce l'indice
     // di inizio e di fine della stringa.
     fmt.Println(r.FindStringIndex("peach punch"))
 
     // La variante `Submatch` include informazioni
     // relativi al match del pattern e anche ai match di
-    // eventuali sotto-pattern. In questo caso ritornerebbe
+    // eventuali sotto-pattern. In questo caso restituirebbe
     // i match per i pattern `p([a-z]+)ch` e `([a-z]+)`.
     fmt.Println(r.FindStringSubmatch("peach punch"))
 
-    // In modo simile questo metodo ritornerà gli indici
+    // In modo simile questo metodo restituirà gli indici
     // di inizio e di fine del match e dei sotto-match
     fmt.Println(r.FindStringSubmatchIndex("peach punch"))
 
-    // La variante `All`, invece di ritornare solo la prima
-    // occorrenza del match, ritorna tutti i match.
+    // La variante `All`, invece di restituire solo la prima
+    // occorrenza del match, restituisce tutti i match.
     fmt.Println(r.FindAllString("peach punch pinch", -1))
 
     // Questa variante `All` è disponibile per tutte le
@@ -53,7 +53,7 @@ func main() {
 
     // Se si passa un intero non negativo come secondo parametro
     // di queste funzioni si sta limitando il numero
-    // di match da ritornare. Ad esempio in questo caso
+    // di match da restituire. Ad esempio in questo caso
     // si è interessati solamente ai primi 2 match.
     fmt.Println(r.FindAllString("peach punch pinch", 2))
 
@@ -66,7 +66,7 @@ func main() {
     // Se si vuole creare una costante a partire da
     // una regexp si può utilizzare la funzione `MustCompile`
     // (invece di `Compile`). La classica `Compile` non
-    // funzionerà in quanto ha 2 valori di ritorno.
+    // funzionerà in quanto ha 2 valori restituiti.
     r = regexp.MustCompile("p([a-z]+)ch")
     fmt.Println(r)
 

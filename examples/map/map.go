@@ -26,7 +26,7 @@ func main() {
     v1 := m["k1"]
     fmt.Println("v1: ", v1)
 
-    // La funzione built-in `len` ritorna il numero di coppie
+    // La funzione built-in `len` restituisce il numero di coppie
     // chiave-valore se la si invoca su una map
     fmt.Println("len:", len(m))
 
@@ -36,7 +36,7 @@ func main() {
     fmt.Println("map:", m)
 
     // Quando si accede ad una map è possibile controllare
-    // il secondo valore di ritorno opzionale che indica
+    // il secondo valore restituito opzionale che indica
     // la presenza o meno di una chiave all'interno di una map.
     // Questo parametro può essere utilizzato per discernere
     // il caso in cui una chiave non è presente dal caso in cui

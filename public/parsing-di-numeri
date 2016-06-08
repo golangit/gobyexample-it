@@ -143,7 +143,7 @@ convertire da numeri in base 10 a <code>int</code></p>
         
         <tr>
           <td class="docs">
-            <p>Le funzioni di parsing possono ritornare un errore</p>
+            <p>Le funzioni di parsing possono restituire un errore</p>
 
           </td>
           <td class="code">

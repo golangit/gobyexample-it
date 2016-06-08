@@ -4,7 +4,7 @@ $ go run exit.go
 exit status 3
 
 # Compilando e eseguendo il programma potrai anche vedere
-# il valore di ritorno nel terminale.
+# il valore restituito nel terminale.
 $ go build exit.go
 $ ./exit
 $ echo $?

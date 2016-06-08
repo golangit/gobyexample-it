@@ -141,7 +141,7 @@ con i valori numerici estratti dal <code>time</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Parse</code> ritornerà un errore sugli input malformati,
+            <p><code>Parse</code> restituirà un errore sugli input malformati,
 che spiegherà la natura degli errori.</p>
 
           </td>

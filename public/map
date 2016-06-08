@@ -29,7 +29,7 @@ il nome di <em>hash table</em> o <em>dizionari</em>).</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/5ZOBl630qy"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Forbidden"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -120,7 +120,7 @@ mostrerà tutte le coppie chiave-valore della map</p>
         
         <tr>
           <td class="docs">
-            <p>La funzione built-in <code>len</code> ritorna il numero di coppie
+            <p>La funzione built-in <code>len</code> restituisce il numero di coppie
 chiave-valore se la si invoca su una map</p>
 
           </td>
@@ -150,7 +150,7 @@ chiave-valore dalla map</p>
         <tr>
           <td class="docs">
             <p>Quando si accede ad una map è possibile controllare
-il secondo valore di ritorno opzionale che indica
+il secondo valore restituito opzionale che indica
 la presenza o meno di una chiave all&rsquo;interno di una map.
 Questo parametro può essere utilizzato per discernere
 il caso in cui una chiave non è presente dal caso in cui
