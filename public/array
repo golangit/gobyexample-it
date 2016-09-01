@@ -61,7 +61,7 @@ lunghezza specifica</p>
         
         <tr>
           <td class="docs">
-            <p>Qui creaiamo un array chiamato <code>a</code> che conterrà esattamente
+            <p>Qui creeremo un array chiamato <code>a</code> che conterrà esattamente
 5 elementi di tipo <code>int</code>. Il tipo degli elementi e la lunghezza
 sono entrambi parti integranti del tipo dell&rsquo;array. Per default
 gli array vengono inizializzati allo <em>zero value</em>, che per gli
