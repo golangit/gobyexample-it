@@ -13,8 +13,8 @@
         
         <tr>
           <td class="docs">
-            <p>In Go, le <em>variabli</em> sono dichiarate esplicitamente e
-sono usate dal compilatore, ad esempio, per contrillare
+            <p>In Go, le <em>variabili</em> sono dichiarate esplicitamente e
+sono usate dal compilatore, ad esempio, per controllare
 la correttezza dei tipi di valori nelle invocazioni
 delle funzioni.</p>
 
