@@ -14,7 +14,7 @@
         <tr>
           <td class="docs">
             <p>In Go si è soliti comunicare errori attraverso un
-valore restituito esplicito e separato. Questo a
+valore restituito esplicito e separato. Questo al
 contrario delle eccezioni usate in linguaggi come Java
 e Ruby, e l&rsquo;overloading in un singolo risultato
 l&rsquo;errore, come a volte viene fatto in C. L&rsquo;approccio
@@ -59,7 +59,7 @@ non riguardi la gestione degli errori.</p>
         <tr>
           <td class="docs">
             <p>Per convenzione, gli errori sono l&rsquo;ultimo valore
-restituito, e il loro tipo è <code>error</code>,
+restituito, ed il loro tipo è <code>error</code>,
 un&rsquo;interfaccia built-in.</p>
 
           </td>
@@ -224,7 +224,7 @@ un controllo di errori sulla stessa linea dell&rsquo;<code>if</code>
           <td class="docs">
             <p>Se vuoi utilizzare qualche campo specifico di
 un errore personalizzato, devi convertire
-l&rsquo;errore in un istanza dell&rsquo;errore personalizzato
+l&rsquo;errore in un&rsquo;istanza dell&rsquo;errore personalizzato
 tramite un type assertion.</p>
 
           </td>
