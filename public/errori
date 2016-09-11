@@ -14,10 +14,10 @@
         <tr>
           <td class="docs">
             <p>In Go si è soliti comunicare errori attraverso un
-valore restituito esplicito e separato. Questo al
-contrario delle eccezioni usate in linguaggi come Java
-e Ruby, e l&rsquo;overloading in un singolo risultato
-l&rsquo;errore, come a volte viene fatto in C. L&rsquo;approccio
+valore restituito esplicito e separato.
+Questo contrasta sia con le eccezioni usate in linguaggi
+come Java e Ruby che con l&rsquo;overloading di un singolo valore
+come risultato / errore che è a volte usato in C. L&rsquo;approccio
 usato da Go rende facile capire quali funzioni possono
 generare errori e gestirli attraverso gli stessi
 costrutti utilizzati per qualsiasi altra attività che
