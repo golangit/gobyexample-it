@@ -1,8 +1,9 @@
 // In Go si è soliti comunicare errori attraverso un
-// valore restituito esplicito e separato. Questo a
-// contrario delle eccezioni usate in linguaggi come Java
-// e Ruby, e l'overloading in un singolo risultato
-// l'errore, come a volte viene fatto in C. L'approccio
+// valore restituito esplicito e separato. Questo
+// diversamente sia da quanto accade con le eccezioni
+// usate in linguaggi come Java e Ruby che dall'overloading
+// di un singolo valore come risultato / errore
+// che è a volte usato in C. L'approccio
 // usato da Go rende facile capire quali funzioni possono
 // generare errori e gestirli attraverso gli stessi
 // costrutti utilizzati per qualsiasi altra attività che
@@ -14,7 +15,7 @@ import "errors"
 import "fmt"
 
 // Per convenzione, gli errori sono l'ultimo valore
-// restituito, e il loro tipo è `error`,
+// restituito, ed il loro tipo è `error`,
 // un'interfaccia built-in.
 func f1(arg int) (int, error) {
     if arg == 42 {
@@ -79,7 +80,7 @@ func main() {
 
     // Se vuoi utilizzare qualche campo specifico di
     // un errore personalizzato, devi convertire
-    // l'errore in un istanza dell'errore personalizzato
+    // l'errore in un'istanza dell'errore personalizzato
     // tramite un type assertion.
     _, e := f2(42)
     if ae, ok := e.(*argError); ok {

@@ -7,7 +7,7 @@ import "fmt"
 
 func main() {
 
-    // Qui creaiamo un array chiamato `a` che conterrà esattamente
+    // Qui creeremo un array chiamato `a` che conterrà esattamente
     // 5 elementi di tipo `int`. Il tipo degli elementi e la lunghezza
     // sono entrambi parti integranti del tipo dell'array. Per default
     // gli array vengono inizializzati allo _zero value_, che per gli

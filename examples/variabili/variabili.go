@@ -1,5 +1,5 @@
-// In Go, le _variabli_ sono dichiarate esplicitamente e
-// sono usate dal compilatore, ad esempio, per contrillare
+// In Go, le _variabili_ sono dichiarate esplicitamente e
+// sono usate dal compilatore, ad esempio, per controllare
 // la correttezza dei tipi di valori nelle invocazioni
 // delle funzioni.
 
