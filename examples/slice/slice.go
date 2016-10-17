@@ -51,7 +51,7 @@ func main() {
 
     // Gli slice supportano un operatore "slice" che ha
     // la sintassi `variabileSlice[inizio:fine]`. Per
-    // esempio, di seguente generiamo uno slice degli
+    // esempio, qui generiamo uno slice con gli
     // elementi `s[2]`, `s[3]` e `s[4]`.
     l := s[2:5]
     fmt.Println("sl1:", l)
